@@ -1,0 +1,16 @@
+
+35 videos:
+https://github.com/truongnmt/instagram-clone/
+
+************************
+
+rails generate devise Account
+
+add custom fields to device
+https://gist.github.com/withoutwax/46a05861aa4750384df971b641170407
+
+
+images
+https://www.youtube.com/watch?v=BYvzLYRIZK4
+
+*******************************

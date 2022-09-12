@@ -1,0 +1,4 @@
+https://ostechnix.com/how-to-use-postgresql-with-ruby-on-rails-application/
+
+postgres username: nouman
+password: noumanrehman042
