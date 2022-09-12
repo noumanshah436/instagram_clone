@@ -4,6 +4,14 @@ https://github.com/truongnmt/instagram-clone/
 
 ************************
 
+3 videos
+
+demo
+https://photo-share-mvp.herokuapp.com/
+
+
+************************
+
 rails generate devise Account
 
 add custom fields to device

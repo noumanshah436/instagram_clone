@@ -11,6 +11,10 @@ gem 'pg', '>= 0.18', '< 2.0'
 # user auth
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
+# bootstrap
+gem 'bootstrap', '~> 4.0.0'
+gem 'jquery-rails'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
