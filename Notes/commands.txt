@@ -1,0 +1,3 @@
+rails g model Post content:string account:references
+
+rails g model Photo  image:string post:references
