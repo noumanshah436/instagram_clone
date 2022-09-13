@@ -11,6 +11,11 @@ gem 'pg', '>= 0.18', '< 2.0'
 # user auth
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
+# file handling
+gem 'carrierwave', '~> 2.0'
+gem 'cloudinary'
+gem 'figaro'
+
 # bootstrap
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'

@@ -11,6 +11,6 @@ fog           use fog instead of file with carrierwave
 
 mini_magick   for resizing images
 
-figaro    to use environment variables in development
+figaro        to use environment variables in development
 
 toastr_rails   to show notices   https://www.youtube.com/watch?v=4XZPfujnRUI&list=PLN8D2dU8NedZ44iF8bvk5-SoVv21ipsPK&index=8
