@@ -4,7 +4,7 @@ https://github.com/heartcombo/devise#strong-parameters
 def change
     add_column :accounts, :website, :string
     add_column :accounts, :bio, :text
-  end
+end
 
 
 2) Allow new params attributes in application controller
