@@ -21,8 +21,31 @@ https://cloudinary.com/documentation/rails_integration
 
 1) add gem
 2) create cloudinary.rb file in initializer
-3) rails g uploader Photo
+3) rails g uploader Photo                          -- from carrier wave
 4) add in photo model:
   mount_uploader :image, PhotoUploader
 
+cloudinary docs:
 https://cloudinary.com/documentation/rails_carrierwave
+
+carrierwave:
+https://github.com/carrierwaveuploader/carrierwave
+
+************************
+
+figaro:
+https://github.com/laserlemon/figaro
+
+we use figaro gem to add environment variables:
+
+gem 'figaro'
+
+add variables in config/application.yml by this syntax:
+key_name: "value"
+
+and access like:
+ENV["key_name"]
+
+************************
+
+
