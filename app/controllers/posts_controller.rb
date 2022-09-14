@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :destroy]
 
   def index
-    @posts = Post.all.includes(:photos)
+    @posts = Post.all.includes(:photos, :account).order("created_at desc")
     @post = Post.new
   end
 

@@ -1,5 +1,5 @@
-<div class="d-flex flex-column align-items-center mt-3">
-  <div class=" col-md-8 post-card">
+<div class="row">
+  <div class="col-sm-12 col-md-8 post-card">
     <div class="card">
       <div class="card-header">
         Create Post
@@ -22,7 +22,7 @@
 
         <div class="form-group row mt-2 align-items-center justify-content-start mb-4">
           <div class="col-md-2 pr-0">
-            <%= image_tag current_account.image.url(:thumbnail), class: "rounded-circle"%>
+            <%= image_tag current_account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
           </div>
           <div class="col-md-10 pl-0 ">
             <%= f.text_area :content, class: "form-control form-group-lg",   placeholder: "say something about this ..." %>
@@ -44,6 +44,11 @@
     </div>
 
 
+    <!-- post start -->
+    <%= render 'posts' %>
+
+    <!-- post end -->
+
   </div>
 
 </div>
@@ -59,11 +64,13 @@
 <% end %> -->
 
 
-
+<!--
 
 <% @posts.each do |post|%>
 <p><% post.content %></p>
 <% post.photos.each do |photo|%>
 <%= image_tag photo.image.url(:standard)%>
 <% end %>
-<% end %>
+<% end %> -->
+
+ 

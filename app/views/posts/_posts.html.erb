@@ -1,0 +1,30 @@
+<% @posts.each do |post| %>
+  <div class="card mt-3 post">
+
+    <!-- header -->
+    <div class="card-header d-flex align-items-center">
+      <%= link_to account_path(post.account), class: "no-text-decoration" do %>
+      <%= image_tag post.account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
+
+      <% end %>
+      <%= link_to account_path(post.account), class: "ml-2", title: post.account.name do %>
+      <strong><%= post.account.name %></strong>
+      <% end %>
+
+    </div>
+
+    <!-- photos -->
+    <%= render "photos", {post: post} %>
+    <!-- photos_end -->
+
+
+    <!-- footer -->
+    <div class="card-body">
+      <div>
+        <span><strong><%= post.account.name %></strong></span>
+        <span><%= post.content %></span>
+      </div>
+    </div>
+
+  </div>
+<% end %>

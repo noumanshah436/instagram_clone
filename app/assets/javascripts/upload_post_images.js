@@ -3,7 +3,7 @@ Dropzone.autoDiscover = false;
 $(document).ready(function(){
   $(".upload-images").dropzone({
     addRemoveLinks: true,
-    maxFilesize: 1,
+    maxFilesize: 5,
     autoProcessQueue: false,
     uploadMultiple: true,
     parallelUploads: 10,
