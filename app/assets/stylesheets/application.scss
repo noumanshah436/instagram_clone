@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "dropzone/dropzone";
 
 
 
@@ -6,4 +7,36 @@ body {
   background-color: #fafafa;
   font-size: 14px;
   color: #262626;
-} 
+}
+
+
+// Customize upload photos form
+.upload-photos-icon:hover {
+  cursor: pointer;
+}
+
+.dz-preview.dz-image-preview {
+  margin: 2px;
+}
+
+.dz-image {
+  border-radius: 0px !important;
+
+  img {
+    width: 100%;
+  }
+}
+
+
+.dropzone .dz-preview:hover .dz-remove {
+  opacity: 1;
+}
+.upload-photos-icon {
+  height: 120px;
+  width: 120px;
+  border: 2px dashed #dddfe2;
+  border-radius: 2px;
+  padding: 48px;
+  display: inline-block;
+  margin: 2px;
+}

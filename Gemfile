@@ -16,6 +16,9 @@ gem 'carrierwave', '~> 2.0'
 gem 'cloudinary'
 gem 'figaro'
 
+# for file upload
+gem 'dropzonejs-rails'
+
 # bootstrap
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'

@@ -3,16 +3,18 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :destroy]
 
   def index
-    @posts = Post.all.limit(10).includes(:photos)
+    @posts = Post.all.includes(:photos)
     @post = Post.new
   end
 
   def create
     @post = current_account.posts.new(post_params)
+    p params[:images]
     if @post.save
       if params[:images]
-        params[:images].each do |img|
-          @post.photos.create(image: img)
+        array = params[:images].values   # convert hash into array of values
+        array.each do |img|
+          @post.photos.create(image: img)    # save each image
         end
       end
 
@@ -57,6 +59,11 @@ class PostsController < ApplicationController
   end
 
   def post_params
+    # params.require(:post).permit!
+    # params.require(:post).permit!
+    params[:images].permit!
     params.require(:post).permit :content
+    # params[:images].permit!
+    # params.permit(images: {})
   end
 end

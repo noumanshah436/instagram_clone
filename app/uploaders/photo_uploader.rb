@@ -23,7 +23,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :thumbnail do
-    resize_to_fit(100, 100)
+    resize_to_fit(60, 60)
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
