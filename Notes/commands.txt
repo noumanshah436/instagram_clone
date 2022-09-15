@@ -2,3 +2,13 @@ rails g model Post content:string account:references
 
 rails g model Photo  image:string post:references
 
+****************
+rails g model Like post:references account:references
+
+user = Account.first
+p = Post.first
+
+Like.create!(account:user, post:p)
+Like.create!(account:user, post:p)   # this will give error now
+
+p.is_liked(user)   # we have defined method in post model

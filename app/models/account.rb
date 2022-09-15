@@ -1,6 +1,6 @@
 class Account < ApplicationRecord
   has_many :posts, dependent: :destroy
-
+  has_many :likes 
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

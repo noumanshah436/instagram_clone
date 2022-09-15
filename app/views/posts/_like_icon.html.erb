@@ -1,0 +1,11 @@
+
+<% if is_liked.present? %>
+  <!-- this will call likes#destroy  action -->
+  <%= link_to " ", like_path(is_liked), method: :delete , class: " fa fa-heart fa-2x text-danger nounderline" %>
+    <!-- <a class='fa fa-heart fa-2x' style='color: red'> </a> -->
+
+<% else %>
+    <!-- this will call likes#create  action -->
+    <%= link_to " ", post_likes_path(post), method: :post, remote: true, class: "text-dark fa fa-heart fa-2x nounderline" %>
+    <!-- <a class='fa fa-heart fa-2x'  > </a> -->
+<% end %>
