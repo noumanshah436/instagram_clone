@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: "public#homepage"
 
   resources :posts, only: [:index, :show, :create, :destroy] do
-    resources :photos, only: [:create]
+    # resources :photos, only: [:create]
   end
 
 end

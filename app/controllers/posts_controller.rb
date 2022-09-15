@@ -27,7 +27,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    
+
     # @photos = @post.photos
     # @likes = @post.likes.includes(:user)
     # @comment = Comment.new
@@ -37,16 +37,18 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    # if @post.user == current_user
-    #   if @post.destroy
-    #     flash[:notice] = "Post deleted!"
-    #   else
-    #     flash[:alert] = "Something went wrong ..."
-    #   end
-    # else
-    #   flash[:notice] = "You don't have permission to do that!"
-    # end
-    # redirect_to root_path
+    print "post:"
+    p @post
+    if @post.account == current_account
+      if @post.destroy
+        flash[:notice] = "Post deleted!"
+      else
+        flash[:alert] = "Something went wrong ..."
+      end
+    else
+      flash[:notice] = "You don't have permission to do that!"
+    end
+    redirect_to root_path
   end
 
   private
