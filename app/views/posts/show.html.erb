@@ -1,2 +1,36 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="card mt-3 post">
+
+  <!-- header -->
+  <div class="card-header d-flex align-items-center">
+    <%= link_to account_path(@post.account), class: "no-text-decoration" do %>
+    <%= image_tag @post.account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
+
+    <% end %>
+    <%= link_to account_path(@post.account), class: "ml-2", title: @post.account.name do %>
+    <strong><%= @post.account.name %></strong>
+    <% end %>
+
+  </div>
+
+  <!-- photos -->
+  <%= render "photos", {post: @post} %>
+  <!-- photos_end -->
+
+
+  <!-- footer -->
+  <div class="card-body">
+    <div class="row  ">
+
+    </div>
+    <div>
+      <span><strong><%= @post.account.name %></strong></span>
+      <span><%= @post.content %></span>
+    </div>
+    <%=  time_ago_in_words(@post.created_at)  + " ago"   %>
+      <hr>
+      <div class="row  " id="comment-form-post-<%= @post.id.to_s %>">
+        <%= render 'comment_form', {post: @post} %>
+      </div>
+  </div>
+
+</div>

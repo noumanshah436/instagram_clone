@@ -20,11 +20,21 @@
 
     <!-- footer -->
     <div class="card-body">
+      <div class="row  ">
+
+      </div>
       <div>
         <span><strong><%= post.account.name %></strong></span>
         <span><%= post.content %></span>
+      </div>
+
+      <%= link_to time_ago_in_words(post.created_at)  + " ago", post_path(post),  class: " " %>
+      <hr>
+      <div class="row actions" id="comment-form-post-<%= post.id.to_s %>">
+        <%= render 'comment_form', {post: post} %>
       </div>
     </div>
 
   </div>
 <% end %>
+

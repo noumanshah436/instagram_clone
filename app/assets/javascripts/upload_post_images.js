@@ -1,3 +1,6 @@
+// https://docs.dropzone.dev/
+// https://docs.dropzone.dev/getting-started/setup/fallback-for-no-javascript
+
 Dropzone.autoDiscover = false;
 
 $(document).ready(function(){
@@ -21,7 +24,7 @@ $(document).ready(function(){
         e.preventDefault();
         e.stopPropagation();
         myDropzone.processQueue();
-        console.log("process queued")
+        // console.log("process queued")
       });
 
       this.on("successmultiple", function(files, response){

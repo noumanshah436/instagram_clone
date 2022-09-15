@@ -19,11 +19,11 @@
   <div class="container">
 
     <% if notice %>
-    <%= render 'shared/alerts' %>
+      <%= render 'shared/notice' %>
     <% end %>
 
     <% if flash[:alert] %>
-      <div class="alert"><%= flash[:alert] %></div>
+      <%= render 'shared/alerts' %>
     <% end %>
 
     <%= yield %>
