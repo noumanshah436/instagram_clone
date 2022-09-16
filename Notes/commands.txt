@@ -12,3 +12,9 @@ Like.create!(account:user, post:p)
 Like.create!(account:user, post:p)   # this will give error now
 
 p.is_liked(user)   # we have defined method in post model
+
+****************
+
+we can also create like on post by using account object:
+
+current_account.likes.new(post_id)
