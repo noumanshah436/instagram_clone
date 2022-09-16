@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :destroy]
 
   def index
-    @posts = Post.all.includes(:photos, :account, :likes).order("created_at desc")
+    @posts = Post.all.includes(:photos, :account, :likes).order("id desc")
 
     @post = Post.new
   end
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 
   def show
     @likes = @post.likes.includes(:account)
-    @is_liked = @post.is_liked?(current_account)  # this will give Like object if user liked the post
+
     # @comment = Comment.new
     # @is_bookmarked = @post.is_bookmarked(current_user)
     # set_meta_tags title: "Photo by "+@post.user.name

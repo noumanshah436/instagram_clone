@@ -2,8 +2,11 @@ rails g model Post content:string account:references
 
 rails g model Photo  image:string post:references
 
-****************
+************************************************
 rails g model Like post:references account:references
+rails db:migrate
+
+now add associate statement in both tables
 
 user = Account.first
 p = Post.first
@@ -13,8 +16,13 @@ Like.create!(account:user, post:p)   # this will give error now
 
 p.is_liked(user)   # we have defined method in post model
 
-****************
+***
 
 we can also create like on post by using account object:
 
 current_account.likes.new(post_id)
+
+***************************************************
+
+rails g model Comment content:text post:references account:references
+rails db:migrate

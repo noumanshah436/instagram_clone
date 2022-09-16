@@ -24,3 +24,7 @@ dropzonejs-rails   for asynchronous multifile upload     https://github.com/ncue
 
 fontawesome
 https://fontawesome.com/docs/web/add-icons/how-to
+
+*****************
+
+git checkout -b comment_feature
