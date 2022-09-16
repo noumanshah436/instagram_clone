@@ -1,3 +1,5 @@
+<!-- to render collection of events -->
+
 <div class="ml-3 mb-3" id="comment-<%= comment.id.to_s %>">
 
   <span>
@@ -12,7 +14,12 @@
   <%= link_to " ", comment_path(comment),  method: :delete, remote: true, class: "mx-3 far fa-trash-alt fa-1x nounderline float-right" %>
   <% end %>
 
-  <a href="#" class="fa fa-reply float-right nounderline" aria-hidden="true"></a>
+  <a  class=" show-form  fa fa-reply float-right nounderline hide-text" aria-hidden="true"></a>
+  <!-- comment form -->
+  <div class=" my-3   hide-form " id="comment-form-post-<%= @post.id.to_s %>">
+    <%= render 'posts/comment_form', post: @post %>
+  </div>
+
 
 </div>
 
@@ -21,3 +28,5 @@
 <div class="ml-3 mb-3">
   <%= render  comment.comments %>
 </div>
+
+
