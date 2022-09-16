@@ -26,3 +26,22 @@ current_account.likes.new(post_id)
 
 rails g model Comment content:text post:references account:references
 rails db:migrate
+
+we add parent column :
+add_column :comments, :parent_id, :integer, null: true
+
+and make association
+
+1) c = Comment.last
+
+c.parent
+c.comments
+c.comments.create(post_id: 46, account_id: 1, content: "child")
+c.comments
+
+
+child = Comment.find(40)
+child.parent
+
+c.content = "Parent"
+c.save!

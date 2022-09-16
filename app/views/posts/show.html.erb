@@ -34,7 +34,7 @@
 
     <!-- show count of likes   -->
     <div id="like-text-post-<%= @post.id.to_s %>">
-      <%= render "like_text", {likes: @post.likes} %>
+      <%= render "like_text", {likes: @likes} %>
     </div>
     <br>
 
@@ -54,7 +54,7 @@
 
     <!-- load comments list -->
     <div class="" id="comment-post-<%= @post.id.to_s %>">
-      <%= render 'comment_list', post: @post %>
+      <%= render 'comment_list'  %> 
     </div>
 
   </div>

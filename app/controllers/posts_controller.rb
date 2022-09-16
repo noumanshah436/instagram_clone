@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @likes = @post.likes.includes(:account)
+    @likes = @post.likes.includes(:account) 
 
     # @comment = Comment.new
     # @is_bookmarked = @post.is_bookmarked(current_user)
@@ -53,7 +53,7 @@ class PostsController < ApplicationController
   private
 
   def find_post
-    @post = Post.find_by id: params[:id]
+    @post = Post.find_by( id: params[:id])
 
     return if @post
     flash[:danger] = "Post not exist!"
