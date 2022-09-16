@@ -1,0 +1,21 @@
+<!-- getting post as local -->
+<% post.comments.each do |comment| %>
+  <div class="ml-3 mb-3" id="comment-<%= comment.id.to_s %>">
+
+
+    <span>
+      <strong>
+        <%= link_to comment.account.name, account_path(comment.account),
+          class: "no-text-decoration normal-color" %>:
+      </strong>
+    </span>
+    <span><%= comment.content %></span>
+
+    <!-- show delete icon for commented user or the owner of the post -->
+    <% if (comment.account == current_account) || (post.is_belongs_to? current_account) %>
+    <%= link_to " ", comment_path(comment),
+      method: :delete, remote: true, class: "far fa-trash-alt fa-1x nounderline float-right" %>
+    <% end %>
+
+  </div>
+<% end %>

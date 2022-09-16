@@ -6,7 +6,7 @@
       <%= image_tag @post.account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
     <% end %>
 
-    <%= link_to account_path(@post.account), class: "ml-2", title: @post.account.name do %>
+    <%= link_to account_path(@post.account), class: " lead ml-3", title: @post.account.name do %>
       <strong><%= @post.account.name %></strong>
     <% end %>
 
@@ -21,32 +21,47 @@
 
   <!-- photos -->
   <%= render "photos", {post: @post} %>
-  <!-- photos_end -->
 
-   <!-- footer -->
-  <div class="card-body">
+
+   <!-- footer card-->
+  <div class="card-body h5">
+
     <!-- like icon -->
-      <div id="like-icon-post-<%= @post.id.to_s %>">
-        <%= render "like_icon", {is_liked: @post.is_liked(current_account), post: @post} %>
-      </div>
+    <div id="like-icon-post-<%= @post.id.to_s %>">
+      <%= render "like_icon", {is_liked: @post.is_liked(current_account), post: @post} %>
+    </div>
+    <br>
 
-    <!-- show count of likes icon -->
+    <!-- show count of likes   -->
     <div id="like-text-post-<%= @post.id.to_s %>">
       <%= render "like_text", {likes: @post.likes} %>
     </div>
     <br>
 
+    <!-- account + post content -->
     <div>
-      <span><strong><%= @post.account.name %></strong></span>
+      <span><strong class=" "><%= @post.account.name %></strong></span>
       <span><%= @post.content %></span>
     </div>
+    <br>
     <%=  time_ago_in_words(@post.created_at)  + " ago"   %>
     <hr>
-    <div class="row  " id="comment-form-post-<%= @post.id.to_s %>">
-      <%= render 'comment_form', {post: @post} %>
+
+    <!-- comment form -->
+    <div class=" mb-5  " id="comment-form-post-<%= @post.id.to_s %>">
+      <%= render 'comment_form', post: @post %>
     </div>
+
+    <!-- load comments list -->
+    <div class="" id="comment-post-<%= @post.id.to_s %>">
+      <%= render 'comment_list', post: @post %>
+    </div>
+
   </div>
   <!-- end footer -->
-
+<div class="mb-5"></div>
+<div class="mb-5"></div>
+<div class="mb-5"></div>
+<div class="mb-5"></div>
 
 </div>
