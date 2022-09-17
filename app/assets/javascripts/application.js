@@ -25,10 +25,21 @@ $(document).ready(function() {
   document.querySelectorAll('.show-form').forEach( (el) => {
     el.addEventListener('click', (ev) => {
         ev.preventDefault();
-        el.nextElementSibling.style ='display: block;'
+        el.nextElementSibling.nextElementSibling.style ='display: block;'
 
     })
   })
 
 })
- 
+
+
+$(document).ready(function() {
+  document.querySelectorAll('.show-edit-form ').forEach( (el) => {
+    el.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        el.nextElementSibling.nextElementSibling.style ='display: block;'
+
+    })
+  })
+
+})

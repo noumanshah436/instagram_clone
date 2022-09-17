@@ -16,14 +16,24 @@
     <% end %>
 
 
-    <a   class="show-form fa fa-reply float-right nounderline" aria-hidden="true"></a>
+    <!-- ################## -->
+    <!-- reply comment form -->
+    <a   class="show-form ml-3  fa fa-reply float-right nounderline" aria-hidden="true"></a>
+    <!-- edit comment icon -->
+    <a  class=" show-edit-form  fa fa-pencil-square-o float-right nounderline hide-text" aria-hidden="true"></a>
+
+    <!-- ################## -->
 
     <!-- comment form -->
     <div class=" my-3   hide-form " id="comment-form-post-<%= @post.id.to_s %>">
       <%= render 'posts/comment_form',    parent: comment.id %>
     </div>
 
-
+    <!-- comment edit form -->
+    <div class=" my-3   hide-form " id="comment-form-post-<%= @post.id.to_s %>">
+      <%= render 'posts/comment_edit_form',  id: comment.id %>
+    </div>
+    <!-- ################## -->
 
   </div>
 

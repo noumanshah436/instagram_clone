@@ -1,13 +1,21 @@
 $('#comment-post-<%= @post.id.to_s %>').
   html('<%= j render "posts/comment_list", {post: @post} %>');
-$('#comment-form-post-<%= @post.id.to_s %> #comment_content').val("");
+
 console.log("create comment success");
 
 
 document.querySelectorAll('.show-form').forEach( (el) => {
   el.addEventListener('click', (ev) => {
       ev.preventDefault();
-      el.nextElementSibling.style ='display: block;'
+      el.nextElementSibling.nextElementSibling.style ='display: block;'
+
+  })
+})
+
+document.querySelectorAll('.show-edit-form ').forEach( (el) => {
+  el.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      el.nextElementSibling.nextElementSibling.style ='display: block;'
 
   })
 })

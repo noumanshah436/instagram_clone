@@ -17,6 +17,20 @@ class CommentsController < ApplicationController
     end
   end
 
+  def update
+    @comment = Comment.find(params[:id])
+
+    if @comment.update(comment_params)
+      @post = @comment.post
+      respond_to do |format|
+        format.js
+      end
+    else
+      flash[:alert] = "Something went wrong ..."
+    end
+  end
+
+
   def destroy
     @comment = Comment.find(params[:id])
     @post = @comment.post
