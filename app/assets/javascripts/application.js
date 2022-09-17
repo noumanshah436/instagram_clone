@@ -21,13 +21,14 @@
 
 
 $(document).ready(function() {
-
+  console.log("in doc ready event")
   document.querySelectorAll('.show-form').forEach( (el) => {
     el.addEventListener('click', (ev) => {
         ev.preventDefault();
         el.nextElementSibling.style ='display: block;'
-         
+
     })
   })
 
 })
+ 

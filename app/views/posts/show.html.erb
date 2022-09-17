@@ -53,7 +53,7 @@
     </div>
 
     <!-- load comments list -->
-    <div class="" id="comment-post-<%= @post.id.to_s %>"> 
+    <div class="" id="comment-post-<%= @post.id.to_s %>">
       <% @post.comments.where(parent_id: nil).each do |comment| %>
          <%= render  partial:'comments/comment', locals: { comment:comment , post:@post}   %>
       <% end %>
