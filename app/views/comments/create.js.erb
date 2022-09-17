@@ -1,5 +1,5 @@
 $('#comment-post-<%= @post.id.to_s %>').
-  html('<%= j render "posts/comment_list", {post: @post} %>');
+  html('<%= j render "comments/comment_list", {post: @post} %>');
 
 console.log("create comment success");
 

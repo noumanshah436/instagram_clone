@@ -22,13 +22,13 @@
 
   <!-- comment reply form -->
   <div class=" my-3   hide-form " id="comment-form-post-<%= @post.id.to_s %>">
-    <%= render 'posts/comment_form',    parent: comment.id %>
+    <%= render 'comments/comment_form',    parent: comment.id %>
   </div>
 
 
   <!-- comment edit form -->
   <div class=" my-3   hide-form " id="comment-form-post-<%= @post.id.to_s %>">
-    <%= render 'posts/comment_edit_form',  id: comment.id %>
+    <%= render 'comments/comment_edit_form',  id: comment.id %>
   </div>
 
 
