@@ -21,7 +21,10 @@
 
 
 $(document).ready(function() {
-  console.log("in doc ready event")
+
+
+  // console.log("in doc ready event")
+
   document.querySelectorAll('.show-form').forEach( (el) => {
     el.addEventListener('click', (ev) => {
         ev.preventDefault();
@@ -30,10 +33,6 @@ $(document).ready(function() {
     })
   })
 
-})
-
-
-$(document).ready(function() {
   document.querySelectorAll('.show-edit-form ').forEach( (el) => {
     el.addEventListener('click', (ev) => {
         ev.preventDefault();
