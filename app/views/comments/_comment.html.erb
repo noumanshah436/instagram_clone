@@ -8,28 +8,31 @@
   </span>
   <span><%= comment.content %></span>
 
+  <%   comment_account = comment.account %>
   <!-- show delete icon for commented user or the owner of the post -->
-  <% if (comment.account == current_account) || ( @post.is_belongs_to? current_account) %>
-  <%= link_to " ", comment_path(comment),  method: :delete, remote: true, class: "mx-3 far fa-trash-alt fa-1x nounderline float-right" %>
+  <% if (comment_account == current_account) || ( @post.is_belongs_to? current_account) %>
+    <%= link_to " ", comment_path(comment),  method: :delete, remote: true, class: "mx-3 far fa-trash-alt fa-1x nounderline float-right" %>
   <% end %>
 
   <!-- comment reply icon  -->
-  <a  class=" show-form  ml-3  fa fa-reply float-right nounderline hide-text" aria-hidden="true"></a>
+  <a  class=" show-form  ml-3  fa fa-reply float-right nounderline hide-text"  comment-id="<%= comment.id.to_s %>"   aria-hidden="true"></a>
   <!-- edit comment icon -->
-  <a  class=" show-edit-form  fa fa-pencil-square-o float-right nounderline hide-text" aria-hidden="true"></a>
-
+  <% if  comment_account == current_account %>
+    <a  class=" show-edit-form  fa fa-pencil-square-o float-right nounderline hide-text" comment-id="<%= comment.id.to_s %>"  aria-hidden="true"></a>
+  <% end %>
 
   <!-- comment reply form -->
-  <div class=" my-3   hide-form " id="comment-form-post-<%= @post.id.to_s %>">
+  <div class=" my-3   hide-form " id="comment-form-<%= comment.id.to_s %>">
     <%= render 'comments/comment_form',    parent: comment.id %>
   </div>
 
 
   <!-- comment edit form -->
-  <div class=" my-3   hide-form " id="comment-form-post-<%= @post.id.to_s %>">
-    <%= render 'comments/comment_edit_form',  id: comment.id %>
-  </div>
-
+  <% if  comment_account == current_account %>
+    <div class=" my-3   hide-form " id="comment-edit-form-<%= comment.id.to_s %>">
+      <%= render 'comments/comment_edit_form',  id: comment.id %>
+    </div>
+  <% end %>
 
 </div>
 

@@ -1,4 +1,4 @@
-<!-- getting post as local -->
+ 
 <% @post.comments.where(parent_id: nil).each do |comment| %>
 
   <%= render  partial:'comments/comment', locals: { comment:comment  }   %>
