@@ -35,31 +35,28 @@ class PostsController < ApplicationController
   end
 
   def edit
-  end
-
-  def update
-   @post.photos.each do |photo|
-    puts photo
-   end
-
+    # we have @post from callback
   end
 
 
+
   def update
+    puts "params:"
+    p post_params
     if @post.update(post_params)
       if params[:images]
         array = params[:images].values   # convert hash into array of values
         array.each do |img|
           @post.photos.create(image: img)    # save each image
         end
+        puts "Image Added"
       end
-      redirect_to @post
+      redirect_to posts_path
       flash[:notice] = "Post Updated"
     else
       flash[:alert] = "Something went wrong ..."
-      redirect_to @post
+      redirect_to post_path(@post)
     end
-
   end
 
   def destroy

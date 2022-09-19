@@ -22,8 +22,12 @@
 
 $(document).ready(function() {
 
+  $("#alert").fadeTo(2000, 500).slideUp(500, function(){
+    $("#alert").slideUp(500);
+  });
 
-  // console.log("in doc ready event")
+
+
 
   document.querySelectorAll('.show-form').forEach( (el) => {
     el.addEventListener('click', (ev) => {
@@ -40,7 +44,7 @@ $(document).ready(function() {
         ev.preventDefault();
         let comment_id = el.getAttribute('comment-id');
         let form = document.getElementById(`comment-edit-form-${comment_id}`);
-        form.style ='display: block;' 
+        form.style ='display: block;'
 
     })
   })

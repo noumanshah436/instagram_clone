@@ -7,41 +7,43 @@
         Edit Post
       </div>
       <div class="card-body">
-        <%= form_for [@post ], :html => {:multipart => true, :class => "dropzone upload-images p-0 border-0"} do |f| %>
 
-        <!-- <p>errors</p> -->
-        <% if @post.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+        <!-- Edit Form -->
+        <%= form_for @post, :html => {:multipart => true, :class => "dropzone upload-images p-0 border-0"} do |f| %>
 
-          <ul>
-            <% post.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
+          <!-- <p>errors</p> -->
+          <% if @post.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+            <ul>
+              <% post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
+
+          <div class="form-group row mt-2 align-items-center justify-content-start mb-4">
+            <div class="col-md-2 pr-0">
+              <%= image_tag current_account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
+            </div>
+            <div class="col-md-10 pl-0 ">
+              <%= f.text_area :content, class: "form-control form-group-lg",   placeholder: "say something about this ..." %>
+            </div>
+          </div>
+
+          <div class="fallback">
+            <%= f.file_field "images[]", type: :file, multiple: true %>
+          </div>
+          <div class="dz-message m-0"></div>
+          <div class="dropzone-previews mb-3">
+            <div class="upload-photos-icon">
+              <i class="fa fa-plus fa-2x" aria-hidden="true" style="color:#dddfe2"></i>
+            </div>
+          </div>
+          <%= f.submit "Update Post", class: "btn btn-primary" %>
         <% end %>
-
-        <div class="form-group row mt-2 align-items-center justify-content-start mb-4">
-          <div class="col-md-2 pr-0">
-            <%= image_tag current_account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
-          </div>
-          <div class="col-md-10 pl-0 ">
-            <%= f.text_area :content, class: "form-control form-group-lg",   placeholder: "say something about this ..." %>
-          </div>
-        </div>
-
-        <div class="fallback">
-          <%= f.file_field "images[]", type: :file, multiple: true %>
-        </div>
-        <div class="dz-message m-0"></div>
-        <div class="dropzone-previews mb-3">
-          <div class="upload-photos-icon">
-            <i class="fa fa-plus fa-2x" aria-hidden="true" style="color:#dddfe2"></i>
-          </div>
-        </div>
-        <%= f.submit "Post", class: "btn btn-primary" %>
-        <% end %>
+        <!-- Edit Form  end -->
       </div>
     </div>
 
@@ -50,28 +52,20 @@
 </div>
 
 <br>
- 
-<div class=" ">
 
 
+<% @post.photos.each do |photo| %>
 
+  <div id="photo-<%= photo.id %>" class="alert alert-warning alert-dismissible fade show" >
 
+    <%= image_tag photo.image.url(:standard), style: 'height:100px;width:100px;',  class: " " %>
 
-  <% @post.photos.each do |photo| %>
+    <%= link_to photo_path(photo) , method: :delete , remote: true, class: "close nounderline mx-2" do %>
+        <span aria-hidden="true">&times;</span>
+    <% end %>
 
-    <div id="photo-<%= photo.id %>" class="alert alert-warning alert-dismissible fade show" >
+  </div>
 
-      <%= image_tag photo.image.url(:standard), style: 'height:50px;width:50px;',  class: " " %>
-      <%= link_to photo_path(photo) , method: :delete , remote: true, class: "close nounderline mx-2" do %>
-          <span aria-hidden="true">&times;</span>
+  <br>
+<% end %>
 
-      <% end %>
-
-    </div>
-
-    <br>
-
-
-  <% end %>
-
-</div>

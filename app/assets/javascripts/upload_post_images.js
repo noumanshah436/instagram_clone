@@ -6,7 +6,7 @@ Dropzone.autoDiscover = false;
 $(document).ready(function(){
   $(".upload-images").dropzone({
     addRemoveLinks: true,
-    maxFilesize: 5,
+    maxFilesize: 1,
     autoProcessQueue: false,
     uploadMultiple: true,
     parallelUploads: 10,
@@ -16,6 +16,7 @@ $(document).ready(function(){
     clickable: ".upload-photos-icon",
     thumbnailWidth: 100,
     thumbnailHeight: 100,
+    timeout: 180000,
 
     init: function(){
       var myDropzone = this;

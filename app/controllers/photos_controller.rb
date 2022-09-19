@@ -1,12 +1,7 @@
 class PhotosController < ApplicationController
 
   def destroy
-    puts "photo deleted"
     @image = Photo.find_by( id: params[:id])
-    # puts "@image"
-    # p @image
-    # puts "image.image"
-    # p @image[:image]
 
     public_id = image_public_id( @image[:image] )
     Cloudinary::Uploader.destroy(public_id)   # delete from cloudinary
@@ -16,9 +11,7 @@ class PhotosController < ApplicationController
     respond_to do |format|
       format.js
     end
-    
-    # redirect_back(fallback_location: fallback_location)
-
+    puts "photo deleted"
   end
 
   def image_public_id ( str )
@@ -27,7 +20,6 @@ class PhotosController < ApplicationController
     index =(filename.length-5)
     return filename[0..index]
   end
-
 
 end
 
