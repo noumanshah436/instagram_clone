@@ -1,16 +1,15 @@
 class PostsController < ApplicationController
   before_action :authenticate_account!
-  before_action :find_post, only: [:show, :destroy]
+  before_action :find_post, only: [:show, :destroy, :edit, :update]
 
   def index
     @posts = Post.all.includes(:photos, :account, :likes).order("id desc")
-
     @post = Post.new
   end
 
   def create
     @post = current_account.posts.new(post_params)
-    p params[:images]
+    # p params[:images]
     if @post.save
       if params[:images]
         array = params[:images].values   # convert hash into array of values
@@ -28,17 +27,44 @@ class PostsController < ApplicationController
   end
 
   def show
-    @likes = @post.likes.includes(:account) 
+    @likes = @post.likes.includes(:account)
 
     # @comment = Comment.new
     # @is_bookmarked = @post.is_bookmarked(current_user)
     # set_meta_tags title: "Photo by "+@post.user.name
   end
 
+  def edit
+  end
+
+  def update
+   @post.photos.each do |photo|
+    puts photo
+   end
+
+  end
+
+
+  def update
+    if @post.update(post_params)
+      if params[:images]
+        array = params[:images].values   # convert hash into array of values
+        array.each do |img|
+          @post.photos.create(image: img)    # save each image
+        end
+      end
+      redirect_to @post
+      flash[:notice] = "Post Updated"
+    else
+      flash[:alert] = "Something went wrong ..."
+      redirect_to @post
+    end
+
+  end
+
   def destroy
-    print "post:"
-    p @post
     if @post.account == current_account
+      # remove also from cloudinary
       if @post.destroy
         flash[:notice] = "Post deleted!"
       else

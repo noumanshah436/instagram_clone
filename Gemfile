@@ -21,6 +21,7 @@ gem 'dropzonejs-rails'
 
 # bootstrap
 gem 'bootstrap', '~> 4.0.0'
+
 gem 'jquery-rails'
 
 # Use Puma as the app server

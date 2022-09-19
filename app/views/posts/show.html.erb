@@ -11,11 +11,18 @@
     <% end %>
 
     <% if @post.is_belongs_to? current_account %>
-        <!-- this will call posts#destroy action on click -->
-        <%= link_to post_path(@post), method: :delete, class: "ml-auto delete-post-icon mx-0 my-auto" do %>
-          <i class="far fa-trash-alt fa-2x text-danger" aria-hidden="true"></i>
-        <% end %>
-      <% end %>
+
+        <div class="ml-auto">
+           <!-- this will call posts#destroy action on click -->
+          <%= link_to post_path(@post), method: :delete, class: "nounderline mx-2" do %>
+            <i class="far fa-trash-alt fa-2x text-danger" aria-hidden="true"></i>
+          <% end %>
+
+          <%= link_to edit_post_path(@post) , class: " nounderline " do %>
+            <i class="fa fa-pencil-square-o fa-2x text-danger" aria-hidden="true"></i>
+          <% end %>
+        </div>
+    <% end %>
 
   </div>
 
