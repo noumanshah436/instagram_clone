@@ -1,9 +1,13 @@
 $(document).ready(function(){
   $("#users-search #keyword").on("keyup", function(){
+
     var jqxhr = $.get(
-      $("#users-search").attr("action"),
-      {keyword: $("#users-search #keyword").val()},
-      function(){
+
+      $("#users-search").attr("action"),  // url where to get data
+
+      {keyword: $("#users-search #keyword").val()},   //  pas data to get request
+
+      function(){                                     // 
         var result = $("#users-result").html();
         if(!result){
           $("#users-search #keyword").popover({
@@ -21,8 +25,9 @@ $(document).ready(function(){
             html: true
           });
         }
-        $("#users-search #keyword").popover("show"); 
+        $("#users-search #keyword").popover("show");
       }
     )
+
   })
 });

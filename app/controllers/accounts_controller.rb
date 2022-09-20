@@ -5,7 +5,8 @@ class AccountsController < ApplicationController
   end
 
   def index
-    @users = Account.search(params[:keyword])
+    keyword = params[:keyword]
+    @users = Account.search(keyword.strip)
     respond_to do |format|
       format.js
     end
