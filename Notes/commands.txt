@@ -45,3 +45,8 @@ child.parent
 
 c.content = "Parent"
 c.save!
+
+
+***********************
+
+Account.search('Far')

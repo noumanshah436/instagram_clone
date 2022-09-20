@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   devise_for :accounts
-  resources :accounts, only: [:show]
-
-
+  resources :accounts, only: [:index,:show]
 
   resources :posts  do
     resources :photos, only: [:create, :destroy],shallow: true
