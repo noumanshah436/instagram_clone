@@ -1,0 +1,23 @@
+https://betterprogramming.pub/how-to-create-a-follow-feature-in-rails-by-aliasing-associations-30d63edee284
+
+follower full guide:
+https://www.youtube.com/watch?v=1cuEoc59cV8 
+
+rails g model follows  follower_id:integer followee_id:integer
+
+rails g model user username:string
+
+rails g controller Users index
+
+*******************
+
+user1 = User.find(1)
+user2 = User.find(2)
+
+check if user1 is following user2: ( & is just for checking if not null)
+user1&.followees&.include?(user2)
+
+user1 follows user2 command:
+Follow.create( follower_id:1, followee_id:2 )
+
+user2.followers
