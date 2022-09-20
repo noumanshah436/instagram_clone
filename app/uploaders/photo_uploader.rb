@@ -28,6 +28,10 @@ class PhotoUploader < CarrierWave::Uploader::Base
     resize_to_fit(60, 60)
   end
 
+  def default_url(*args)
+    'default.png'
+  end
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -60,6 +64,6 @@ class PhotoUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
-   
+
 
 end

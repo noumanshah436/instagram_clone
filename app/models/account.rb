@@ -2,7 +2,7 @@ class Account < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes
   has_many :comments
-
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -15,7 +15,7 @@ class Account < ApplicationRecord
 
   ###################
   # to get prople we are following
-  
+
   has_many :followed_users,   class_name: "Follow", foreign_key: "follower_id", dependent: :destroy
   # user.followees    get people that         user is following
   has_many :followees, through: :followed_users , dependent: :destroy
@@ -30,6 +30,7 @@ class Account < ApplicationRecord
 
   ###################
 
+  # methods
 
   def self.search(keyword)
     puts "keyword:#{keyword}"
@@ -41,3 +42,5 @@ class Account < ApplicationRecord
   end
 
 end
+
+# 5:00
