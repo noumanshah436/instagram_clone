@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+
   devise_for :accounts
-  resources :accounts, only: [:index,:show]
+
+  resources :accounts, only: [:index,:show] do
+    resources :stories , only: [ :index, :new, :create, :destroy ], shallow: true
+  end
 
   post 'account/follow', to: 'accounts#follow'
   delete 'account/unfollow', to: 'accounts#unfollow'
@@ -11,6 +15,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :create, :destroy, :update], shallow: true
   end
 
+  # to make devise sign in as root path
   devise_scope :account do
     root to: "devise/sessions#new"
   end

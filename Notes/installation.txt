@@ -33,3 +33,5 @@ git checkout -b comment_feature
 git checkout -b search_feature
 
 git checkout -b follow_feature
+
+git checkout -b stories_module
