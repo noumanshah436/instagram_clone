@@ -7,16 +7,26 @@
       <div class="card-body  ">
         <div class="form-group row mt-2 align-items-center justify-content-start ">
           <div class="col-md-2 pr-0">
-            <%= image_tag current_account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
+            <%= image_tag story.account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
           </div>
           <div class="col-md-6 pl-0">
-            <%=  current_account.name %>
+            <%=  story.account.name %>
           </div>
           <div class="col-md-2 ">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#<%= story.id.to_s %>">
               Show
             </button>
           </div>
+
+        <% if  story.account == current_account  %>
+          <div class="col-md-2">
+            <%= link_to story_path(story), method: :delete, data: { confirm: 'Are you sure?' } , class: "nounderline mx-2" do %>
+              <i class="far fa-trash-alt fa-2x text-danger" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        <% end %>
+
+
         </div>
       </div>
     </div>
@@ -30,12 +40,13 @@
 
 <!-- Modal -->
 
-<div class="modal fade" id="<%= story.id.to_s %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="<%= story.id.to_s %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">
-          <%= image_tag current_account.image.url(:thumbnail),  class: "mr-2 profile_pic rounded-circle"%>
+          <%= image_tag story.account.image.url(:thumbnail),  class: "mr-2 profile_pic rounded-circle"%>
           <%=  story.account.name  %>
         </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
