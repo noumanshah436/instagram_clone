@@ -2,7 +2,7 @@ class StoriesController < ApplicationController
   before_action :authenticate_account!
 
   def index
-    @stories = Story.all.includes(  :account).order("id desc")
+    @stories = Story.all.includes( :account).order("id desc")
     @story = Story.new
   end
 
@@ -13,6 +13,7 @@ class StoriesController < ApplicationController
       img = story_params[:image]
       @story= current_account.stories.new(story_params)
       if @story.save
+        DeleteStoryJob.set(wait: 1.day).perform_later( @story.id)
         flash[:notice] = "Story Created"
       else
         flash[:alert] = "Something went wrong ..."
@@ -20,9 +21,7 @@ class StoriesController < ApplicationController
     else
       flash[:alert] = "Image Not Found ..."
     end
-
     redirect_to account_stories_path(current_account)
-
   end
 
   def destroy

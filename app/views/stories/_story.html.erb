@@ -10,7 +10,13 @@
             <%= image_tag story.account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
           </div>
           <div class="col-md-6 pl-0">
-            <%=  story.account.name %>
+            <div>
+              <%=  story.account.name %>
+            </div>
+            <div>
+              <%=  time_ago_in_words(story.created_at)  + " ago"   %>
+            </div>
+
           </div>
           <div class="col-md-2 ">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#<%= story.id.to_s %>">
