@@ -1,0 +1,9 @@
+<% if following?(@account) %>
+    <%= link_to  account_unfollow_path(id: @account.id), method: :delete, remote: true, class: "btn btn-primary" do %>
+        <button type="button" class="btn btn-primary btn-sm">Unfollow</button>
+    <% end %>
+<% else %>
+    <%= link_to  account_follow_path(id: @account.id), method: :post, remote: true,  class: "btn btn-primary" do %>
+      <button type="button" class="btn btn-primary btn-sm ">Follow</button>
+    <% end %>
+<% end %>

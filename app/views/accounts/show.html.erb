@@ -1,6 +1,33 @@
-<%= image_tag @account.image.url(:standard), class: "img-rounded"%>
+<div class="row">
+  <div class="col-md-4">
+    <%= image_tag @account.image.url(:standard), class: "img-thumbnail "%>
+  </div>
+  <div class="col-md-8">
+    <span class="h3 mr-3"><%= @account.name %></span>
 
-<h1><%= @account.email %></h1>
-<h1><%= @account.name %></h1>
-<h1><%= @account.bio %></h1>
-<h1><%= @account.website %></h1>
+    <% if @account != current_account %>
+        <span id="follow-btn">
+          <%= render 'follow_button'  %>
+        </span>
+        <br>
+    <% else %>
+     <br>
+    <% end %>
+
+
+    <!-- show followers count -->
+    <span id="follower-count">
+      <%= render 'follower_count'  %>
+    </span>
+
+    <!-- show following count  -->
+    <span class="h3">Following: <%= @account.followees.count %> </span>
+
+    <h3><%= @account.email %></h3>
+    <h3><%= @account.bio %></h3>
+    <h3><%= @account.website %></h3>
+  </div>
+</div>
+
+
+<br>
