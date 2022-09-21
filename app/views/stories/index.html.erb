@@ -1,7 +1,8 @@
-<div class="row  justify-content-center">
+<div class="row  justify-content-center mb-3">
   <div class="col-md-6">
 
-    <div class="card">
+    <!-- form   -->
+    <div class="card mb-3">
       <div class="card-header">
         Add to Story
       </div>
@@ -28,6 +29,14 @@
         <% end %>
       </div>
     </div>
-
+    <br>
+    <hr >
   </div>
 </div>
+
+
+
+<!-- All stories -->
+<% @stories.each do |story| %>
+        <%= render 'story', story: story  %>
+<% end %>
