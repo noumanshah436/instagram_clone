@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :accounts
 
   resources :accounts, only: [:index,:show] do
-    resources :stories , only: [ :index, :new, :create, :destroy ], shallow: true
+    resources :stories , only: [ :index , :create, :destroy ], shallow: true
   end
 
   post 'account/follow', to: 'accounts#follow'

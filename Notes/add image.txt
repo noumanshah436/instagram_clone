@@ -9,3 +9,6 @@ rails g controller Stories index show destroy
 
 rails g model story image:string account:references
 rails db:migrate
+
+
+1) add

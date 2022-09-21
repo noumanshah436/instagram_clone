@@ -6,7 +6,26 @@
         Add to Story
       </div>
       <div class="card-body">
-        
+        <%= form_for [ current_account, @story]  do |f| %>
+
+          <div class="form-group row mt-2 align-items-center justify-content-start mb-4">
+            <div class="col-md-2 pr-0">
+              <%= image_tag current_account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
+            </div>
+            <div class="col-md-6 pl-0">
+              <%=  current_account.name %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <% f.label :image %><br />
+            <%= f.file_field :image , class: "form-control" %>
+            <%= f.hidden_field :image_cache %>
+          </div>
+
+
+          <%= f.submit "Add Story", class: "btn btn-primary" %>
+        <% end %>
       </div>
     </div>
 
