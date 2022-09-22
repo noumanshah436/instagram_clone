@@ -1,0 +1,23 @@
+pundit
+https://rubygems.org/gems/pundit/versions/1.1.0
+
+https://github.com/varvet/pundit
+
+
+1) add gem
+gem 'pundit'
+bundle
+
+2)
+
+rails g pundit:install
+
+this will create policies folder in app
+
+3)
+rails g pundit:policy account  ( name of model in lowercase)
+
+this will also initialze it in app policy
+
+4) in application controller
+include Pundit

@@ -18,6 +18,8 @@ class AccountsController < ApplicationController
   end
 
   def show
+    # puts "show:"
+    # authorize @account   # we can access this passed object using record
   end
 
   def index
@@ -30,17 +32,22 @@ class AccountsController < ApplicationController
 
   private
 
-  def set_account
-    @account = Account.find_by( id: params[:id])
-    return if @account
+    #  now pundit user will get current_account object
+    def pundit_user
+      current_account
+    end
 
-    flash[:alert] = "Account not exist!"
-    redirect_to account_path(current_account)
-  end
+    def set_account
+      @account = Account.find_by( id: params[:id])
+      # return if @account
 
-  def account_params
-    params.permit(:id)
-  end
+      # flash[:alert] = "Account not exist!"
+      # redirect_to account_path(current_account)
+    end
+
+    def account_params
+      params.permit(:id)
+    end
 
 
 end

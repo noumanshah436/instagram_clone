@@ -32,6 +32,10 @@ class PostsController < ApplicationController
 
   def edit
     # we have @post from callback
+    if !@post.is_belongs_to? current_account
+      redirect_to posts_path
+      flash[:notice] = "You are not authorized to do this action!"
+    end
   end
 
 

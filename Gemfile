@@ -19,6 +19,9 @@ gem 'figaro'
 # icons
 gem "font-awesome-sass", "~> 6.2.0"
 
+#  pundit for  authorization
+gem 'pundit'
+
 # for file upload
 gem 'dropzonejs-rails'
 
