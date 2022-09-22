@@ -76,6 +76,15 @@ user1&.followees&.include?(user6)
 
 **********************
 
-check if user6 is follwing user1 
+check if user6 is follwing user1
 
 user1&.followers&.include?(user6)
+
+**********************
+
+follow request:
+
+it will give all the users the users that request to follow:
+user1.followers.where.not(id: user1.followees.ids )
+
+user1.followees.ids

@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.get_posts
     @post = Post.new
+    @follow_requests = current_account.get_all_follow_requests
   end
 
   def create

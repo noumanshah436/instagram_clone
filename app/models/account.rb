@@ -42,6 +42,10 @@ class Account < ApplicationRecord
     end
   end
 
+  def get_all_follow_requests
+    self.followers.where.not(id: self.followees.ids )
+  end
+
 end
 
 # 5:00

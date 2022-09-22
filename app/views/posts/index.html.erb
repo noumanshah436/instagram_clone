@@ -63,14 +63,46 @@
         <% end %>
       </div>
     </div>
-    <!-- post form end -->
-
 
     <!-- display all post start -->
     <%= render 'posts' %>
 
   </div>
 
+  <!-- follow requests -->
+  <div class="col-sm-12 col-md-4 ">
+    <div class="card">
+      <div class="card-header">
+        Friend Requests
+      </div>
+      <div class="card-body">
+        <% if @follow_requests.empty? %>
+
+          <div>
+            No Request
+          </div>
+
+        <% else%>
+
+          <% @follow_requests.each do |user| %>
+            <div class="row mb-2 h5  align-items-center  ">
+              <div class="col-md-10 ">
+                <%= link_to account_path(user), class: "mr-3 no-text-decoration" do %>
+                <%= image_tag user.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
+                <% end %>
+
+                <%= link_to account_path(user), class: "lead ", title: user.name do %>
+                  <strong><%= user.name %></strong>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+
+        <% end %>
+
+      </div>
+    </div>
+  </div>
 </div>
 
 <!--

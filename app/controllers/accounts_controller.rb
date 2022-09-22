@@ -1,6 +1,7 @@
 class AccountsController < ApplicationController
   before_action :authenticate_account!
   before_action :set_account , only: [:follow, :unfollow, :show ]
+
   def follow
     id = account_params[:id]
     Follow.create(follower_id: current_account.id, followee_id: id)
@@ -18,7 +19,9 @@ class AccountsController < ApplicationController
   end
 
   def show
-    # puts "show:"
+    # every one can see our profile
+
+    # if we want to restrict , we can do with pundit like
     # authorize @account   # we can access this passed object using record
   end
 
