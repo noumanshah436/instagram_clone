@@ -35,3 +35,6 @@ git checkout -b search_feature
 git checkout -b follow_feature
 
 git checkout -b stories_module
+
+
+git checkout -b app_enhancement

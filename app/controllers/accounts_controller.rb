@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
+  before_action :authenticate_account!
   before_action :set_account , only: [:follow, :unfollow, :show ]
-
   def follow
     id = account_params[:id]
     Follow.create(follower_id: current_account.id, followee_id: id)
@@ -31,7 +31,11 @@ class AccountsController < ApplicationController
   private
 
   def set_account
-    @account = Account.find(params[:id])
+    @account = Account.find_by( id: params[:id])
+    return if @account
+
+    flash[:alert] = "Account not exist!"
+    redirect_to account_path(current_account)
   end
 
   def account_params
