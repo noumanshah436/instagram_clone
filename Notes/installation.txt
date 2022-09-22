@@ -27,13 +27,22 @@ Pundit        for Authorization
 rolify        to add user roles
 
 
-https://fontawesome.com/docs/web/use-with/ruby-on-rails
 
 
 *******************
 
 fontawesome
-https://fontawesome.com/docs/web/add-icons/how-to
+https://fontawesome.com/docs/web/use-with/ruby-on-rails
+https://fontawesome.com/icons/
+
+1) add gem
+gem "font-awesome-sass", "~> 6.2.0"
+
+2) bundle install
+
+3) add in application.scss
+@import "font-awesome";
+
 
 *****************
 
