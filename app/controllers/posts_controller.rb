@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   def create
     if !params.has_key?(:images)
-      flash[:notice] = "Add atleast one image"
+      flash[:alert] = "Add atleast one image"
       redirect_to posts_path
     else
       @post = current_account.posts.new(post_params)
@@ -63,13 +63,18 @@ class PostsController < ApplicationController
   def destroy
     if @post.account == current_account
       # remove also from cloudinary
+      @post.photos.each do |photo|
+        puts "delete photo #{photo.id}"
+        DeleteImageJob.perform_later( photo[:image])
+      end
+
       if @post.destroy
         flash[:notice] = "Post deleted!"
       else
         flash[:alert] = "Something went wrong ..."
       end
     else
-      flash[:notice] = "You don't have permission to do that!"
+      flash[:alert] = "You don't have permission to do that!"
     end
     redirect_to posts_path
   end

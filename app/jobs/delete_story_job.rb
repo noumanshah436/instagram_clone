@@ -1,6 +1,13 @@
 class DeleteStoryJob < ApplicationJob
   queue_as :default
 
+  def image_public_id ( str )
+    myArray = str.split('/')
+    filename =  myArray[myArray.length-1]
+    index =(filename.length-5)
+    return filename[0..index]
+  end
+  
   def perform( id , *args)
     puts "Job Scheduled"
     story = Story.find_by(id: id)

@@ -46,6 +46,8 @@ gem "font-awesome-sass", "~> 6.2.0"
 
 *****************
 
+git checkout accounts_page
+
 git checkout -b comment_feature
 
 

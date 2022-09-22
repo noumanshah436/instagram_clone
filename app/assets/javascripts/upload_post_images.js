@@ -1,8 +1,3 @@
-// https://docs.dropzone.dev/
-// https://docs.dropzone.dev/getting-started/setup/fallback-for-no-javascript
-// https://docs.dropzone.dev/configuration/events
-// https://stackoverflow.com/questions/46728205/dropzone-submit-button-on-upload
-
 // Tell Dropzone not to automatically upload the file
 Dropzone.autoDiscover = false;
 
@@ -28,7 +23,7 @@ $(document).ready(function(){
 
       // add event on submit button
       this.element.querySelector("input[type=submit]").addEventListener("click", function(e){
- 
+
         if (myDropzone.getQueuedFiles().length != 0 ){
           e.preventDefault();
           e.stopPropagation();
@@ -49,3 +44,11 @@ $(document).ready(function(){
     }
   })
 });
+
+
+
+// https://docs.dropzone.dev/
+// https://docs.dropzone.dev/getting-started/setup/fallback-for-no-javascript
+// https://docs.dropzone.dev/configuration/events
+// submit button not working with dropzone
+// https://stackoverflow.com/questions/46728205/dropzone-submit-button-on-upload
