@@ -3,11 +3,11 @@
 
     <!-- header -->
     <div class="card-header d-flex align-items-center">
-      <%= link_to account_path(post.account), class: "no-text-decoration" do %>
+      <%= link_to account_path(post.account), class: "mr-3 no-text-decoration" do %>
         <%= image_tag post.account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
       <% end %>
 
-      <%= link_to account_path(post.account), class: "lead ml-2", title: post.account.name do %>
+      <%= link_to account_path(post.account), class: "lead ", title: post.account.name do %>
         <strong><%= post.account.name %></strong>
       <% end %>
 
