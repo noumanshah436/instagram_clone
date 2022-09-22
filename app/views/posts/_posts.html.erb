@@ -15,11 +15,11 @@
         <!-- this will call posts#destroy action on click -->
         <div class="ml-auto">
           <%= link_to post_path(post), method: :delete, data: { confirm: 'Are you sure?' } , class: "nounderline mx-2" do %>
-            <i class="far fa-trash-alt fa-2x text-danger" aria-hidden="true"></i>
+            <i class="fa-sharp fa-solid fa-trash fa-2x text-danger" aria-hidden="true"></i>
           <% end %>
 
           <%= link_to edit_post_path(post) , class: " nounderline " do %>
-            <i class="fa fa-pencil-square-o fa-2x text-danger" aria-hidden="true"></i>
+            <i class="fa-sharp fa-solid fa-pen-to-square fa-2x text-danger" aria-hidden="true"></i>
           <% end %>
         </div>
       <% end %>

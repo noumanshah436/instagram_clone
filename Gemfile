@@ -16,6 +16,9 @@ gem 'carrierwave', '~> 2.0'
 gem 'cloudinary'
 gem 'figaro'
 
+# icons
+gem "font-awesome-sass", "~> 6.2.0"
+
 # for file upload
 gem 'dropzonejs-rails'
 
@@ -23,6 +26,7 @@ gem 'dropzonejs-rails'
 gem 'bootstrap', '~> 4.0.0'
 
 gem 'jquery-rails'
+
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
