@@ -26,16 +26,17 @@
 
           <!-- <p>errors</p> -->
           <% if @post.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+            <div id="error_explanation">
+              <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-            <ul>
-              <% post.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
+              <ul>
+                <% post.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
           <% end %>
+           
 
           <!-- content field -->
           <div class="pl-0 mb-3">
@@ -53,10 +54,11 @@
             </div>
           </div>
 
-          <div>
+          <div class="mb-2">
             <%= f.check_box :active %>
             <%= f.label :active, "active" %>
           </div>
+
 
           <!-- submit button -->
           <%= f.submit "Post", class: "btn btn-primary" %>

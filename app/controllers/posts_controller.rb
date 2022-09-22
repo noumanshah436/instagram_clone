@@ -9,20 +9,24 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_account.posts.new(post_params)
-    # p params[:images]
-    if @post.save
-      if params[:images]
-        array = params[:images].values   # convert hash into array of values
-        array.each do |img|
-          @post.photos.create(image: img)    # save each image
-        end
-      end
-
+    if !params.has_key?(:images)
+      flash[:notice] = "Add atleast one image"
       redirect_to posts_path
-      flash[:notice] = "Post Created"
     else
-      flash[:alert] = "Something went wrong ..."
+      @post = current_account.posts.new(post_params)
+      # p params[:images]
+      if @post.save
+        if params[:images]
+          array = params[:images].values   # convert hash into array of values
+          array.each do |img|
+            @post.photos.create(image: img)    # save each image
+          end
+        end
+        flash[:notice] = "Post Created"
+      else
+        flash[:alert] = "Something went wrong ..."
+
+      end
       redirect_to posts_path
     end
   end
@@ -40,8 +44,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    puts "params:"
-    p post_params
     if @post.update(post_params)
       if params[:images]
         array = params[:images].values   # convert hash into array of values
@@ -85,7 +87,9 @@ class PostsController < ApplicationController
   def post_params
     # params.require(:post).permit!
     # params.require(:post).permit!
-    params[:images].permit!
+    if params.has_key?(:images)
+      params[:images].permit!
+    end
     params.require(:post).permit( :content, :active)
     # params[:images].permit!
     # params.permit(images: {})
