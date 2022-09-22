@@ -53,6 +53,11 @@
             </div>
           </div>
 
+          <div>
+            <%= f.check_box :active %>
+            <%= f.label :active, "active" %>
+          </div>
+
           <!-- submit button -->
           <%= f.submit "Post", class: "btn btn-primary" %>
         <% end %>

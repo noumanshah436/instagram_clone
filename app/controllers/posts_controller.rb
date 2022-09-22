@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :destroy, :edit, :update]
 
   def index
-    @posts = Post.all.includes(:photos, :account, :likes).order("id desc")
+    @posts = Post.get_posts
     @post = Post.new
   end
 
@@ -32,13 +32,11 @@ class PostsController < ApplicationController
 
   def edit
     # we have @post from callback
-    if !@post.is_belongs_to? current_account
+    if !(@post.is_belongs_to? current_account)     # if become true if is_belongs_to return nil
       redirect_to posts_path
       flash[:notice] = "You are not authorized to do this action!"
     end
   end
-
-
 
   def update
     puts "params:"
@@ -87,7 +85,7 @@ class PostsController < ApplicationController
     # params.require(:post).permit!
     # params.require(:post).permit!
     params[:images].permit!
-    params.require(:post).permit :content
+    params.require(:post).permit( :content, :active)
     # params[:images].permit!
     # params.permit(images: {})
   end

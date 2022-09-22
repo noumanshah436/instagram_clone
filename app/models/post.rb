@@ -12,4 +12,14 @@ class Post < ApplicationRecord
     Like.find_by(account_id: account.id, post_id:id) #  this will give Like object if user liked the post
   end
 
+  def is_active?
+    self.active
+  end
+
+  def self.get_posts
+      Post.all.includes(:photos, :account, :likes).order("id desc")
+  end
+
+
+
 end

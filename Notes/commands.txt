@@ -57,3 +57,25 @@ Account.search('Far')
 
 delete story after 24 hours:
 https://stackoverflow.com/questions/55911166/ruby-on-rails-background-application-to-run-jobs-automaically-at-a-time-dynamica
+
+
+********************
+
+p = Post.where.not(active: false)
+
+@posts = Post.where.not(active: false).includes(:photos, :account, :likes).order("id desc")
+
+@posts = Post.all.includes(:photos, :account, :likes).order("id desc")
+
+
+**********************
+
+check if user1 is follwed by user6:
+
+user1&.followees&.include?(user6)
+
+**********************
+
+check if user6 is follwing user1 
+
+user1&.followers&.include?(user6)

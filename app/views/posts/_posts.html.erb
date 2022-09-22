@@ -1,64 +1,68 @@
 <% @posts.each do |post| %>
-  <div class="card mt-3 post ">
 
-    <!-- header -->
-    <div class="card-header d-flex align-items-center">
-      <%= link_to account_path(post.account), class: "mr-3 no-text-decoration" do %>
-        <%= image_tag post.account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
-      <% end %>
+  <!-- check if current accout is followed by post_account -->
+  <% if  post.is_active? || followed_by?(post.account) %>
+    <div class="card mt-3 post ">
 
-      <%= link_to account_path(post.account), class: "lead ", title: post.account.name do %>
-        <strong><%= post.account.name %></strong>
-      <% end %>
+      <!-- header -->
+      <div class="card-header d-flex align-items-center">
+        <%= link_to account_path(post.account), class: "mr-3 no-text-decoration" do %>
+          <%= image_tag post.account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
+        <% end %>
 
-      <% if post.is_belongs_to? current_account %>
-        <!-- this will call posts#destroy action on click -->
-        <div class="ml-auto">
-          <%= link_to post_path(post), method: :delete, data: { confirm: 'Are you sure?' } , class: "nounderline mx-2" do %>
-            <i class="fa-sharp fa-solid fa-trash fa-2x text-danger" aria-hidden="true"></i>
-          <% end %>
+        <%= link_to account_path(post.account), class: "lead ", title: post.account.name do %>
+          <strong><%= post.account.name %></strong>
+        <% end %>
 
-          <%= link_to edit_post_path(post) , class: " nounderline " do %>
-            <i class="fa-sharp fa-solid fa-pen-to-square fa-2x text-danger" aria-hidden="true"></i>
-          <% end %>
-        </div>
-      <% end %>
+        <% if post.is_belongs_to? current_account %>
+          <!-- this will call posts#destroy action on click -->
+          <div class="ml-auto">
+            <%= link_to post_path(post), method: :delete, data: { confirm: 'Are you sure?' } , class: "nounderline mx-2" do %>
+              <i class="fa-sharp fa-solid fa-trash fa-2x text-danger" aria-hidden="true"></i>
+            <% end %>
 
-    </div>
+            <%= link_to edit_post_path(post) , class: " nounderline " do %>
+              <i class="fa-sharp fa-solid fa-pen-to-square fa-2x text-danger" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        <% end %>
 
-    <!-- photos -->
-    <%= render "photos", {post: post} %>
-    <!-- photos_end -->
-
-    <!-- footer -->
-    <div class="card-body h5">
-      <!-- like icon -->
-        <div id="like-icon-post-<%= post.id.to_s %>">
-          <%= render "like_icon", {is_liked: post.is_liked(current_account), post: post} %>
-        </div>
-
-      <!-- show count of likes icon -->
-      <div id="like-text-post-<%= post.id.to_s %>">
-        <%= render "like_text", {likes: post.likes} %>
-      </div>
-      <br>
-
-      <div>
-        <span><strong><%= post.account.name %>:</strong></span>
-        <span><%= post.content %></span>
       </div>
 
-      <hr>
+      <!-- photos -->
+      <%= render "photos", {post: post} %>
+      <!-- photos_end -->
 
-      <%= link_to time_ago_in_words(post.created_at)  + " ago", post_path(post),  class: " " %>
-      <br>
-      <br>
-      <%= link_to post.comments.count.to_s+ " comments"  , post_path(post),  class: " " %>
+      <!-- footer -->
+      <div class="card-body h5">
+        <!-- like icon -->
+          <div id="like-icon-post-<%= post.id.to_s %>">
+            <%= render "like_icon", {is_liked: post.is_liked(current_account), post: post} %>
+          </div>
 
+        <!-- show count of likes icon -->
+        <div id="like-text-post-<%= post.id.to_s %>">
+          <%= render "like_text", {likes: post.likes} %>
+        </div>
+        <br>
+
+        <div>
+          <span><strong><%= post.account.name %>:</strong></span>
+          <span><%= post.content %></span>
+        </div>
+
+        <hr>
+
+        <%= link_to time_ago_in_words(post.created_at)  + " ago", post_path(post),  class: " " %>
+        <br>
+        <br>
+        <%= link_to post.comments.count.to_s+ " comments"  , post_path(post),  class: " " %>
+
+
+      </div>
 
     </div>
-
-  </div>
+  <% end %>
 <% end %>
 
 <br class="my-5">

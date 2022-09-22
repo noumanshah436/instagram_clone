@@ -58,6 +58,14 @@
       <%= f.hidden_field :image_cache %>
     </div>
 
+    <div>
+      <%= f.check_box :active %>
+      <%= f.label :active, "active" %>
+    </div>
+
+    <br>
+
+
     <div class="form-group">
       <%= f.submit "Update" , class: "btn btn-secondary"  %>
     </div>

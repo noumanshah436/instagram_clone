@@ -10,12 +10,12 @@
 
         <div class=" row mt-2 align-items-center mb-4">
           <div class="col-md-4 pr-0">
-            <%= link_to account_path(current_account), class: "mr-1  " do %>
+            <%= link_to account_path(@post.account), class: "mr-1  " do %>
               <%= image_tag current_account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
             <% end %>
 
-            <%= link_to account_path(current_account), class: "lead ml-2", title: current_account.name do %>
-              <strong><%= current_account.name %></strong>
+            <%= link_to account_path(@post.account), class: "lead ml-2", title: current_account.name do %>
+              <strong><%= @post.account.name %></strong>
             <% end %>
           </div>
         </div>
@@ -49,6 +49,13 @@
               <i class="fa fa-plus fa-2x" aria-hidden="true" style="color:#dddfe2"></i>
             </div>
           </div>
+
+          <div>
+            <%= f.check_box :active %>
+            <%= f.label :active, "active" %>
+          </div>
+
+
           <%= f.submit "Update Post", class: "btn btn-primary" %>
         <% end %>
         <!-- Edit Form  end -->
@@ -67,7 +74,6 @@
       </div>
       <br>
     <% end %>
-
 
   </div>
 </div>
