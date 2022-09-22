@@ -19,6 +19,16 @@ paperclip       for image uploading
 
 dropzonejs-rails   for asynchronous multifile upload     https://github.com/ncuesta/dropzonejs-rails
 
+for user friends:
+https://github.com/has-friendship/has_friendship
+
+Pundit        for Authorization
+
+rolify        to add user roles
+
+
+https://fontawesome.com/docs/web/use-with/ruby-on-rails
+
 
 *******************
 
