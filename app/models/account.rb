@@ -1,5 +1,5 @@
 class Account < ApplicationRecord
-  has_many :posts, dependent: :delete_all
+  has_many :posts, dependent: :destroy
   has_many :likes , dependent: :delete_all
   has_many :comments , dependent: :delete_all
   has_many :stories, dependent: :delete_all
