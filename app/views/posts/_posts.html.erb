@@ -45,15 +45,21 @@
       <br>
 
       <div>
-        <span><strong><%= post.account.name %></strong></span>
+        <span><strong><%= post.account.name %>:</strong></span>
         <span><%= post.content %></span>
       </div>
 
-      <%= link_to time_ago_in_words(post.created_at)  + " ago", post_path(post),  class: " " %>
       <hr>
+
+      <%= link_to time_ago_in_words(post.created_at)  + " ago", post_path(post),  class: " " %>
+      <br>
+      <br>
+      <%= link_to post.comments.count.to_s+ " comments"  , post_path(post),  class: " " %>
+
 
     </div>
 
   </div>
 <% end %>
 
+<br class="my-5">

@@ -8,6 +8,18 @@
       </div>
       <div class="card-body">
 
+        <div class=" row mt-2 align-items-center mb-4">
+          <div class="col-md-4 pr-0">
+            <%= link_to account_path(current_account), class: "mr-1  " do %>
+              <%= image_tag current_account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
+            <% end %>
+
+            <%= link_to account_path(current_account), class: "lead ml-2", title: current_account.name do %>
+              <strong><%= current_account.name %></strong>
+            <% end %>
+          </div>
+        </div>
+
         <!-- Edit Form -->
         <%= form_for @post, :html => {:multipart => true, :class => "dropzone upload-images p-0 border-0"} do |f| %>
 
@@ -23,13 +35,9 @@
           </div>
           <% end %>
 
-          <div class="form-group row mt-2 align-items-center justify-content-start mb-4">
-            <div class="col-md-2 pr-0">
-              <%= image_tag current_account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
-            </div>
-            <div class="col-md-10 pl-0 ">
-              <%= f.text_area :content, class: "form-control form-group-lg",   placeholder: "say something about this ..." %>
-            </div>
+
+          <div class="pl-0 mb-3 ">
+            <%= f.text_area :content, class: "form-control form-group-lg",   placeholder: "say something about this ..." %>
           </div>
 
           <div class="fallback">
@@ -46,26 +54,21 @@
         <!-- Edit Form  end -->
       </div>
     </div>
+    <br>
 
-  </div>
+    <!-- show each image of this post to delete if user want to -->
+    <% @post.photos.each do |photo| %>
+      <div id="photo-<%= photo.id %>" class="alert alert-warning alert-dismissible fade show" >
 
-</div>
-
-<br>
-
-
-<% @post.photos.each do |photo| %>
-
-  <div id="photo-<%= photo.id %>" class="alert alert-warning alert-dismissible fade show" >
-
-    <%= image_tag photo.image.url(:standard), style: 'height:100px;width:100px;',  class: " " %>
-
-    <%= link_to photo_path(photo) , method: :delete ,data: { confirm: 'Are you sure?' }, remote: true, class: "close nounderline mx-2" do %>
-        <span aria-hidden="true">&times;</span>
+        <%= image_tag photo.image.url(:standard), style: 'height:100px;width:100px;',  class: " " %>
+        <%= link_to photo_path(photo) , method: :delete ,data: { confirm: 'Are you sure?' }, remote: true, class: "close nounderline mx-2" do %>
+            <span aria-hidden="true">&times;</span>
+        <% end %>
+      </div>
+      <br>
     <% end %>
 
-  </div>
 
-  <br>
-<% end %>
+  </div>
+</div>
 
