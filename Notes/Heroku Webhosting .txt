@@ -2,3 +2,7 @@
 
 2) heroku git:remote -a instagram-clone-pk
 https://git.heroku.com/instagram-clone-pk.git
+
+3) heroku stack:set heroku-18
+
+4) git push heroku master
