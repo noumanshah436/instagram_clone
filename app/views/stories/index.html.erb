@@ -7,11 +7,11 @@
         Add to Story
       </div>
       <div class="card-body">
-        <%= form_for [ current_account, Story.new ]  do |f| %>
+        <%= form_for @story do |f| %>
 
           <div class="form-group row mt-2 align-items-center justify-content-start mb-4">
             <div class="col-md-2 pr-0">
-              <%= image_tag current_account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
+              <%= image_tag current_account.image.url(:thumbnail),  class: "rounded-circle"%>
             </div>
             <div class="col-md-6 pl-0">
               <%=  current_account.name %>
@@ -24,8 +24,8 @@
             <%= f.hidden_field :image_cache %>
           </div>
 
-
           <%= f.submit "Add Story", class: "btn btn-primary" %>
+
         <% end %>
       </div>
     </div>
@@ -38,5 +38,5 @@
 
 <!-- All stories -->
 <% @stories.each do |story| %>
-        <%= render 'story', story: story  %>
+    <%= render 'story', story: story  %>
 <% end %>

@@ -1,13 +1,10 @@
 class StoriesController < ApplicationController
   before_action :authenticate_account!
+  before_action :find_story, only: [ :destroy ]
 
   def index
-    if current_account.id.to_s == params[:account_id]
-      @stories = Story.all.includes(:account)
-    else
-      flash[:alert] = "Invalid Access"
-      redirect_to account_stories_path(current_account)
-    end
+    @stories = Story.all.includes(:account).order("id desc")
+    @story = Story.new
   end
 
 
@@ -25,21 +22,22 @@ class StoriesController < ApplicationController
     else
       flash[:alert] = "Image Not Found ..."
     end
-    redirect_to account_stories_path(current_account)
+    redirect_to stories_path
   end
 
   def destroy
-    id =  story_destroy_params[:id]
-    @story = Story.find_by(id: id)
-    public_id = image_public_id( @story[:image] ) # destroy story image from cloudinary
-    Cloudinary::Uploader.destroy(public_id)
-
-    if @story.destroy
-      flash[:notice] = "Story deleted!"
+    if @story.account == current_account
+      public_id = image_public_id( @story[:image] ) # destroy story image from cloudinary
+      Cloudinary::Uploader.destroy(public_id)
+      if @story.destroy
+        flash[:notice] = "Story deleted!"
+      else
+        flash[:alert] = "Something went wrong ..."
+      end
     else
-      flash[:alert] = "Something went wrong ..."
+      flash[:alert] = "You don't have permission to do that!"
     end
-    redirect_to account_stories_path(current_account)
+    redirect_to  stories_path
   end
 
   private
@@ -51,12 +49,21 @@ class StoriesController < ApplicationController
       return filename[0..index]
     end
 
+    def find_story
+      id =  story_destroy_params[:id]
+      @story = Story.find_by(id: id)
+
+      return if @story
+      flash[:alert] = "Story not exist!"
+      redirect_to  stories_path
+    end
+
     def story_destroy_params
       params.permit(:id)
     end
 
 
     def story_params
-      params.require(:story).permit(:image, :image_cache ,:account_id)
+      params.require(:story).permit(:image, :image_cache )
     end
 end

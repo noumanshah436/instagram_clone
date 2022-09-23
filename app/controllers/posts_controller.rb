@@ -67,7 +67,7 @@ class PostsController < ApplicationController
         puts "delete photo #{photo.id}"
         DeleteImageJob.perform_later( photo[:image])
       end
-
+      
       if @post.destroy
         flash[:notice] = "Post deleted!"
       else
