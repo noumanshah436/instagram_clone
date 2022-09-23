@@ -2,7 +2,7 @@ class StoriesController < ApplicationController
   before_action :authenticate_account!
 
   def index
-    @stories = Story.all.includes( :account).order("id desc")
+    @stories = Story.all.includes(:account)
     @story = Story.new
   end
 

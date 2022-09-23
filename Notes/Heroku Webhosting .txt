@@ -29,3 +29,10 @@ https://stackoverflow.com/questions/48125964/cloud-name-in-tag-or-in-configurati
 https://cloudinary.com/documentation/rails_integration#configuration
 
 https://bytemeta.vip/repo/cloudinary/cloudinary_gem/issues/334
+
+
+******************
+
+
+
+https://instagram-clone-pk.herokuapp.com/posts
