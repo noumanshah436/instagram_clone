@@ -33,6 +33,8 @@ https://bytemeta.vip/repo/cloudinary/cloudinary_gem/issues/334
 
 ******************
 
+heroku open
+
 
 
 https://instagram-clone-pk.herokuapp.com/posts

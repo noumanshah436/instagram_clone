@@ -13,7 +13,7 @@ class StoriesController < ApplicationController
       img = story_params[:image]
       @story= current_account.stories.new(story_params)
       if @story.save
-        # DeleteStoryJob.set(wait: 1.day).perform_later( @story.id)
+        DeleteStoryJob.set(wait: 1.day).perform_later( @story.id)
         flash[:notice] = "Story Created"
       else
         flash[:alert] = "Something went wrong ..."
@@ -28,7 +28,7 @@ class StoriesController < ApplicationController
     id =  story_destroy_params[:id]
     @story = Story.find_by(id: id)
     public_id = image_public_id( @story[:image] ) # destroy story image from cloudinary
-    # Cloudinary::Uploader.destroy(public_id)
+    Cloudinary::Uploader.destroy(public_id)
 
     if @story.destroy
       flash[:notice] = "Story deleted!"
@@ -48,7 +48,7 @@ class StoriesController < ApplicationController
     end
 
     def story_destroy_params
-      params.permit(:id, :authenticity_token, :_method)
+      params.permit(:id)
 
     end
 
