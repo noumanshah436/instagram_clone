@@ -7,7 +7,7 @@
         Add to Story
       </div>
       <div class="card-body">
-        <%= form_for [ current_account, @story]  do |f| %>
+        <%= form_for [ current_account, Story.new ]  do |f| %>
 
           <div class="form-group row mt-2 align-items-center justify-content-start mb-4">
             <div class="col-md-2 pr-0">

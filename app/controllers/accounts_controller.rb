@@ -26,11 +26,14 @@ class AccountsController < ApplicationController
   end
 
   def index
-    keyword = params[:keyword]
-    @users = Account.search(keyword.strip)
-    respond_to do |format|
-      format.js
+    if params.key?(:id)
+      keyword = params[:keyword]
+      @users = Account.search(keyword.strip)
+      respond_to do |format|
+        format.js
+      end
     end
+    redirect_to account_path(current_account)
   end
 
   private
@@ -42,10 +45,10 @@ class AccountsController < ApplicationController
 
     def set_account
       @account = Account.find_by( id: params[:id])
-      # return if @account
+      return if @account
 
-      # flash[:alert] = "Account not exist!"
-      # redirect_to account_path(current_account)
+      flash[:alert] = "Account not exist!"
+      redirect_to account_path(current_account)
     end
 
     def account_params
