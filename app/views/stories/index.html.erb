@@ -1,19 +1,17 @@
-<div class="row  justify-content-center mb-3">
-  <div class="col-md-6">
+<div class="row  justify-content-center mb-2">
+  <div class="col-md-8 col-lg-6">
 
     <!-- form   -->
     <div class="card mb-3">
       <div class="card-header">
         Add to Story
       </div>
-      <div class="card-body">
+      <div class="card-body ">
         <%= form_for @story do |f| %>
 
-          <div class="form-group row mt-2 align-items-center justify-content-start mb-4">
-            <div class="col-md-2 pr-0">
-              <%= image_tag current_account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
-            </div>
-            <div class="col-md-6 pl-0">
+          <div class=" row   align-items-center  ">
+            <div class="col  ">
+              <%= image_tag current_account.image.url(:thumbnail),  class: "mr-3 profile_pic rounded-circle"%>
               <%=  current_account.name %>
             </div>
           </div>
@@ -28,8 +26,7 @@
 
         <% end %>
       </div>
-    </div>
-    <br>
+    </div> 
     <hr >
   </div>
 </div>
