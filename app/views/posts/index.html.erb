@@ -1,9 +1,45 @@
 <div class="row">
-  <div class="col-sm-12 col-md-8 post-card">
+   <!-- follow requests -->
+   <div class="  col-md-4 order-1 order-md-2   mb-3">
+    <div class="card">
+      <div class="card-header">
+        Friend Requests
+      </div>
+      <div class="card-body">
+        <% if @follow_requests.empty? %>
+
+          <div>
+            No Request
+          </div>
+
+        <% else%>
+
+          <% @follow_requests.each do |user| %>
+            <div class="row mb-2 h5  align-items-center  ">
+              <div class="col-md-10 ">
+                <%= link_to account_path(user), class: "mr-3 no-text-decoration" do %>
+                <%= image_tag user.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
+                <% end %>
+
+                <%= link_to account_path(user), class: "lead ", title: user.name do %>
+                  <strong><%= user.name %></strong>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- form + post col -->
+  <div class="  col-md-8 order-2 order-md-1 post-card">
 
     <!-- image upload box -->
     <div class="card">
-      <div class="card-header">
+      <div class="card-header bg-muted">
         Create Post
       </div>
       <div class="card-body">
@@ -36,7 +72,7 @@
               </ul>
             </div>
           <% end %>
-           
+
 
           <!-- content field -->
           <div class="pl-0 mb-3">
@@ -71,40 +107,7 @@
 
   </div>
 
-  <!-- follow requests -->
-  <div class="col-sm-12 col-md-4 ">
-    <div class="card">
-      <div class="card-header">
-        Friend Requests
-      </div>
-      <div class="card-body">
-        <% if @follow_requests.empty? %>
 
-          <div>
-            No Request
-          </div>
-
-        <% else%>
-
-          <% @follow_requests.each do |user| %>
-            <div class="row mb-2 h5  align-items-center  ">
-              <div class="col-md-10 ">
-                <%= link_to account_path(user), class: "mr-3 no-text-decoration" do %>
-                <%= image_tag user.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
-                <% end %>
-
-                <%= link_to account_path(user), class: "lead ", title: user.name do %>
-                  <strong><%= user.name %></strong>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-
-        <% end %>
-
-      </div>
-    </div>
-  </div>
 </div>
 
 <!--
