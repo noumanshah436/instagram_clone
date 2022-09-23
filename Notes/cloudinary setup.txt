@@ -1,20 +1,5 @@
 
 
-Cloudinary:
--TQ6g#WJkp!ake)
-
-
-development:
-  cloud_name: "dl40wvlge"
-  api_key: "648868349926568"
-  api_secret: "MjEP0Hj0mJvbTw6I7yJ92FJ8bcM"
-  secure: true
-
-production:
-  cloud_name: "dl40wvlge"
-  api_key: "648868349926568"
-  api_secret: "MjEP0Hj0mJvbTw6I7yJ92FJ8bcM"
-  secure:true
 
 
 https://cloudinary.com/documentation/rails_integration

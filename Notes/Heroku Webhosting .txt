@@ -6,3 +6,26 @@ https://git.heroku.com/instagram-clone-pk.git
 3) heroku stack:set heroku-18
 
 4) git push heroku master
+
+5) https://stackoverflow.com/questions/56063066/es6-syntax-harmony-mode-must-be-enabled-with-uglifier-newharmony-true
+
+6)
+
+https://git.heroku.com/instagram-clone-pk.git
+
+this is the app link:
+https://instagram-clone-pk.herokuapp.com/
+
+
+7) heroku run rails db:migrate
+
+8) set env in heruko
+
+credential yml in rails
+
+
+https://stackoverflow.com/questions/48125964/cloud-name-in-tag-or-in-configuration-how-can-i-override-this
+
+https://cloudinary.com/documentation/rails_integration#configuration
+
+https://bytemeta.vip/repo/cloudinary/cloudinary_gem/issues/334
