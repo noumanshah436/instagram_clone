@@ -1,0 +1,4 @@
+1) heroku login
+
+2) heroku git:remote -a instagram-clone-pk
+https://git.heroku.com/instagram-clone-pk.git

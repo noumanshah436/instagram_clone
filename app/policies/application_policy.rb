@@ -13,7 +13,7 @@ class ApplicationPolicy
   end
 
   def show?
-    @user == current_account
+    false
   end
 
   def create?

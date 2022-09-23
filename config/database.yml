@@ -82,8 +82,9 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: instagram-clone_production
-  username: instagram-clone
-  password: <%= ENV['INSTAGRAM-CLONE_DATABASE_PASSWORD'] %>
+
+# production:
+#   <<: *default
+#   database: instagram-clone_production
+#   username: instagram-clone
+#   password: <%= ENV['INSTAGRAM-CLONE_DATABASE_PASSWORD'] %>
