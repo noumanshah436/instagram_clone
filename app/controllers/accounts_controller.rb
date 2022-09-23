@@ -18,6 +18,7 @@ class AccountsController < ApplicationController
     end
   end
 
+  # profile page
   def show
     # every one can see our profile
 
@@ -26,14 +27,11 @@ class AccountsController < ApplicationController
   end
 
   def index
-    if params.key?(:id)
-      keyword = params[:keyword]
-      @users = Account.search(keyword.strip)
-      respond_to do |format|
-        format.js
-      end
+    keyword = params[:keyword]
+    @users = Account.search(keyword.strip)
+    respond_to do |format|
+      format.js
     end
-    redirect_to account_path(current_account)
   end
 
   private

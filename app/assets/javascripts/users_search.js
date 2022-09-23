@@ -3,7 +3,7 @@ $(document).ready(function(){
 
     var ajax_result = $.get(
 
-      $("#users-search").attr("action"),  // url where to get data
+      $("#users-search").attr("action"),              // url where to get data
 
       {keyword: $("#users-search #keyword").val()},   //  pas data to get request
 
