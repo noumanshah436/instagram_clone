@@ -7,7 +7,7 @@
       <div class="card-body  ">
         <div class="form-group row mt-2 align-items-center justify-content-start ">
           <div class="col-md-2 pr-0">
-            <!-- <%= image_tag story.account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%> -->
+            <%= image_tag story.account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
           </div>
           <div class="col-md-6 pl-0">
             <div>
@@ -52,7 +52,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">
-          <!-- <%= image_tag story.account.image.url(:thumbnail),  class: "mr-2 profile_pic rounded-circle"%> -->
+          <%= image_tag story.account.image.url(:thumbnail),  class: "mr-2 profile_pic rounded-circle"%>
           <%=  story.account.name  %>
         </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -60,10 +60,11 @@
         </button>
       </div>
       <div class="modal-body">
-        <!-- <%= image_tag story.image.url(:standard), class: "w-100 h-100 "%> -->
+        <%= image_tag story.image.url(:standard), class: "w-100 h-100 "%>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
       </div>
     </div>
   </div>
