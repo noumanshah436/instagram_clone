@@ -9,7 +9,17 @@
         </p>
       </div>
       <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <!-- show followers count -->
+          <span id="follower-count">
+            <%= render 'follower_count'  %>
+          </span>
+        </li>
 
+        <li class="list-group-item">
+          <!-- show following count  -->
+          <strong>Following:</strong> <%= @account.followees.count %>
+        </li>
         <li class="list-group-item"><strong>Email:</strong> <%= @account.email %></li>
         <li class="list-group-item"><strong>Website:</strong> <%= @account.website %></li>
       </ul>
