@@ -1,0 +1,3 @@
+https://web-crunch.com/posts/custom-error-page-ruby-on-rails
+
+rails g controller errors not_found internal_server_error

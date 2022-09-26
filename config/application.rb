@@ -13,6 +13,8 @@ module InstagramClone
     config.gem 'carrierwave', version: '~> 2.0'
     config.gem 'cloudinary'
 
+    config.exceptions_app = self.routes # Add this line fo custom errors
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
