@@ -38,3 +38,11 @@ heroku open
 
 
 https://instagram-clone-pk.herokuapp.com/posts
+
+******************
+
+heroku run rails console
+
+*********************
+
+heroku logs -t
