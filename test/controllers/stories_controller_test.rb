@@ -15,5 +15,4 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
     get stories_destroy_url
     assert_response :success
   end
-
 end

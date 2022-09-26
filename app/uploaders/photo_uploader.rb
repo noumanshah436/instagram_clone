@@ -15,11 +15,11 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   include Cloudinary::CarrierWave
 
-  process :convert => 'png'
-  process :tags => ['post_picture']
+  process convert: 'png'
+  process tags: ['post_picture']
 
   version :standard do
-    process :resize_to_fill => [300, 200 , :center]
+    process resize_to_fill: [300, 200, :center]
     # process :resize_to_fill => [400, 300 , :center]
     # process :resize_to_fill => [1000, 700 , :center]
   end
@@ -28,7 +28,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
     resize_to_fit(60, 60)
   end
 
-  def default_url(*args)
+  def default_url(*_args)
     'default.png'
   end
 
@@ -63,7 +63,4 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
-
-
 end

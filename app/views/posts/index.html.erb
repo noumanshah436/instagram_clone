@@ -61,16 +61,8 @@
         <%= form_for @post, :html => {:multipart => true, :class => "dropzone upload-images p-0 border-0"} do |f| %>
 
           <!-- <p>errors</p> -->
-          <% if @post.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-              <ul>
-                <% post.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
+          <% @post.errors.full_messages_for(:content).each do |message| %>
+            <div><%= message %></div>
           <% end %>
 
 

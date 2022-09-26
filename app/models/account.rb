@@ -1,7 +1,7 @@
 class Account < ApplicationRecord
   has_many :posts, dependent: :destroy
-  has_many :likes , dependent: :delete_all
-  has_many :comments , dependent: :delete_all
+  has_many :likes, dependent: :delete_all
+  has_many :comments, dependent: :delete_all
   has_many :stories, dependent: :delete_all
 
   # Include default devise modules. Others available are:
@@ -9,7 +9,7 @@ class Account < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, presence: true, length: {maximum: 50}
+  validates :name, presence: true, length: { maximum: 50 }
 
   # profile pic
   mount_uploader :image, PhotoUploader
@@ -17,9 +17,9 @@ class Account < ApplicationRecord
   ###################
   # to get prople we are following
 
-  has_many :followed_users,   class_name: "Follow", foreign_key: "follower_id", dependent: :destroy
+  has_many :followed_users, class_name: "Follow", foreign_key: "follower_id", dependent: :destroy
   # user.followees    get people that         user is following
-  has_many :followees, through: :followed_users , dependent: :destroy
+  has_many :followees, through: :followed_users, dependent: :destroy
 
   ###################
   # to get people that are follwing us
@@ -27,7 +27,7 @@ class Account < ApplicationRecord
 
   has_many :following_users, class_name: "Follow", foreign_key: "followee_id", dependent: :destroy
   # user.followees    get people that         user is following
-  has_many :followers, through: :following_users , dependent: :destroy
+  has_many :followers, through: :following_users, dependent: :destroy
 
   ###################
 
@@ -35,17 +35,12 @@ class Account < ApplicationRecord
 
   def self.search(keyword)
     puts "keyword:#{keyword}"
-    if keyword != ""
-      where('name LIKE ?', "%#{keyword}%")
-    else
-      nil
-    end
+    where('name LIKE ?', "%#{keyword}%") if keyword != ""
   end
 
   def get_all_follow_requests
-    self.followers.where.not(id: self.followees.ids )
+    followers.where.not(id: followees.ids)
   end
-
 end
 
 # 5:00

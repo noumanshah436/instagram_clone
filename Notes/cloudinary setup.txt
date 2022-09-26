@@ -33,4 +33,30 @@ ENV["key_name"]
 
 ************************
 
+carrierwave:
 
+1) gem install carrierwave
+
+2) gem 'carrierwave', '~> 2.0'
+
+3) rails generate uploader Photo
+
+4) Now add image field in model and add this to model:
+
+5) mount_uploader :image, PhotoUploader
+
+6) Now you can cache files by assigning them to the attribute, they will automatically be stored when the record is saved.
+
+u = User.new
+u.avatar = params[:file]         # Assign a file like this, or
+
+# like this
+File.open('somewhere') do |f|
+  u.avatar = f
+end
+
+u.save!
+u.avatar.url # => '/url/to/file.png'
+u.avatar.current_path         # => 'path/to/file.png'
+u.avatar_identifier # => 'file.png'
+Note: u.avatar will never return nil, even if there is no photo associated to it. To check if a photo was saved to the model, use u.avatar.file.nil? instead.

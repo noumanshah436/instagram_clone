@@ -4,6 +4,5 @@ class Story < ApplicationRecord
   # story pic
   mount_uploader :image, PhotoUploader
 
-  validates :image, presence: true 
-
+  validates :image, presence: true
 end

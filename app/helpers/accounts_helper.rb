@@ -8,9 +8,8 @@ module AccountsHelper
 
   # check if current_account is follwed by given account
   def followed_by?(account)
-    if account == current_account
-      return true
-    end
+    return true if account == current_account
+
     account&.followees&.include?(current_account)
   end
 

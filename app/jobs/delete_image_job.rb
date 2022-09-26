@@ -1,16 +1,16 @@
 class DeleteImageJob < ApplicationJob
   queue_as :default
 
-  def image_public_id ( str )
+  def image_public_id(str)
     myArray = str.split('/')
-    filename =  myArray[myArray.length-1]
-    index =(filename.length-5)
-    return filename[0..index]
+    filename = myArray[myArray.length - 1]
+    index = (filename.length - 5)
+    filename[0..index]
   end
-  
-  def perform(img , *args)
+
+  def perform(img, *_args)
     puts "Job Scheduled"
-    public_id = image_public_id( img ) # destroy story image from cloudinary
+    public_id = image_public_id(img) # destroy story image from cloudinary
     Cloudinary::Uploader.destroy(public_id)
   end
 end

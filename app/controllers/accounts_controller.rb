@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   before_action :authenticate_account!
-  before_action :set_account , only: [:follow, :unfollow, :show ]
+  before_action :set_account, only: %i[follow unfollow show]
 
   def follow
     id = account_params[:id]
@@ -36,22 +36,20 @@ class AccountsController < ApplicationController
 
   private
 
-    #  now pundit user will get current_account object
-    def pundit_user
-      current_account
-    end
+  #  now pundit user will get current_account object
+  def pundit_user
+    current_account
+  end
 
-    def set_account
-      @account = Account.find_by( id: params[:id])
-      return if @account
+  def set_account
+    @account = Account.find_by(id: params[:id])
+    return if @account
 
-      flash[:alert] = "Account not exist!"
-      redirect_to account_path(current_account)
-    end
+    flash[:alert] = "Account not exist!"
+    redirect_to account_path(current_account)
+  end
 
-    def account_params
-      params.permit(:id)
-    end
-
-
+  def account_params
+    params.permit(:id)
+  end
 end

@@ -15,5 +15,4 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     get posts_create_url
     assert_response :success
   end
-
 end
