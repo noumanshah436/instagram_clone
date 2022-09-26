@@ -1,7 +1,7 @@
 <% if users.present? %>
   <% users.each do |user| %>
     <div class="d-flex align-items-center p-2">
-      <%= link_to account_path(user), data: {turbo_method: :get, turbo_frame: "_top" }, class: " nounderline" do %>
+      <%= link_to profile_path(user), data: {turbo_method: :get, turbo_frame: "_top" }, class: " nounderline" do %>
       <%= image_tag user.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
       <span class="search-result-item nounderline"><%= user.name %></span>
       <% end %>

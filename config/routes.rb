@@ -2,12 +2,15 @@ Rails.application.routes.draw do
 
   devise_for :accounts
 
-  resources :accounts, only: %i[index show]
+  # resources :accounts, only: %i[index show]
+  resources :profile, only: %i[index show]
   resources :stories, only: %i[index create destroy]
 
-  post 'heroku config
-  /follow', to: 'accounts#follow'
-  delete 'account/unfollow', to: 'accounts#unfollow'
+  # post 'account/follow', to: 'accounts#follow'
+  # delete 'account/unfollow', to: 'accounts#unfollow'
+
+  post 'account/follow', to: 'profile#follow'
+  delete 'account/unfollow', to: 'profile#unfollow'
 
   resources :posts do
     resources :photos, only: %i[create destroy], shallow: true

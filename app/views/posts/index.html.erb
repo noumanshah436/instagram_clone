@@ -17,11 +17,11 @@
           <% @follow_requests.each do |user| %>
             <div class="row mb-2 h5  align-items-center  ">
               <div class="col-md-10 ">
-                <%= link_to account_path(user), class: "mr-3 no-text-decoration" do %>
+                <%= link_to profile_path(user), class: "mr-3 no-text-decoration" do %>
                 <%= image_tag user.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
                 <% end %>
 
-                <%= link_to account_path(user), class: "lead ", title: user.name do %>
+                <%= link_to profile_path(user), class: "lead ", title: user.name do %>
                   <strong><%= user.name %></strong>
                 <% end %>
               </div>
@@ -46,11 +46,11 @@
         <div class=" row mt-2 align-items-center mb-4">
 
           <div class="col-md-4 pr-0">
-            <%= link_to account_path(current_account), class: "mr-1  " do %>
+            <%= link_to profile_path(current_account), class: "mr-1  " do %>
               <%= image_tag current_account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
             <% end %>
 
-            <%= link_to account_path(current_account), class: "lead ml-2", title: current_account.name do %>
+            <%= link_to profile_path(current_account), class: "lead ml-2", title: current_account.name do %>
               <strong><%= current_account.name %></strong>
             <% end %>
 

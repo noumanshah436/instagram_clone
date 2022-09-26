@@ -24,7 +24,7 @@ link for accout show page with dynamic name:
 rails route:
 account GET    /accounts/:id(.:format)        accounts#show
 
-<%= link_to  account_path(post.account), class: "ml-2", title: post.account.name do %>
+<%= link_to  profile_path(post.account), class: "ml-2", title: post.account.name do %>
         <strong><%= post.account.name %></strong>
 <% end %>
 

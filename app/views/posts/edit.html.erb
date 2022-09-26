@@ -10,11 +10,11 @@
 
         <div class=" row mt-2 align-items-center mb-4">
           <div class="col-md-4 pr-0">
-            <%= link_to account_path(@post.account), class: "mr-1  " do %>
+            <%= link_to profile_path(@post.account), class: "mr-1  " do %>
               <%= image_tag current_account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
             <% end %>
 
-            <%= link_to account_path(@post.account), class: "lead ml-2", title: current_account.name do %>
+            <%= link_to profile_path(@post.account), class: "lead ml-2", title: current_account.name do %>
               <strong><%= @post.account.name %></strong>
             <% end %>
           </div>
