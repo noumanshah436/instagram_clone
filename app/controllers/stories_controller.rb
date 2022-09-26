@@ -9,7 +9,6 @@ class StoriesController < ApplicationController
 
   def create
     if story_params.key?(:image)
-      img = story_params[:image]
       @story = current_account.stories.new(story_params)
       if @story.save
         DeleteStoryJob.set(wait: 1.day).perform_later(@story.id)
@@ -41,8 +40,8 @@ class StoriesController < ApplicationController
   private
 
   def image_public_id(str)
-    myArray = str.split('/')
-    filename = myArray[myArray.length - 1]
+    my_array = str.split('/')
+    filename = my_array[my_array.length - 1]
     index = (filename.length - 5)
     filename[0..index]
   end

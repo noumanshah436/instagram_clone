@@ -3,15 +3,14 @@ class PostsController < ApplicationController
   before_action :find_post, only: %i[show destroy edit update]
 
   def index
-    @posts = Post.get_posts
+    @posts = Post.posts
     @post = Post.new
-    @follow_requests = current_account.get_all_follow_requests
+    @follow_requests = current_account.all_follow_requests
   end
 
   def create
-    if !params.has_key?(:images)
+    if !params.key?(:images)
       flash[:alert] = "Add atleast one image"
-      redirect_to posts_path
     else
       @post = current_account.posts.new(post_params)
       # p params[:images]
@@ -26,8 +25,8 @@ class PostsController < ApplicationController
       else
         flash[:alert] = "Something went wrong ..."
       end
-      redirect_to posts_path
     end
+    redirect_to posts_path
   end
 
   def show
@@ -36,7 +35,7 @@ class PostsController < ApplicationController
 
   def edit
     # we have @post from callback
-    unless @post.is_belongs_to? current_account # if become true if is_belongs_to return nil
+    unless @post.belongs_to? current_account # if become true if is_belongs_to return nil
       redirect_to posts_path
       flash[:notice] = "You are not authorized to do this action!"
     end
@@ -83,7 +82,7 @@ class PostsController < ApplicationController
   def find_post
     @post = Post.find_by(id: params[:id])
 
-    return if @post
+    return if @post #  return if post exist
 
     flash[:alert] = "Post not exist!"
     redirect_to root_path
@@ -92,7 +91,7 @@ class PostsController < ApplicationController
   def post_params
     # params.require(:post).permit!
     # params.require(:post).permit!
-    if params.has_key?(:images)
+    if params.key?(:images)
       params[:images].permit!
     end
     params.require(:post).permit(:content, :active)

@@ -14,7 +14,7 @@ p = Post.first
 Like.create!(account:user, post:p)
 Like.create!(account:user, post:p)   # this will give error now
 
-p.is_liked(user)   # we have defined method in post model
+p.liked(user)   # we have defined method in post model
 
 ***
 

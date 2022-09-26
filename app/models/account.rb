@@ -38,7 +38,7 @@ class Account < ApplicationRecord
     where('name LIKE ?', "%#{keyword}%") if keyword != ""
   end
 
-  def get_all_follow_requests
+  def all_follow_requests
     followers.where.not(id: followees.ids)
   end
 end

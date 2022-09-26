@@ -10,7 +10,7 @@
 
   <%   comment_account = comment.account %>
   <!-- show delete icon for commented user or the owner of the post -->
-  <% if (comment_account == current_account) || ( @post.is_belongs_to? current_account) %>
+  <% if (comment_account == current_account) || ( @post.belongs_to? current_account) %>
     <%= link_to " ", comment_path(comment),  method: :delete, remote: true, class: "mx-3 fa-sharp fa-solid fa-trash fa-1x nounderline float-right" %>
   <% end %>
 

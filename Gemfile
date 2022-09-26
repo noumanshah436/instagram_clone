@@ -74,7 +74,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg', '>= 0.18', '< 2.0'
 end
 
 group :test do

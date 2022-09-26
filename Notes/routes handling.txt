@@ -36,7 +36,7 @@ Note: we are giving the like object to like_path
 raisls route:
 like DELETE /likes/:id(.:format)             likes#destroy
 
-<%= link_to " ", like_path(is_liked), method: :delete , class: " fa fa-heart fa-2x text-danger nounderline" %>
+<%= link_to " ", like_path(liked), method: :delete , class: " fa fa-heart fa-2x text-danger nounderline" %>
 
 above will convert into:
 

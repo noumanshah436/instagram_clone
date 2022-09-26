@@ -1,7 +1,7 @@
 <% @posts.each do |post| %>
 
   <!-- check if current accout is followed by post_account -->
-  <% if  post.is_active? || followed_by?(post.account) %>
+  <% if  post.active? || followed_by?(post.account) %>
     <div class="card mt-3 post ">
 
       <!-- header -->
@@ -14,7 +14,7 @@
           <strong><%= post.account.name %></strong>
         <% end %>
 
-        <% if post.is_belongs_to? current_account %>
+        <% if post.belongs_to? current_account %>
           <!-- this will call posts#destroy action on click -->
           <div class="ml-auto">
             <%= link_to post_path(post), method: :delete, data: { confirm: 'Are you sure?' } , class: "nounderline mx-2" do %>
@@ -37,7 +37,7 @@
       <div class="card-body h5">
         <!-- like icon -->
           <div id="like-icon-post-<%= post.id.to_s %>">
-            <%= render "like_icon", {is_liked: post.is_liked(current_account), post: post} %>
+            <%= render "like_icon", {liked: post.liked(current_account), post: post} %>
           </div>
 
         <!-- show count of likes icon -->

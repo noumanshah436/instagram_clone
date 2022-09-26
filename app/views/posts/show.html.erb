@@ -11,7 +11,7 @@
       <strong><%= @post.account.name %></strong>
     <% end %>
 
-    <% if @post.is_belongs_to? current_account %>
+    <% if @post.belongs_to? current_account %>
 
         <div class="ml-auto">
            <!-- this will call posts#destroy action on click -->
@@ -36,7 +36,7 @@
 
     <!-- like icon -->
     <div id="like-icon-post-<%= @post.id.to_s %>">
-      <%= render "like_icon", {is_liked: @post.is_liked(current_account), post: @post} %>
+      <%= render "like_icon", {liked: @post.liked(current_account), post: @post} %>
     </div>
     <br>
 
