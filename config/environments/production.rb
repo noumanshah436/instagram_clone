@@ -98,9 +98,9 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   # for devise email verification
-  host = 'https://instagram-clone-pk.herokuapp.com/'
+  host = 'https://instagram-clone-pk.herokuapp.com'
 
-  config.action_mailer.default_url_options = { host: 'https://instagram-clone-pk.herokuapp.com/', protocol: 'https' }
+  config.action_mailer.default_url_options = { host: 'https://instagram-clone-pk.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
