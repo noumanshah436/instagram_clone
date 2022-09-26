@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :accounts, only: %i[index show]
   resources :stories, only: %i[index create destroy]
 
-  post 'account/follow', to: 'accounts#follow'
+  post 'heroku config
+  /follow', to: 'accounts#follow'
   delete 'account/unfollow', to: 'accounts#unfollow'
 
   resources :posts do

@@ -44,5 +44,8 @@ https://instagram-clone-pk.herokuapp.com/posts
 heroku run rails console
 
 *********************
-
+for logs
 heroku logs -t
+
+for vars:
+heroku config
