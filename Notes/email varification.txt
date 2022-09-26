@@ -17,4 +17,16 @@ add lines from guide
 Ruby on Rails #28 Action Mailer: Gmail SMTP - send emails in production for free
 https://www.youtube.com/watch?v=eYhi_rbnOo8
 
-EDITOR=vim rails credentials:edit
+1) EDITOR=vim rails credentials:edit
+
+esc i   to insert
+
+:wq    to save
+
+2) add credentails in this file like:
+google_smtp:
+  email: --- ,
+  password: ----
+
+and access using
+Rails.application.credentials.dig(:google_smtp, :email),
