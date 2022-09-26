@@ -1,0 +1,20 @@
+https://www.youtube.com/watch?v=GXsL2p0YoHg
+
+https://github.com/heartcombo/devise/wiki/How-To:-Add-:confirmable-to-Users
+
+1) add :confirmable in devise model
+2) rails g migration add_confirmable_to_devise
+add lines from guide
+
+3) add
+
+
+
+
+
+******************
+
+Ruby on Rails #28 Action Mailer: Gmail SMTP - send emails in production for free
+https://www.youtube.com/watch?v=eYhi_rbnOo8
+
+EDITOR=vim rails credentials:edit
