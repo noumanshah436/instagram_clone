@@ -13,7 +13,6 @@ class PostsController < ApplicationController
       flash[:alert] = "Add atleast one image"
     else
       @post = current_account.posts.new(post_params)
-      # p params[:images]
       if @post.save
         if params[:images]
           array = params[:images].values # convert hash into array of values

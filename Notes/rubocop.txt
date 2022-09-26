@@ -1,0 +1,4 @@
+gem 'rubocop', require: false
+bundle
+rubocop --auto-gen-config
+rubocop -a
