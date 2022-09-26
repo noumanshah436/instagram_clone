@@ -95,6 +95,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # for devise email verification
+  host = 'https://instagram-clone-pk.herokuapp.com/'
+
   config.action_mailer.default_url_options = { host: 'https://instagram-clone-pk.herokuapp.com/', protocol: 'https' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
