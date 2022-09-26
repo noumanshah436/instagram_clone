@@ -59,7 +59,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  
+
 
   # for devise email verification
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
@@ -71,7 +71,9 @@ Rails.application.configure do
     user_name:            Rails.application.credentials.dig(:google_smtp, :email),
     password:             Rails.application.credentials.dig(:google_smtp, :password),
     authentication:       'plain',
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
+    open_timeout:         5,
+    read_timeout:         5
   }
 
 end
