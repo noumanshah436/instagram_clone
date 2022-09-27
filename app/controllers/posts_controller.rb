@@ -81,20 +81,16 @@ class PostsController < ApplicationController
   def find_post
     @post = Post.find_by(id: params[:id])
 
-    return if @post #  return if post exist
+    return if @post 
 
     flash[:alert] = "Post not exist!"
     redirect_to root_path
   end
 
   def post_params
-    # params.require(:post).permit!
-    # params.require(:post).permit!
     if params.key?(:images)
       params[:images].permit!
     end
     params.require(:post).permit(:content, :active)
-    # params[:images].permit!
-    # params.permit(images: {})
   end
 end
