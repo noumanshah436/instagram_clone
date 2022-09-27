@@ -15,5 +15,12 @@ module ProfileHelper
   def dom_id_for_follower(follower)
     dom_id(follower)
   end
-  
+
+end
+
+module DeviseHelper
+
+  def devise_error_messages!
+     flash[:error] = resource.errors.full_messages.first
+  end
 end
