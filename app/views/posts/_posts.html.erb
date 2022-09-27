@@ -14,7 +14,7 @@
       <% if post.is_belongs_to? current_account %>
         <!-- this will call posts#destroy action on click -->
         <div class="ml-auto">
-          <%= link_to post_path(post), method: :delete , class: "nounderline mx-2" do %>
+          <%= link_to post_path(post), method: :delete, data: { confirm: 'Are you sure?' } , class: "nounderline mx-2" do %>
             <i class="far fa-trash-alt fa-2x text-danger" aria-hidden="true"></i>
           <% end %>
 

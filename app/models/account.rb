@@ -1,7 +1,8 @@
 class Account < ApplicationRecord
-  has_many :posts, dependent: :destroy
-  has_many :likes
-  has_many :comments
+  has_many :posts, dependent: :delete_all
+  has_many :likes , dependent: :delete_all
+  has_many :comments , dependent: :delete_all
+  has_many :stories, dependent: :delete_all
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -13,6 +14,24 @@ class Account < ApplicationRecord
   # profile pic
   mount_uploader :image, PhotoUploader
 
+  ###################
+  # to get prople we are following
+
+  has_many :followed_users,   class_name: "Follow", foreign_key: "follower_id", dependent: :destroy
+  # user.followees    get people that         user is following
+  has_many :followees, through: :followed_users , dependent: :destroy
+
+  ###################
+  # to get people that are follwing us
+  # for the users that are following this user
+
+  has_many :following_users, class_name: "Follow", foreign_key: "followee_id", dependent: :destroy
+  # user.followees    get people that         user is following
+  has_many :followers, through: :following_users , dependent: :destroy
+
+  ###################
+
+  # methods
 
   def self.search(keyword)
     puts "keyword:#{keyword}"
@@ -24,3 +43,5 @@ class Account < ApplicationRecord
   end
 
 end
+
+# 5:00

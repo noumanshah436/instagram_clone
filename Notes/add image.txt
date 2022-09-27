@@ -1,0 +1,29 @@
+
+
+https://www.youtube.com/watch?v=dqjF3C9A-Yg&t=3663s
+1:00:00
+
+****************
+
+rails g controller Stories index show destroy
+
+rails g model story image:string account:references
+rails db:migrate
+
+
+1) add mount_uploader :image, PhotoUploader
+
+2) make form and just save record with the file
+
+Parameters: {"utf8"=>"✓", "authenticity_token"=>"+AUyf0S7PnU+QG4Cr0z1k1uKu8b1xs7QQlDuLARPpMRH3Ga4utFq4RooaVPfIPMPXf/acEPq9AuLvrQBKFal/A==", "story"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x00007ff0844b6938 @tempfile=#<Tempfile:/tmp/RackMultipart20220921-187639-hbz8a4.png>, @original_filename="Screenshot from 2022-09-08 16-37-17.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"story[image]\"; filename=\"Screenshot from 2022-09-08 16-37-17.png\"\r\nContent-Type: image/png\r\n">, "image_cache"=>""}, "commit"=>"Add Story", "account_id"=>"4"}
+******************
+
+
+user = Account.find(4)
+
+user.stories
+
+story = user.stories[0]
+story.image
+
+user.stories[0].account

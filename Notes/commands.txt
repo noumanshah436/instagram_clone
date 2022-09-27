@@ -50,3 +50,10 @@ c.save!
 ***********************
 
 Account.search('Far')
+
+
+
+******************
+
+delete story after 24 hours:
+https://stackoverflow.com/questions/55911166/ruby-on-rails-background-application-to-run-jobs-automaically-at-a-time-dynamica

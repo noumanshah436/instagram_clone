@@ -60,7 +60,7 @@
 
     <%= image_tag photo.image.url(:standard), style: 'height:100px;width:100px;',  class: " " %>
 
-    <%= link_to photo_path(photo) , method: :delete , remote: true, class: "close nounderline mx-2" do %>
+    <%= link_to photo_path(photo) , method: :delete ,data: { confirm: 'Are you sure?' }, remote: true, class: "close nounderline mx-2" do %>
         <span aria-hidden="true">&times;</span>
     <% end %>
 
