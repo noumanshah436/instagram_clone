@@ -1,5 +1,4 @@
 class ProfileController < ApplicationController
-
   before_action :authenticate_account!
   before_action :set_account, only: %i[follow unfollow show]
 
@@ -20,8 +19,7 @@ class ProfileController < ApplicationController
   end
 
   # profile page
-  def show
-  end
+  def show; end
 
   def index
     keyword = params[:keyword]
@@ -32,8 +30,6 @@ class ProfileController < ApplicationController
   end
 
   private
-
-
 
   def set_account
     @account = Account.find_by(id: params[:id])
@@ -46,7 +42,4 @@ class ProfileController < ApplicationController
   def account_params
     params.permit(:id)
   end
-
-
-
 end

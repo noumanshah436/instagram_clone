@@ -1,5 +1,4 @@
 module ProfileHelper
-
   # check if the given account is followed by current account
   def following?(account)
     current_account&.followees&.include?(account)
@@ -15,7 +14,4 @@ module ProfileHelper
   def dom_id_for_follower(follower)
     dom_id(follower)
   end
-
 end
-
- 

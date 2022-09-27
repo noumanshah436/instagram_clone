@@ -14,7 +14,6 @@ class Account < ApplicationRecord
   # profile pic
   mount_uploader :image, PhotoUploader
 
-
   # to get prople we are following
   has_many :followed_users, class_name: "Follow", foreign_key: "follower_id", dependent: :destroy
   # user.followees    get people that         user is following

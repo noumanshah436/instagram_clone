@@ -21,6 +21,7 @@ Bundler/OrderedGems:
 Layout/EmptyLinesAroundAccessModifier:
   Exclude:
     - 'app/controllers/comments_controller.rb'
+    - 'db/schema.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
@@ -29,6 +30,8 @@ Layout/EmptyLinesAroundAccessModifier:
 Layout/EmptyLinesAroundBlockBody:
   Exclude:
     - 'db/schema.rb'
+    - 'db/schema.rb'
+
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
@@ -114,6 +117,7 @@ Style/MixinUsage:
   Exclude:
     - 'bin/setup'
     - 'bin/update'
+    - 'db/schema.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
