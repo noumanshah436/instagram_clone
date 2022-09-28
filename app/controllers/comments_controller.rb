@@ -19,6 +19,7 @@ class CommentsController < ApplicationController
   end
 
   def update
+    authorize @comment
     if @comment.update(comment_params)
       @post = @comment.post
       respond_to do |format|
@@ -30,6 +31,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    authorize @comment
     @post = @comment.post
     if @comment.destroy
       respond_to do |format|

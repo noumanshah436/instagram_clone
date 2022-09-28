@@ -30,6 +30,9 @@ record is the object we passed with authorize
 
 ***************
 
+def pundit_user
+  current_account
+end
 
 def destroy
   authorize @post  # we can access this passed object using record

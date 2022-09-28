@@ -1,6 +1,6 @@
 class FollowsController < ApplicationController
+  before_action :authenticate_account!
   before_action :set_account, only: %i[create destroy]
-
 
   def create
     if current_account.follow(@account)

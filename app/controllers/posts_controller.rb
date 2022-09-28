@@ -52,9 +52,6 @@ class PostsController < ApplicationController
 
   private
 
-  def pundit_user
-    current_account
-  end
 
   def check_images
     unless params.key?(:images)
@@ -71,7 +68,6 @@ class PostsController < ApplicationController
       end
     end
   end
-
 
   def find_post
     @post = Post.find_by(id: params[:id])
