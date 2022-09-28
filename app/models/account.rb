@@ -1,8 +1,8 @@
 class Account < ApplicationRecord
   has_many :posts, dependent: :destroy
-  has_many :likes, dependent: :delete_all
-  has_many :comments, dependent: :delete_all
-  has_many :stories, dependent: :delete_all
+  has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :stories, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # , :lockable, :timeoutable, :trackable and :omniauthable

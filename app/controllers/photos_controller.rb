@@ -1,12 +1,8 @@
 class PhotosController < ApplicationController
 
-
+  before_action :find_photo, only: %i[destroy]
 
   def destroy
-    puts "photos controller: destroy"
-    @image = Photo.find_by(id: params[:id])
-    # public_id = image_public_id(@image[:image])
-    # Cloudinary::Uploader.destroy(public_id)   # delete from cloudinary
     if @image.delete
       flash[:notice] = "Image deleted!"
     else
@@ -15,7 +11,6 @@ class PhotosController < ApplicationController
     respond_to do |format|
       format.js
     end
-    # puts "photo deleted"
   end
 
   def image_public_id(str)
@@ -23,5 +18,15 @@ class PhotosController < ApplicationController
     filename = my_array[my_array.length - 1]
     index = (filename.length - 5)
     filename[0..index]
+  end
+
+  private
+
+  def find_photo
+    @image = Photo.find_by(id: params[:id])
+    return if @image
+
+    flash[:alert] = "Image not exist!"
+
   end
 end
