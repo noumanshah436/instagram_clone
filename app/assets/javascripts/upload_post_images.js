@@ -30,6 +30,9 @@ $(document).ready(function(){
           myDropzone.processQueue();
           console.log("process queued")
         }
+        // else{
+        //   alert("add image")
+        // }
       });
 
       this.on("successmultiple", function(files, response){

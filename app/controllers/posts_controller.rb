@@ -13,12 +13,7 @@ class PostsController < ApplicationController
   def create
     @post = current_account.posts.new(post_params)
     if @post.save
-      if params[:images]
-        array = params[:images].values # convert hash into array of values
-        array.each do |img|
-          @post.photos.create(image: img) # save each image
-        end
-      end
+      save_images
       flash[:notice] = "Post Created"
     else
       flash[:alert] = "Something went wrong ..."
@@ -40,28 +35,16 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      if params[:images]
-        array = params[:images].values # convert hash into array of values
-        array.each do |img|
-          @post.photos.create(image: img) # save each image
-        end
-      end
-      redirect_to posts_path
+      save_images
       flash[:notice] = "Post Updated"
     else
       flash[:alert] = "Something went wrong ..."
-      redirect_to post_path(@post)
     end
+    redirect_to post_path(@post)
   end
 
   def destroy
     if @post.account == current_account
-      # remove also from cloudinary
-      @post.photos.each do |photo|
-        puts "delete photo #{photo.id}"
-        DeleteImageJob.perform_later(photo[:image])
-      end
-
       if @post.destroy
         flash[:notice] = "Post deleted!"
       else
@@ -76,11 +59,21 @@ class PostsController < ApplicationController
   private
 
   def check_images
-    if !params.key?(:images)
+    unless params.key?(:images)
       flash[:alert] = "Add atleast one image"
       redirect_to posts_path
     end
   end
+
+  def save_images
+    if params[:images]
+      array = params[:images].values
+      array.each do |img|
+        @post.photos.create(image: img)
+      end
+    end
+  end
+
 
   def find_post
     @post = Post.find_by(id: params[:id])
