@@ -1,8 +1,11 @@
 class Story < ApplicationRecord
   belongs_to :account
 
-  # story pic
   mount_uploader :image, PhotoUploader
 
   validates :image, presence: true
+
+  def self.all_stories
+    self.all.includes(:account).order("id desc")
+  end
 end

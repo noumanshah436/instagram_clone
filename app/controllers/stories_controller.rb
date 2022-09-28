@@ -3,7 +3,7 @@ class StoriesController < ApplicationController
   before_action :find_story, only: [:destroy]
 
   def index
-    @stories = Story.all.includes(:account).order("id desc")
+    @stories = Story.all_stories
     @story = Story.new
   end
 
@@ -19,14 +19,11 @@ class StoriesController < ApplicationController
   end
 
   def destroy
-    if @story.account == current_account
-      if @story.destroy
-        flash[:notice] = "Story deleted!"
-      else
-        flash[:alert] = "Something went wrong ..."
-      end
+    authorize @story
+    if @story.destroy
+      flash[:notice] = "Story deleted!"
     else
-      flash[:alert] = "You don't have permission to do that!"
+      flash[:alert] = "Something went wrong ..."
     end
     redirect_to stories_path
   end
@@ -34,11 +31,9 @@ class StoriesController < ApplicationController
   private
 
 
-  def find_story 
+  def find_story
     @story = Story.find_by(story_destroy_params)
-
     return if @story
-
     flash[:alert] = "Story not exist!"
     redirect_to stories_path
   end
