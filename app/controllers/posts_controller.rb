@@ -26,13 +26,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    unless @post.belongs_to? current_account
-      redirect_to posts_path
-      flash[:notice] = "You are not authorized to do this action!"
-    end
+    authorize @post
   end
 
   def update
+    authorize @post
     if @post.update(post_params)
       save_images
       flash[:notice] = "Post Updated"
@@ -43,19 +41,20 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    if @post.account == current_account
-      if @post.destroy
-        flash[:notice] = "Post deleted!"
-      else
-        flash[:alert] = "Something went wrong ..."
-      end
+    authorize @post  # we can access this passed object using record
+    if @post.destroy
+      flash[:notice] = "Post deleted!"
     else
-      flash[:alert] = "You don't have permission to do that!"
+      flash[:alert] = "Something went wrong ..."
     end
     redirect_to posts_path
   end
 
   private
+
+  def pundit_user
+    current_account
+  end
 
   def check_images
     unless params.key?(:images)

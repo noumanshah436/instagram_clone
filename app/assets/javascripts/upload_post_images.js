@@ -1,4 +1,4 @@
-// Tell Dropzone not to automatically upload the file
+
 Dropzone.autoDiscover = false;
 
 $(document).ready(function(){
@@ -30,9 +30,10 @@ $(document).ready(function(){
           myDropzone.processQueue();
           console.log("process queued")
         }
-        // else{
-        //   alert("add image")
-        // }
+        else{
+          e.preventDefault();
+          alert("No Image Found")
+        }
       });
 
       this.on("successmultiple", function(files, response){
@@ -49,9 +50,3 @@ $(document).ready(function(){
 });
 
 
-
-// https://docs.dropzone.dev/
-// https://docs.dropzone.dev/getting-started/setup/fallback-for-no-javascript
-// https://docs.dropzone.dev/configuration/events
-// submit button not working with dropzone
-// https://stackoverflow.com/questions/46728205/dropzone-submit-button-on-upload
