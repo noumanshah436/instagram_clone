@@ -1,7 +1,7 @@
 class StoriesController < ApplicationController
   before_action :authenticate_account!
   before_action :find_story, only: [:destroy]
-  
+
   def index
     @stories = Story.all.includes(:account).order("id desc")
     @story = Story.new
@@ -34,9 +34,8 @@ class StoriesController < ApplicationController
   private
 
 
-  def find_story
-    id = story_destroy_params[:id]
-    @story = Story.find_by(id: id)
+  def find_story 
+    @story = Story.find_by(story_destroy_params)
 
     return if @story
 

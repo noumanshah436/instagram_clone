@@ -14,6 +14,7 @@ Fix image association with posts
 Refactor the logic of image deletion.
 
 Remove Photos Controller
+
 Use before action callback to find any record in controllers
 Use dependent destroy
 Db level validations are missing
