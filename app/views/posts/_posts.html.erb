@@ -1,10 +1,8 @@
 <% @posts.each do |post| %>
 
-  <!-- check if current accout is followed by post_account -->
   <% if  post.active? || followed_by?(post.account) %>
     <div class="card mt-3 post ">
 
-      <!-- header -->
       <div class="card-header d-flex align-items-center">
         <%= link_to profile_path(post.account), class: "mr-3 no-text-decoration" do %>
           <%= image_tag post.account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
@@ -15,7 +13,6 @@
         <% end %>
 
         <% if post.belongs_to? current_account %>
-          <!-- this will call posts#destroy action on click -->
           <div class="ml-auto">
             <%= link_to post_path(post), method: :delete, data: { confirm: 'Are you sure?' } , class: "nounderline mx-2" do %>
               <i class="fa-sharp fa-solid fa-trash fa-2x text-danger" aria-hidden="true"></i>
@@ -29,19 +26,14 @@
 
       </div>
 
-      <!-- photos -->
-      <%= render "photos", {post: post} %>
-      <!-- photos_end -->
+       <%= render "photos", {post: post} %>
 
-      <!-- footer -->
-      <div class="card-body h5">
-        <!-- like icon -->
-          <div id="like-icon-post-<%= post.id.to_s %>">
+       <div class="card-body h5">
+           <div id="like-icon-post-<%= post.id.to_s %>">
             <%= render "like_icon", {liked: post.liked(current_account), post: post} %>
           </div>
 
-        <!-- show count of likes icon -->
-        <div id="like-text-post-<%= post.id.to_s %>">
+         <div id="like-text-post-<%= post.id.to_s %>">
           <%= render "like_text", {likes: post.likes} %>
         </div>
         <br>

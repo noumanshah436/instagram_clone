@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-sm-12 col-md-8 post-card">
 
-    <!-- image upload box -->
+
     <div class="card">
       <div class="card-header">
         Edit Post
@@ -20,10 +20,10 @@
           </div>
         </div>
 
-        <!-- Edit Form -->
+
         <%= form_for @post, :html => {:multipart => true, :class => "dropzone upload-images p-0 border-0"} do |f| %>
 
-          <!-- <p>errors</p> -->
+
           <% if @post.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -58,12 +58,12 @@
 
           <%= f.submit "Update Post", class: "btn btn-primary" %>
         <% end %>
-        <!-- Edit Form  end -->
+
       </div>
     </div>
     <br>
 
-    <!-- show each image of this post to delete if user want to -->
+     
     <% @post.photos.each do |photo| %>
       <div id="photo-<%= photo.id %>" class="alert alert-warning alert-dismissible fade show" >
 

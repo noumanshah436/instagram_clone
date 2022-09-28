@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     resources :comments, only: %i[index create destroy update], shallow: true
   end
 
-  # to make devise sign in as root path
   devise_scope :account do
     root to: "devise/sessions#new"
   end

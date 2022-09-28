@@ -17,9 +17,12 @@ class Post < ApplicationRecord
     self.active
   end
 
-  def self.posts
+  def self.all_posts
     Post.all.includes(:photos, :account, :likes).order("id desc")
   end
 
+  def parent_comments
+    self.comments.where(parent_id: nil)
+  end
 
 end

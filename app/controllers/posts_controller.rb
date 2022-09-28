@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :check_images, only: %i[create]
 
   def index
-    @posts = Post.posts
+    @posts = Post.all_posts
     @post = Post.new
     @follow_requests = current_account.all_follow_requests
   end
@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    unless @post.belongs_to? current_account  
+    unless @post.belongs_to? current_account
       redirect_to posts_path
       flash[:notice] = "You are not authorized to do this action!"
     end

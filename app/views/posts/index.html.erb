@@ -57,21 +57,16 @@
           </div>
 
         </div>
-        <!-- post form -->
         <%= form_for @post, html: {multipart: true, class: "dropzone upload-images p-0 border-0"} do |f| %>
 
-          <!-- <p>errors</p> -->
           <% @post.errors.full_messages_for(:content).each do |message| %>
             <div><%= message %></div>
           <% end %>
 
-
-          <!-- content field -->
           <div class="pl-0 mb-3">
             <%= f.text_area :content, class: "form-control form-group-lg",   placeholder: "say something ..." %>
           </div>
 
-          <!-- dropzone image upload box -->
           <div class="fallback">
             <%= f.file_field "images[]", type: :file, multiple: true %>
           </div>
@@ -87,38 +82,14 @@
             <%= f.label :active, "active" %>
           </div>
 
-
-          <!-- submit button -->
           <%= f.submit "Post", class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
-
-    <!-- display all post start -->
     <%= render 'posts' %>
 
   </div>
 
 
 </div>
-
-<!--
-<%= form_for @post, :html => {:multipart => true } do |f| %>
- <%= f.label :content, class: "control-label" %>
- <%= f.text_field :content, class: "text_field" %>
-
- <%= file_field_tag "images[]", type: :file, multiple: true  %>
-
-  <%= f.submit "Create Post", class: "btn btn-primary" %>
-<% end %> -->
-
-
-<!--
-
-<% @posts.each do |post|%>
-<p><% post.content %></p>
-<% post.photos.each do |photo|%>
-<%= image_tag photo.image.url(:standard)%>
-<% end %>
-<% end %> -->
-
+ 
