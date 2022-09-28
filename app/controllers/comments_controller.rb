@@ -19,7 +19,6 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-
     if @comment.update(comment_params)
       @post = @comment.post
       respond_to do |format|
@@ -43,6 +42,8 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  
   def comment_params
     params.required(:comment).permit :account_id, :post_id, :content, :parent_id
   end
