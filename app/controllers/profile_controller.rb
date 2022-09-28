@@ -1,28 +1,7 @@
 class ProfileController < ApplicationController
   before_action :authenticate_account!
-  before_action :set_account, only: %i[follow unfollow show]
+  before_action :set_account, only: %i[show]
 
-  def follow
-    if current_account.follow(@account)
-      respond_to do |format|
-        format.js
-      end
-    else
-      flash[:alert] = "Something went wrong ..."
-    end
-  end
-
-  def unfollow
-    if current_account.unfollow(@account)
-      respond_to do |format|
-        format.js
-      end
-    else
-      flash[:alert] = "Something went wrong ..."
-    end
-  end
-
-  # profile page
   def show; end
 
   def index

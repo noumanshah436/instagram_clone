@@ -18,11 +18,13 @@ Remove Photos Controller
 Use before action callback to find any record in controllers
 Use dependent destroy
 
-
 Db level validations are missing
+
 Seed file is empty
 Readme file is empty
+
 Fix follow, unfollow routes
+
 Don't use old ruby syntax in views
 Move queries from views to views helper
 Public/Private account logic is not implemented

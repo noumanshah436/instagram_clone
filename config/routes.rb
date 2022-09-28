@@ -4,12 +4,9 @@ Rails.application.routes.draw do
 
   devise_for :accounts
 
-  # resources :accounts, only: %i[index show]
   resources :profile, only: %i[index show]
   resources :stories, only: %i[index create destroy]
-
-  post 'account/follow', to: 'profile#follow'
-  delete 'account/unfollow', to: 'profile#unfollow'
+  resources :follows, only: %i[create destroy]
 
   resources :posts do
     resources :photos, only: %i[create destroy], shallow: true
