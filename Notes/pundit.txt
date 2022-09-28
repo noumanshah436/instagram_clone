@@ -51,8 +51,7 @@ end
 
 ***************
 
+rails g pundit:policy post
 rails g pundit:policy comment
-rails g pundit:policy account
-rails g pundit:policy account
 rails g pundit:policy account
 rails g pundit:policy story

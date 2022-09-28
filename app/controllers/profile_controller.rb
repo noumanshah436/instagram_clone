@@ -2,7 +2,9 @@ class ProfileController < ApplicationController
   before_action :authenticate_account!
   before_action :set_account, only: %i[show]
 
-  def show; end
+  def show
+    authorize @account
+  end
 
   def index
     keyword = params[:keyword]

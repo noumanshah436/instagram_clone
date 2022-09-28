@@ -37,6 +37,11 @@ class Account < ApplicationRecord
     self.followed_users.where(follower_id: self.id, followee_id: account.id).first.delete
   end
 
+  def is_active?
+    self.active
+  end
+
+
   def my_posts
     self.posts
   end
