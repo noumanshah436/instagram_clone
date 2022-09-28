@@ -65,3 +65,5 @@ git checkout -b post_module_update
 git checkout -b handle_follow_requests
 
  git checkout -b add_validations
+
+ git checkout -b improve_code_quality

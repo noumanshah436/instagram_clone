@@ -2,6 +2,8 @@ class PostsController < ApplicationController
   before_action :authenticate_account!
   before_action :find_post, only: %i[show destroy edit update]
 
+  before_action :check_images, only: %i[create]
+
   def index
     @posts = Post.posts
     @post = Post.new
@@ -9,21 +11,17 @@ class PostsController < ApplicationController
   end
 
   def create
-    if !params.key?(:images)
-      flash[:alert] = "Add atleast one image"
-    else
-      @post = current_account.posts.new(post_params)
-      if @post.save
-        if params[:images]
-          array = params[:images].values # convert hash into array of values
-          array.each do |img|
-            @post.photos.create(image: img) # save each image
-          end
+    @post = current_account.posts.new(post_params)
+    if @post.save
+      if params[:images]
+        array = params[:images].values # convert hash into array of values
+        array.each do |img|
+          @post.photos.create(image: img) # save each image
         end
-        flash[:notice] = "Post Created"
-      else
-        flash[:alert] = "Something went wrong ..."
       end
+      flash[:notice] = "Post Created"
+    else
+      flash[:alert] = "Something went wrong ..."
     end
     redirect_to posts_path
   end
@@ -76,6 +74,13 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def check_images
+    if !params.key?(:images)
+      flash[:alert] = "Add atleast one image"
+      redirect_to posts_path
+    end
+  end
 
   def find_post
     @post = Post.find_by(id: params[:id])

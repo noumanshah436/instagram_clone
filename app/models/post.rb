@@ -4,7 +4,8 @@ class Post < ApplicationRecord
   has_many :likes, -> { order(id: :desc) }, dependent: :delete_all  # we use id instead of created_at bec id has index table which make it fast
   has_many :comments, -> { order(id: :desc) }, dependent: :delete_all
 
-  validates :content, presence: true, length: { maximum: 100 }
+  # before_save :check_images
+  # validates :content, presence: true, length: { maximum: 100 }
 
   def belongs_to?(account)
     Post.find_by(account_id: account.id, id: id)
@@ -21,5 +22,9 @@ class Post < ApplicationRecord
   def self.posts
     Post.all.includes(:photos, :account, :likes).order("id desc")
   end
+
+  # def check_images
+
+  # end
 
 end
