@@ -3,16 +3,17 @@ class ProfileController < ApplicationController
   before_action :set_account, only: %i[follow unfollow show]
 
   def follow
-    id = account_params[:id]
-    Follow.create(follower_id: current_account.id, followee_id: id)
-    respond_to do |format|
-      format.js
+    if current_account.follow(@account)
+      respond_to do |format|
+        format.js
+      end
+    else
+      flash[:alert] = "Something went wrong ..."
     end
   end
 
   def unfollow
-    id = account_params[:id]
-    current_account.followed_users.where(follower_id: current_account.id, followee_id: id).destroy_all
+    current_account.unfollow(@account)
     respond_to do |format|
       format.js
     end
@@ -32,7 +33,7 @@ class ProfileController < ApplicationController
   private
 
   def set_account
-    @account = Account.find_by(id: params[:id])
+    @account = Account.find_by(account_params)
     return if @account
 
     flash[:alert] = "Account not exist!"

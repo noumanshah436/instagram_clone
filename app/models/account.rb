@@ -33,6 +33,18 @@ class Account < ApplicationRecord
   def all_follow_requests
     followers.where.not(id: followees.ids)
   end
+
+  def follow(account)
+    self.followees << account
+  end
+
+  def unfollow(account)
+    self.followed_users.where(follower_id: self.id, followee_id: account.id).first.delete
+  end
+
+
+
+
 end
 
 # 5:00
