@@ -1,16 +1,11 @@
 $(document).ready(function(){
   $("#users-search #keyword").on("keyup", function(){
-
     var ajax_result = $.get(
-
       $("#users-search").attr("action"),              // url where to get data
-
       {keyword: $("#users-search #keyword").val()},   //  pas data to get request
 
       function(){                                     // on success
         var result = $("#users-result").html();
-        // console.log('result')
-        // console.log(result)
 
         if(!result){
 
@@ -21,8 +16,6 @@ $(document).ready(function(){
           });
 
         } else {
-          // console.log("Hey");
-          // console.log($("#users-result"));
           $("#users-search #keyword").popover({
             content: $("#users-result"),
             placement: "bottom",
@@ -32,8 +25,6 @@ $(document).ready(function(){
         $("#users-search #keyword").popover("show");
       }
     )
-
-
   })
 });
 

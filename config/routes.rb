@@ -8,9 +8,6 @@ Rails.application.routes.draw do
   resources :profile, only: %i[index show]
   resources :stories, only: %i[index create destroy]
 
-  # post 'account/follow', to: 'accounts#follow'
-  # delete 'account/unfollow', to: 'accounts#unfollow'
-
   post 'account/follow', to: 'profile#follow'
   delete 'account/unfollow', to: 'profile#unfollow'
 

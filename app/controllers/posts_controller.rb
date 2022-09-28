@@ -47,7 +47,6 @@ class PostsController < ApplicationController
         array.each do |img|
           @post.photos.create(image: img) # save each image
         end
-        puts "Image Added"
       end
       redirect_to posts_path
       flash[:notice] = "Post Updated"

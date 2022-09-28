@@ -26,9 +26,6 @@ $(document).ready(function() {
     $("#alert").slideUp(500);
   });
 
-
-
-
   document.querySelectorAll('.show-form').forEach( (el) => {
     el.addEventListener('click', (ev) => {
         ev.preventDefault();
