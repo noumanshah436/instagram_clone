@@ -25,7 +25,7 @@ class PhotosController < ApplicationController
   def find_photo
     @image = Photo.find_by(id: params[:id])
     return if @image
-
+    
     flash[:alert] = "Image not exist!"
 
   end

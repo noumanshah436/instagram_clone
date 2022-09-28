@@ -13,9 +13,12 @@ class ProfileController < ApplicationController
   end
 
   def unfollow
-    current_account.unfollow(@account)
-    respond_to do |format|
-      format.js
+    if current_account.unfollow(@account)
+      respond_to do |format|
+        format.js
+      end
+    else
+      flash[:alert] = "Something went wrong ..."
     end
   end
 
