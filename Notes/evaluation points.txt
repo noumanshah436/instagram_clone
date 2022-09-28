@@ -6,10 +6,13 @@ Error handling is missing (Profile Controller)
 Move queries from controller to model scope (Profile Controller)
 Move find image logic in before action (Posts Controller, Stories Controller)
 Move attached images saving to model in after save callback
+
 Remove print/puts statements
 Authorization is missing
+
 Fix image association with posts
 Refactor the logic of image deletion.
+
 Remove Photos Controller
 Use before action callback to find any record in controllers
 Use dependent destroy

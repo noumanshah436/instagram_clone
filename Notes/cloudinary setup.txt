@@ -70,3 +70,16 @@ Note: u.avatar will never return nil, even if there is no photo associated to it
 # created_at: "2022-09-19 12:35:27", updated_at: "2022-09-19 12:35:27">
 
 #  https://support.cloudinary.com/hc/en-us/community/posts/200788242-Problem-Deleting-Image-From-Rails-Heroku-App
+
+****************************
+
+public_id = image_public_id(story[:image]) # destroy story image from cloudinary
+Cloudinary::Uploader.destroy(public_id)
+
+
+def image_public_id(str)
+  my_array = str.split('/')
+  filename = my_array[my_array.length - 1]
+  index = (filename.length - 5)
+  filename[0..index]
+end
