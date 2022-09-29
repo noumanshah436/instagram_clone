@@ -21,8 +21,7 @@
         </div>
 
 
-        <%= form_for @post, :html => {:multipart => true, :class => "dropzone upload-images p-0 border-0"} do |f| %>
-
+        <%= form_for @post, html: { class: "dropzone upload-images p-0 border-0"} do |f| %>
 
           <% if @post.errors.any? %>
           <div id="error_explanation">

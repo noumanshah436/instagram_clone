@@ -36,6 +36,7 @@ $(document).ready(function(){
         }
       });
 
+    
       this.on("successmultiple", function(files, response){
         console.log("dropzone successmultiple")
         window.location.reload();
