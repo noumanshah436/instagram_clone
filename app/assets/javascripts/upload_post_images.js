@@ -20,10 +20,7 @@ $(document).ready(function(){
 
     init: function(){
       var myDropzone = this;
-
-      // add event on submit button
       this.element.querySelector("input[type=submit]").addEventListener("click", function(e){
-
         if (myDropzone.getQueuedFiles().length != 0 ){
           e.preventDefault();
           e.stopPropagation();
@@ -31,12 +28,14 @@ $(document).ready(function(){
           console.log("process queued")
         }
         else{
+          if (e.target.id == 'create_post') {
           e.preventDefault();
           alert("No Image Found")
+          }
         }
       });
 
-    
+
       this.on("successmultiple", function(files, response){
         console.log("dropzone successmultiple")
         window.location.reload();
