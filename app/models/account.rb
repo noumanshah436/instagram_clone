@@ -49,6 +49,11 @@ class Account < ApplicationRecord
 
 
   def my_posts
-    self.posts 
+    self.posts
+  end
+
+  def is_friend(current_account)
+    return true if self == current_account
+    self&.followees&.include?(current_account) && current_account&.followees&.include?(self)
   end
 end

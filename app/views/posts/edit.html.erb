@@ -52,7 +52,7 @@
 
           <div>
             <%= f.check_box :active %>
-            <%= f.label :active, "active" %>
+            <%= f.label :active, "public" %>
           </div>
 
 
@@ -63,7 +63,7 @@
     </div>
     <br>
 
-     
+
     <% @post.photos.each do |photo| %>
       <div id="photo-<%= photo.id %>" class="alert alert-warning alert-dismissible fade show" >
 

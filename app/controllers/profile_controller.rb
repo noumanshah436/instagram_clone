@@ -4,6 +4,7 @@ class ProfileController < ApplicationController
 
   def show
     @posts = @account.my_posts
+    @is_friend = @account.is_friend(current_account)
   end
 
   def index

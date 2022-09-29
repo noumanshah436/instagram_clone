@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :check_images, only: %i[create]
 
   def index
-    @posts = Post.public_posts
+    @posts = Post.all_posts
     @post = Post.new
     @follow_requests = current_account.all_follow_requests
   end

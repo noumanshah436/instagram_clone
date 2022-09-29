@@ -19,8 +19,8 @@ class Post < ApplicationRecord
     self.active
   end
 
-  def self.public_posts
-    Post.where('active=true')
+  def self.all_posts
+    Post.all
   end
 
 
