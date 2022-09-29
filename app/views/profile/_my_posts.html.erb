@@ -1,60 +1,57 @@
 <% @posts.each do |post| %>
+  <div class="card mt-3 post ">
 
-  <% if  show(post) %>
-    <div class="card mt-3 post ">
+    <div class="card-header d-flex align-items-center">
+      <%= link_to profile_path(post.account), class: "mr-3 no-text-decoration" do %>
+        <%= image_tag post.account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
+      <% end %>
 
-      <div class="card-header d-flex align-items-center">
-        <%= link_to profile_path(post.account), class: "mr-3 no-text-decoration" do %>
-          <%= image_tag post.account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
-        <% end %>
+      <%= link_to profile_path(post.account), class: "lead ", title: post.account.name do %>
+        <strong><%= post.account.name %></strong>
+      <% end %>
 
-        <%= link_to profile_path(post.account), class: "lead ", title: post.account.name do %>
-          <strong><%= post.account.name %></strong>
-        <% end %>
+      <% if post.belongs_to? current_account %>
+        <div class="ml-auto">
+          <%= link_to post_path(post), method: :delete, data: { confirm: 'Are you sure?' } , class: "nounderline mx-2" do %>
+            <i class="fa-sharp fa-solid fa-trash fa-2x text-danger" aria-hidden="true"></i>
+          <% end %>
 
-        <% if post.belongs_to? current_account %>
-          <div class="ml-auto">
-            <%= link_to post_path(post), method: :delete, data: { confirm: 'Are you sure?' } , class: "nounderline mx-2" do %>
-              <i class="fa-sharp fa-solid fa-trash fa-2x text-danger" aria-hidden="true"></i>
-            <% end %>
-
-            <%= link_to edit_post_path(post) , class: " nounderline " do %>
-              <i class="fa-sharp fa-solid fa-pen-to-square fa-2x text-danger" aria-hidden="true"></i>
-            <% end %>
-          </div>
-        <% end %>
-
-      </div>
-
-       <%= render "posts/photos", {post: post} %>
-
-       <div class="card-body h5">
-           <div id="like-icon-post-<%= post.id.to_s %>">
-            <%= render "posts/like_icon", {liked: post.liked(current_account), post: post} %>
-          </div>
-
-         <div id="like-text-post-<%= post.id.to_s %>">
-          <%= render "posts/like_text", {likes: post.likes} %>
+          <%= link_to edit_post_path(post) , class: " nounderline " do %>
+            <i class="fa-sharp fa-solid fa-pen-to-square fa-2x text-danger" aria-hidden="true"></i>
+          <% end %>
         </div>
-        <br>
-
-        <div>
-          <span><strong><%= post.account.name %>:</strong></span>
-          <span><%= post.content %></span>
-        </div>
-
-        <hr>
-
-        <%= link_to time_ago_in_words(post.created_at)  + " ago", post_path(post),  class: " " %>
-        <br>
-        <br>
-        <%= link_to post.comments.count.to_s+ " comments"  , post_path(post),  class: " " %>
-
-
-      </div>
+      <% end %>
 
     </div>
-  <% end %>
+
+      <%= render "posts/photos", {post: post} %>
+
+      <div class="card-body h5">
+          <div id="like-icon-post-<%= post.id.to_s %>">
+          <%= render "posts/like_icon", {liked: post.liked(current_account), post: post} %>
+        </div>
+
+        <div id="like-text-post-<%= post.id.to_s %>">
+        <%= render "posts/like_text", {likes: post.likes} %>
+      </div>
+      <br>
+
+      <div>
+        <span><strong><%= post.account.name %>:</strong></span>
+        <span><%= post.content %></span>
+      </div>
+
+      <hr>
+
+      <%= link_to time_ago_in_words(post.created_at)  + " ago", post_path(post),  class: " " %>
+      <br>
+      <br>
+      <%= link_to post.comments.count.to_s+ " comments"  , post_path(post),  class: " " %>
+
+
+    </div>
+
+  </div>
 <% end %>
 
 <br class="my-5">
