@@ -29,8 +29,8 @@
         </div>
       <% end %>
     </div>
-    <% if @account.is_active?  || is_friend?(@account) %>
-      <%= render 'posts/posts' %>
+    <% if @account.active?  || is_friend?(@account) %>
+      <%= render 'my_posts' %>
     <% end %>
 
   </div>

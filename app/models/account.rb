@@ -43,12 +43,12 @@ class Account < ApplicationRecord
     return result
   end
 
-  def is_active?
+  def active?
     self.active
   end
 
 
   def my_posts
-    self.posts
+    self.posts 
   end
 end

@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  default_scope {  order(id: :desc)  }
+  default_scope { includes(:photos, :account, :likes).order(id: :desc)  }
 
   belongs_to :account
   has_many :photos, -> { order(id: :desc) }, dependent: :delete_all
@@ -19,9 +19,10 @@ class Post < ApplicationRecord
     self.active
   end
 
-  def self.all_posts
-    Post.all.includes(:photos, :account, :likes)
+  def self.public_posts
+    Post.where('active=true')
   end
+
 
   def parent_comments
     self.comments.where(parent_id: nil)

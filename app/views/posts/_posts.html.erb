@@ -1,8 +1,6 @@
 <% @posts.each do |post| %>
-
-  <% if  post.active? || is_friend?(post.account) %>
+  <% if post.account.active? %>
     <div class="card mt-3 post ">
-
       <div class="card-header d-flex align-items-center">
         <%= link_to profile_path(post.account), class: "mr-3 no-text-decoration" do %>
           <%= image_tag post.account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
@@ -55,6 +53,7 @@
 
     </div>
   <% end %>
+
 <% end %>
 
 <br class="my-5">
