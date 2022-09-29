@@ -1,16 +1,13 @@
 <% @posts.each do |post| %>
- <% if @is_friend || post.active? %>
 
     <div class="card mt-3 post ">
 
       <div class="card-header d-flex align-items-center">
-        <%= link_to profile_path(post.account), class: "mr-3 no-text-decoration" do %>
-          <%= image_tag post.account.image.url(:thumbnail),  class: "profile_pic rounded-circle"%>
-        <% end %>
 
-        <%= link_to profile_path(post.account), class: "lead ", title: post.account.name do %>
-          <strong><%= post.account.name %></strong>
-        <% end %>
+        <%= image_tag post.account.image.url(:thumbnail),  class: "mr-3 profile_pic rounded-circle"%>
+
+        <strong class="lead"><%= post.account.name %></strong>
+
 
         <% if post.belongs_to? current_account %>
           <div class="ml-auto">
@@ -56,7 +53,6 @@
     </div>
 
 
-  <% end %>
 <% end %>
 
 <br class="my-5">

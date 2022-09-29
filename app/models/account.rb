@@ -47,9 +47,12 @@ class Account < ApplicationRecord
     self.active
   end
 
-
-  def my_posts
-    self.posts
+  def my_posts(is_friend)
+    if is_friend
+      self.posts
+    else
+      self.posts.where('active=true')
+    end
   end
 
   def is_friend(current_account)
