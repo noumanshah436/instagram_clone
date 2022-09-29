@@ -1,6 +1,6 @@
 <% @posts.each do |post| %>
 
-  <% if  post.active? || followed_by?(post.account) %>
+  <% if  post.active? || is_friend?(post.account) %>
     <div class="card mt-3 post ">
 
       <div class="card-header d-flex align-items-center">

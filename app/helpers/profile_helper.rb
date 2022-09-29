@@ -4,14 +4,9 @@ module ProfileHelper
     current_account&.followees&.include?(account)
   end
 
-  # check if current_account is follwed by given account
-  def followed_by?(account)
+  def is_friend?(account)
     return true if account == current_account
-
-    account&.followees&.include?(current_account)
+    account&.followees&.include?(current_account) && current_account&.followees&.include?(account)
   end
 
-  def dom_id_for_follower(follower)
-    dom_id(follower)
-  end
 end

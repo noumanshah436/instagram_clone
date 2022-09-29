@@ -63,3 +63,16 @@ i) current_account.followees << @account
 ii) Follow.create(follower_id: current_account.id, followee_id: id)
 
 ****************************
+
+  def dom_id_for_follower(follower)
+    dom_id(follower)
+  end
+
+******************************
+
+# check if current_account is follwed by given account
+  def followed_by?(account)
+    return true if account == current_account
+
+    account&.followees&.include?(current_account)
+  end
