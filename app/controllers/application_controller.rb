@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pundit::Authorization
-  # include Pundit
+
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -12,13 +13,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(_resource)
-    posts_path # your path
+    posts_path
   end
 
-  # *********************************
 
-  # for pundit
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   private
 
@@ -30,5 +28,5 @@ class ApplicationController < ActionController::Base
   def pundit_user
     current_account
   end
-  
+
 end
