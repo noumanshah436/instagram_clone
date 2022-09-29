@@ -35,7 +35,12 @@ class Account < ApplicationRecord
   end
 
   def unfollow(account)
-    self.followed_users.where(follower_id: self.id, followee_id: account.id).first.delete
+    result = self.followed_users.where(follower_id: self.id, followee_id: account.id).first.delete
+    follower = account.followed_users.where(follower_id: account.id , followee_id: self.id )
+    if follower.first
+      result = follower.first.delete
+    end
+    return result
   end
 
   def is_active?
