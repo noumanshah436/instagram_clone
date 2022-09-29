@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_28_121641) do
+ActiveRecord::Schema.define(version: 2022_09_29_125825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 2022_09_28_121641) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content", null: false
-    t.bigint "post_id"
-    t.bigint "account_id"
+    t.bigint "post_id", null: false
+    t.bigint "account_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "parent_id"
@@ -54,15 +54,15 @@ ActiveRecord::Schema.define(version: 2022_09_28_121641) do
   end
 
   create_table "follows", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followee_id"
+    t.integer "follower_id", null: false
+    t.integer "followee_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "likes", force: :cascade do |t|
-    t.bigint "post_id"
-    t.bigint "account_id"
+    t.bigint "post_id", null: false
+    t.bigint "account_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_likes_on_account_id"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2022_09_28_121641) do
 
   create_table "photos", force: :cascade do |t|
     t.string "image"
-    t.bigint "post_id"
+    t.bigint "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_photos_on_post_id"
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2022_09_28_121641) do
 
   create_table "posts", force: :cascade do |t|
     t.string "content"
-    t.bigint "account_id"
+    t.bigint "account_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "active", default: true
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2022_09_28_121641) do
 
   create_table "stories", force: :cascade do |t|
     t.string "image"
-    t.bigint "account_id"
+    t.bigint "account_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_stories_on_account_id"
