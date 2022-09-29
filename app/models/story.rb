@@ -1,5 +1,5 @@
 class Story < ApplicationRecord
-  default_scope {  order(id: :desc)  }
+  default_scope { order(id: :desc) }
 
   belongs_to :account
 
@@ -8,6 +8,6 @@ class Story < ApplicationRecord
   validates :image, presence: true
 
   def self.all_stories
-    self.all.includes(:account) 
+    all.includes(:account)
   end
 end

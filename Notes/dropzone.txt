@@ -1,6 +1,0 @@
-
-// https://docs.dropzone.dev/
-// https://docs.dropzone.dev/getting-started/setup/fallback-for-no-javascript
-// https://docs.dropzone.dev/configuration/events
-// submit button not working with dropzone
-// https://stackoverflow.com/questions/46728205/dropzone-submit-button-on-upload

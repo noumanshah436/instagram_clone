@@ -1,5 +1,5 @@
 class Photo < ApplicationRecord
-  default_scope {  order(id: :desc)  }
+  default_scope { order(id: :desc) }
 
   validates :image, presence: true
 

@@ -1,5 +1,4 @@
 class CommentPolicy < ApplicationPolicy
-
   def update?
     user == record.account
   end

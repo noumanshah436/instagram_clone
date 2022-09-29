@@ -1,5 +1,4 @@
 class PostPolicy < ApplicationPolicy
-
   def edit?
     user == record.account
   end
@@ -11,5 +10,4 @@ class PostPolicy < ApplicationPolicy
   def destroy?
     user == record.account
   end
-
 end

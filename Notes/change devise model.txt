@@ -1,5 +1,0 @@
-1) add column in model
-
-2) permit field in application controller
-
-3) add field in views

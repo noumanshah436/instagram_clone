@@ -30,10 +30,10 @@ class StoriesController < ApplicationController
 
   private
 
-
   def find_story
     @story = Story.find_by(story_destroy_params)
     return if @story
+
     flash[:alert] = "Story not exist!"
     redirect_to stories_path
   end

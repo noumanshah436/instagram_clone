@@ -14,7 +14,5 @@ class AddDbValidations < ActiveRecord::Migration[5.2]
     change_column_null :posts, :account_id, false
 
     change_column_null :stories, :account_id, false
-
-
   end
 end

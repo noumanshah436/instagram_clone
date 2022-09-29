@@ -3,7 +3,7 @@ class ProfileController < ApplicationController
   before_action :set_account, only: %i[show]
 
   def show
-    @is_friend = @account.is_friend(current_account)
+    @is_friend = @account.friend?(current_account)
     @posts = @account.my_posts(@is_friend)
   end
 

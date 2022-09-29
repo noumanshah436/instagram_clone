@@ -1,13 +1,12 @@
 class PhotosController < ApplicationController
-
   before_action :find_photo, only: %i[destroy]
 
   def destroy
-    if @image.delete
-      flash[:notice] = "Image deleted!"
-    else
-      flash[:notice] = "something went wrong!"
-    end
+    flash[:notice] = if @image.delete
+                       "Image deleted!"
+                     else
+                       "something went wrong!"
+                     end
     respond_to do |format|
       format.js
     end
@@ -25,8 +24,7 @@ class PhotosController < ApplicationController
   def find_photo
     @image = Photo.find_by(id: params[:id])
     return if @image
-    
-    flash[:alert] = "Image not exist!"
 
+    flash[:alert] = "Image not exist!"
   end
 end

@@ -1,3 +1,0 @@
-make action
-
-create search function in model function

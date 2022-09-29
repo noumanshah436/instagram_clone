@@ -4,9 +4,9 @@ module ProfileHelper
     current_account&.followees&.include?(account)
   end
 
-  def is_friend?(account)
+  def friend?(account)
     return true if account == current_account
+
     account&.followees&.include?(current_account) && current_account&.followees&.include?(account)
   end
-
 end

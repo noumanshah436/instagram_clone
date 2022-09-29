@@ -16,8 +16,6 @@ class ApplicationController < ActionController::Base
     posts_path
   end
 
-
-
   private
 
   def user_not_authorized
@@ -28,5 +26,4 @@ class ApplicationController < ActionController::Base
   def pundit_user
     current_account
   end
-
 end

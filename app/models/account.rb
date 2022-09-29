@@ -1,5 +1,5 @@
 class Account < ApplicationRecord
-  default_scope {  order(id: :desc)  }
+  default_scope {  order(id: :desc) }
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -31,32 +31,31 @@ class Account < ApplicationRecord
   end
 
   def follow(account)
-    self.followees << account
+    followees << account
   end
 
   def unfollow(account)
-    result = self.followed_users.where(follower_id: self.id, followee_id: account.id).first.delete
-    follower = account.followed_users.where(follower_id: account.id , followee_id: self.id )
-    if follower.first
-      result = follower.first.delete
-    end
-    return result
+    result = followed_users.where(follower_id: id, followee_id: account.id).first.delete
+    follower = account.followed_users.where(follower_id: account.id, followee_id: id)
+    result = follower.first.delete if follower.first
+    result
   end
 
   def active?
-    self.active
+    active
   end
 
   def my_posts(is_friend)
     if is_friend
-      self.posts
+      posts
     else
-      self.posts.where('active=true')
+      posts.where('active=true')
     end
   end
 
-  def is_friend(current_account)
+  def friend?(current_account)
     return true if self == current_account
+
     self&.followees&.include?(current_account) && current_account&.followees&.include?(self)
   end
 end

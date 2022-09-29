@@ -52,7 +52,6 @@ class PostsController < ApplicationController
 
   private
 
-
   def check_images
     unless params.key?(:images)
       flash[:alert] = "Add atleast one image"
