@@ -27,6 +27,8 @@ Fix follow, unfollow routes
 
 Don't use old ruby syntax in views
 Move queries from views to views helper
+
 Public/Private account logic is not implemented
+
 In profile page, User should be able to see his own posts.
 
