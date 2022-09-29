@@ -4,6 +4,7 @@ class ProfileController < ApplicationController
 
   def show
     authorize @account
+    @posts = @account.my_posts
   end
 
   def index
