@@ -29,7 +29,10 @@
         </div>
       <% end %>
     </div>
-    <%= render 'posts/posts' %>
+    <% if @account.is_active?  || followed_by?(@account) %>
+      <%= render 'posts/posts' %>
+    <% end %>
+
   </div>
 </div>
 

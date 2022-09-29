@@ -23,7 +23,7 @@ class Account < ApplicationRecord
   # methods
   def self.search(keyword)
     puts "keyword:#{keyword}"
-    where('name LIKE ? and active=true ', "%#{keyword}%") if keyword.present?
+    where('name LIKE ? ', "%#{keyword}%") if keyword.present?
   end
 
   def all_follow_requests

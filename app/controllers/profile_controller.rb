@@ -3,7 +3,6 @@ class ProfileController < ApplicationController
   before_action :set_account, only: %i[show]
 
   def show
-    authorize @account
     @posts = @account.my_posts
   end
 
