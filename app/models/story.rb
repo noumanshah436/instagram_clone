@@ -1,4 +1,6 @@
 class Story < ApplicationRecord
+  default_scope {  order(id: :desc)  }
+
   belongs_to :account
 
   mount_uploader :image, PhotoUploader
@@ -6,6 +8,6 @@ class Story < ApplicationRecord
   validates :image, presence: true
 
   def self.all_stories
-    self.all.includes(:account).order("id desc")
+    self.all.includes(:account) 
   end
 end
