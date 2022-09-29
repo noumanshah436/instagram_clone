@@ -88,3 +88,11 @@ it will give all the users the users that request to follow:
 user1.followers.where.not(id: user1.followees.ids )
 
 user1.followees.ids
+
+*********************
+
+search account:
+
+Account.all.where('name like ?  and active=true', "%n%")
+
+*********************
