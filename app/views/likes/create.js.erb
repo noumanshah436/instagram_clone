@@ -1,4 +1,7 @@
 $('#like-icon-post-<%= @post.id.to_s %>').
   html('<%= link_to " ", like_path(@like), method: :delete, remote: true, class: "fa fa-heart fa-2x text-danger nounderline text-decoration-none" %>');
+
+
+
 $('#like-text-post-<%= @post.id.to_s %>').
-  html('<%= j render "posts/like_text", {likes: @post.likes} %>');
+  html('<%= j render "posts/like_text", {likes: @post.likes.includes(  :account)} %>');

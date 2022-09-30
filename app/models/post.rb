@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  default_scope { includes(:photos, :account, :likes).order(id: :desc) }
+  default_scope { order(id: :desc) }
 
   belongs_to :account
   has_many :photos, -> { order(id: :desc) }, dependent: :destroy
@@ -19,7 +19,7 @@ class Post < ApplicationRecord
   end
 
   def self.all_posts
-    Post.all
+    Post.all.includes(:photos, :account, :likes)
   end
 
   def parent_comments
