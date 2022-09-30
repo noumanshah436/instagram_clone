@@ -54,6 +54,7 @@ class Account < ApplicationRecord
 
   def friend?(current_account)
     return true if self == current_account
+
     self&.followees&.include?(current_account) && current_account&.followees&.include?(self)
   end
 end

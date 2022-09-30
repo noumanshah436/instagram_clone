@@ -5,7 +5,6 @@ class Story < ApplicationRecord
   mount_uploader :image, PhotoUploader
   validates :image, presence: true
 
-
   def self.all_stories
     all.includes(:account)
   end

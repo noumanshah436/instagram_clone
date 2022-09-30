@@ -71,6 +71,7 @@ class PostsController < ApplicationController
   def find_post
     @post = Post.find_by(id: params[:id])
     return if @post
+
     flash[:alert] = "Post not exist!"
     redirect_to root_path
   end
