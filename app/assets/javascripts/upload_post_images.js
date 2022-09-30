@@ -25,9 +25,8 @@ $(document).ready(function(){
           e.preventDefault();
           e.stopPropagation();
           myDropzone.processQueue();
-          console.log("process queued")
         }
-        else{
+        else {
           if (e.target.id == 'create_post') {
           e.preventDefault();
           alert("No Image Found")
@@ -37,12 +36,10 @@ $(document).ready(function(){
 
 
       this.on("successmultiple", function(files, response){
-        console.log("dropzone successmultiple")
         window.location.reload();
       });
 
-      this.on("errormultiple", function(files, response){
-        console.log("dropzone errormultiple")
+      this.on("errormultiple", function(files, response){ 
         console.log(response)
       });
     }

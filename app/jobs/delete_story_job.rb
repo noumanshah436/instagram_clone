@@ -2,9 +2,7 @@ class DeleteStoryJob < ApplicationJob
   queue_as :default
 
   def perform(id, *_args)
-    puts "Job Scheduled"
     story = Story.find_by(id: id)
-
     return unless story
 
     flash[:alert] = if story.destroy

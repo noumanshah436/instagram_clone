@@ -22,7 +22,6 @@ class Account < ApplicationRecord
 
   # methods
   def self.search(keyword)
-    puts "keyword:#{keyword}"
     where('name LIKE ? ', "%#{keyword}%") if keyword.present?
   end
 

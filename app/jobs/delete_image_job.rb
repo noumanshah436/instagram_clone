@@ -9,7 +9,6 @@ class DeleteImageJob < ApplicationJob
   end
 
   def perform(img, *_args)
-    puts "Job Scheduled"
     public_id = image_public_id(img) # destroy story image from cloudinary
     Cloudinary::Uploader.destroy(public_id)
   end

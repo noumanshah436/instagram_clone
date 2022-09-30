@@ -1,9 +1,6 @@
 $('#comment-post-<%= @post.id.to_s %>').
   html('<%= j render "comments/comment_list", {post: @post} %>');
 
-console.log("create comment success");
-
-
 document.querySelectorAll('.show-form').forEach( (el) => {
   el.addEventListener('click', (ev) => {
       ev.preventDefault();

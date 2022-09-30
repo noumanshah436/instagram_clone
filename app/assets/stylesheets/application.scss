@@ -2,15 +2,12 @@
 @import "dropzone/dropzone";
 @import "font-awesome";
 
-
 body {
   background-color: #fafafa;
 
   color: #262626;
 }
 
-
-// Customize upload photos form
 .upload-photos-icon:hover {
   cursor: pointer;
 }
@@ -27,10 +24,10 @@ body {
   }
 }
 
-
 .dropzone .dz-preview:hover .dz-remove {
   opacity: 1;
 }
+
 .upload-photos-icon {
   height: 120px;
   width: 120px;
@@ -41,9 +38,9 @@ body {
   margin: 2px;
 }
 
-.profile_pic{
-  height:50px;
-  width:50px;
+.profile_pic {
+  height: 50px;
+  width: 50px;
 }
 
 
@@ -51,7 +48,7 @@ body {
   text-decoration: none !important
 }
 
-a{
+a {
   color: black;
 }
 
@@ -75,4 +72,3 @@ a{
   background: #fff;
   padding: 0;
 }
-
