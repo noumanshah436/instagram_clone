@@ -1,4 +1,3 @@
-<%# show changes after destroy %>
 $('#like-icon-post-<%= @post.id.to_s %>').
   html('<%= link_to " ", post_likes_path(@post), method: :post, remote: true, class: "text-dark fa fa-heart fa-2x nounderline " %>');
 $('#like-text-post-<%= @post.id.to_s %>').
