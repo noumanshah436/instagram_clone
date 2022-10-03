@@ -5,7 +5,7 @@ class LikesController < ApplicationController
   def create
     @like = current_account.likes.new(like_params)
     @post = @like.post
-    if @like.save
+    if @like.save!
       respond_to do |format|
         format.js
       end
