@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :account do
     sequence(:name) { |n| "name#{n}" }
-    email { "#{name}1222@gmail.com".downcase }
+    email { "#{name}@gmail.com".downcase }
     password { 'nouman' }
     confirmed_at { DateTime.now }
   end

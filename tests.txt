@@ -16,6 +16,11 @@ https://thoughtbot.com/blog/aint-no-calla-back-bot
 
 **************************************************
 
+ `create` is not available on an example group (e.g. a `describe` or `context` block).
+ It is only available from within individual examples (e.g. `it` blocks) or from constructs that run in the scope of an example (e.g. `before`, `let`, etc).
+
+**************************************************
+
 1) gem 'rspec-rails'
 
 2) rails generate rspec:install
