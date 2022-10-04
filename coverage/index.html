@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-10-04T19:11:34+05:00">2022-10-04T19:11:34+05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-10-04T19:28:02+05:00">2022-10-04T19:28:02+05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  97.47%
+  97.39%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.68
+         1.74
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>316</b> relevant lines,
-    <span class="green"><b>308</b> lines covered</span> and
+    <b>306</b> relevant lines,
+    <span class="green"><b>298</b> lines covered</span> and
     <span class="red"><b>8</b> lines missed. </span>
     (<span class="green">
-  97.47%
+  97.39%
 </span>
 )
   </div>
@@ -491,11 +491,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#19cc3a13c8472fa7ba574532ebcaa9bf2f9defed" class="src_link" title="spec/models/account_spec.rb">spec/models/account_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">115</td>
-            <td class="cell--number">62</td>
-            <td class="cell--number">62</td>
+            <td class="cell--number">95</td>
+            <td class="cell--number">52</td>
+            <td class="cell--number">52</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.11</td>
+            <td class="cell--number">1.37</td>
             
           </tr>
         
@@ -10266,8 +10266,8 @@
     
 
     <div class="t-line-summary">
-      <b>62</b> relevant lines.
-      <span class="green"><b>62</b> lines covered</span> and
+      <b>52</b> relevant lines.
+      <span class="green"><b>52</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -10334,73 +10334,29 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="6">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="8" data-linenumber="6">
+            <span class="hits">8</span>
             
 
             
 
-            <code class="ruby">  describe &#39;Associations&#39; do</code>
+            <code class="ruby">  let(:account1) { create :account }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="7">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="6" data-linenumber="7">
+            <span class="hits">6</span>
             
 
             
 
-            <code class="ruby">    context &#39;with_have_many&#39; do</code>
+            <code class="ruby">  let(:account2) { create :account }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="8">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">      it { is_expected.to have_many(:posts).dependent(:destroy)}</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="9">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">      it { is_expected.to have_many(:likes).dependent(:destroy)}</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="10">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">      it { is_expected.to have_many(:comments).dependent(:destroy)}</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="11">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">      it { is_expected.to have_many(:stories).dependent(:destroy)}</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="12">
+          <li class="never" data-hits="" data-linenumber="8">
             
             
 
@@ -10411,13 +10367,57 @@
         </div>
       
         <div>
+          <li class="covered" data-hits="1" data-linenumber="9">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  describe &#39;Associations&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="10">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    context &#39;with_have_many&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="11">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      it { is_expected.to have_many(:posts).dependent(:destroy)}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="12">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      it { is_expected.to have_many(:likes).dependent(:destroy)}</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="covered" data-hits="2" data-linenumber="13">
             <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">      it { should have_many(:followees).through(:followed_users) }</code>
+            <code class="ruby">      it { is_expected.to have_many(:comments).dependent(:destroy)}</code>
           </li>
         </div>
       
@@ -10428,7 +10428,7 @@
 
             
 
-            <code class="ruby">      it { should have_many(:followers).through(:following_users) }</code>
+            <code class="ruby">      it { is_expected.to have_many(:stories).dependent(:destroy)}</code>
           </li>
         </div>
       
@@ -10444,18 +10444,29 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="16">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="16">
+            <span class="hits">2</span>
             
 
-            <code class="ruby">    end</code>
+            
+
+            <code class="ruby">      it { should have_many(:followees).through(:followed_users) }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="17">
+          <li class="covered" data-hits="2" data-linenumber="17">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      it { should have_many(:followers).through(:following_users) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="18">
             
             
 
@@ -10466,24 +10477,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="18">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="19">
+            
             
 
             
 
-            <code class="ruby">    context &#39;presence of name&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="19">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">      it { is_expected.to validate_presence_of(:name) }</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -10494,29 +10494,29 @@
 
             
 
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="21">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="22">
+          <li class="covered" data-hits="1" data-linenumber="21">
+            <span class="hits">1</span>
             
+
+            
+
+            <code class="ruby">    context &#39;presence of name&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="22">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      it { is_expected.to validate_presence_of(:name) }</code>
           </li>
         </div>
       
@@ -10527,7 +10527,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -10543,35 +10543,35 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="25">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="25">
+            
             
 
             
 
-            <code class="ruby">  describe &#39;#Search&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="26">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="26">
+            
             
 
             
 
-            <code class="ruby">    it &quot;should find user account if present&quot; do</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="27">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="27">
+            
             
 
             
 
-            <code class="ruby">      account = create(:account, name:&quot;Nouman&quot;)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -10582,18 +10582,18 @@
 
             
 
-            <code class="ruby">      result = Account.search(&#39;Nouman&#39;).first</code>
+            <code class="ruby">  describe &#39;#search&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="29">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="29">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">      # empty test</code>
+            
+
+            <code class="ruby">    it &quot;should find user account if present&quot; do</code>
           </li>
         </div>
       
@@ -10604,18 +10604,18 @@
 
             
 
-            <code class="ruby">      expect(result).to eq(account)</code>
+            <code class="ruby">      account = create(:account, name:&quot;Nouman&quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="31">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="31">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    end</code>
+            
+
+            <code class="ruby">      result = Account.search(&#39;Nouman&#39;).first</code>
           </li>
         </div>
       
@@ -10626,51 +10626,51 @@
 
             
 
+            <code class="ruby">      # empty test</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="33">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      expect(result).to eq(account)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="34">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="35">
+            
+            
+
+            
+
             <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="33">
+          <li class="never" data-hits="" data-linenumber="36">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="34">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  context &#39;Given Account&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="35">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    it &quot;should be active&quot; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="36">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      account = create(:account)</code>
           </li>
         </div>
       
@@ -10681,12 +10681,34 @@
 
             
 
-            <code class="ruby">      expect(account).to be_active</code>
+            <code class="ruby">  context &#39;Given Account&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="38">
+          <li class="covered" data-hits="1" data-linenumber="38">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    it &quot;should be active&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="39">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      expect(account1).to be_active</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="40">
             
             
 
@@ -10697,35 +10719,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="39">
+          <li class="never" data-hits="" data-linenumber="41">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="40">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    it &quot;should not be active&quot; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="41">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      account = create(:account)</code>
           </li>
         </div>
       
@@ -10736,7 +10736,7 @@
 
             
 
-            <code class="ruby">      account.active = false</code>
+            <code class="ruby">    it &quot;should not be active&quot; do</code>
           </li>
         </div>
       
@@ -10747,7 +10747,7 @@
 
             
 
-            <code class="ruby">      account.save</code>
+            <code class="ruby">      account2.active = false</code>
           </li>
         </div>
       
@@ -10758,18 +10758,18 @@
 
             
 
-            <code class="ruby">      expect(account).not_to be_active</code>
+            <code class="ruby">      account2.save</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="45">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="45">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    end</code>
+            
+
+            <code class="ruby">      expect(account2).not_to be_active</code>
           </li>
         </div>
       
@@ -10780,7 +10780,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -10791,18 +10791,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="48">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="48">
+            
             
 
             
 
-            <code class="ruby">  context &quot;my_posts&quot; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -10813,7 +10813,7 @@
 
             
 
-            <code class="ruby">    it &quot;should have posts when friend&quot; do</code>
+            <code class="ruby">  describe &quot;#my_posts&quot; do</code>
           </li>
         </div>
       
@@ -10824,7 +10824,7 @@
 
             
 
-            <code class="ruby">      account = create(:account)</code>
+            <code class="ruby">    it &quot;should have posts when friend&quot; do</code>
           </li>
         </div>
       
@@ -10835,7 +10835,7 @@
 
             
 
-            <code class="ruby">      account.posts.create(content: &quot;new Post&quot;)</code>
+            <code class="ruby">      account1.posts.create(content: &quot;new Post&quot;)</code>
           </li>
         </div>
       
@@ -10857,7 +10857,7 @@
 
             
 
-            <code class="ruby">      my_posts = account.my_posts(true)</code>
+            <code class="ruby">      my_posts = account1.my_posts(true)</code>
           </li>
         </div>
       
@@ -10912,29 +10912,29 @@
 
             
 
-            <code class="ruby">      account = create(:account)</code>
+            <code class="ruby">      account1.posts.create(content: &quot;new Post&quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="59">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      account.posts.create(content: &quot;new Post&quot;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="60">
+          <li class="never" data-hits="" data-linenumber="59">
             
             
 
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="60">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      my_posts = account1.my_posts(false)</code>
           </li>
         </div>
       
@@ -10945,18 +10945,18 @@
 
             
 
-            <code class="ruby">      my_posts = account.my_posts(false)</code>
+            <code class="ruby">      expect(my_posts).not_to eq(nil)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="62">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="62">
+            
             
 
             
 
-            <code class="ruby">      expect(my_posts).not_to eq(nil)</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -10967,7 +10967,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -10978,23 +10978,12 @@
 
             
 
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="65">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="66">
+          <li class="covered" data-hits="1" data-linenumber="65">
             <span class="hits">1</span>
             
 
@@ -11005,18 +10994,18 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="67">
+          <li class="never" data-hits="" data-linenumber="66">
             
             
 
             
 
-            <code class="ruby">  </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="68">
+          <li class="covered" data-hits="1" data-linenumber="67">
             <span class="hits">1</span>
             
 
@@ -11027,29 +11016,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="69">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      account1 = create(:account)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="70">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      account2 = create(:account)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="71">
+          <li class="covered" data-hits="1" data-linenumber="68">
             <span class="hits">1</span>
             
 
@@ -11060,7 +11027,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="72">
+          <li class="covered" data-hits="1" data-linenumber="69">
             <span class="hits">1</span>
             
 
@@ -11071,18 +11038,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="73">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="74">
+          <li class="never" data-hits="" data-linenumber="70">
             
             
 
@@ -11093,7 +11049,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="75">
+          <li class="never" data-hits="" data-linenumber="71">
             
             
 
@@ -11104,7 +11060,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="76">
+          <li class="covered" data-hits="1" data-linenumber="72">
             <span class="hits">1</span>
             
 
@@ -11115,29 +11071,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="77">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      account1 = create(:account)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="78">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      account2 = create(:account)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="79">
+          <li class="covered" data-hits="1" data-linenumber="73">
             <span class="hits">1</span>
             
 
@@ -11148,7 +11082,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="80">
+          <li class="covered" data-hits="1" data-linenumber="74">
             <span class="hits">1</span>
             
 
@@ -11159,7 +11093,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="81">
+          <li class="covered" data-hits="1" data-linenumber="75">
             <span class="hits">1</span>
             
 
@@ -11170,13 +11104,79 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="82">
+          <li class="never" data-hits="" data-linenumber="76">
             
             
 
             
 
             <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="77">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="78">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="79">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  it &quot;#all_follow_requests&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="80">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    account1.follow(account2)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="81">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    all_follow_requests = account2.all_follow_requests</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="82">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(all_follow_requests.first).to eq(account1)</code>
           </li>
         </div>
       
@@ -11209,7 +11209,7 @@
 
             
 
-            <code class="ruby">  it &quot;All follow Requests&quot; do</code>
+            <code class="ruby">  describe &quot;#friend?&quot; do</code>
           </li>
         </div>
       
@@ -11220,7 +11220,7 @@
 
             
 
-            <code class="ruby">    account1 = create(:account)</code>
+            <code class="ruby">    it &quot;is friend&quot; do</code>
           </li>
         </div>
       
@@ -11231,7 +11231,7 @@
 
             
 
-            <code class="ruby">    account2 = create(:account)</code>
+            <code class="ruby">      account1.follow(account2)</code>
           </li>
         </div>
       
@@ -11242,7 +11242,7 @@
 
             
 
-            <code class="ruby">    account1.follow(account2)</code>
+            <code class="ruby">      account2.follow(account1)</code>
           </li>
         </div>
       
@@ -11253,18 +11253,18 @@
 
             
 
-            <code class="ruby">    all_follow_requests = account2.all_follow_requests</code>
+            <code class="ruby">      expect(account1.friend?(account2)).to eq(true)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="90">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="90">
+            
             
 
             
 
-            <code class="ruby">    expect(all_follow_requests.first).to eq(account1)</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -11291,95 +11291,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="93">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  context &quot;Friend&quot; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="94">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    it &quot;is friend&quot; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="95">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    account1 = create(:account)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="96">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    account2 = create(:account)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="97">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    account1.follow(account2)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="98">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    account2.follow(account1)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="99">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    expect(account1.friend?(account2)).to eq(true)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="100">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="101">
+          <li class="never" data-hits="" data-linenumber="93">
             
             
 
@@ -11390,18 +11302,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="102">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="103">
+          <li class="never" data-hits="" data-linenumber="94">
             
             
 
@@ -11412,128 +11313,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="104">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="105">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="106">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="107">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="108">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="109">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="110">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="111">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="112">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="113">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="114">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="115">
+          <li class="never" data-hits="" data-linenumber="95">
             
             
 
@@ -12501,7 +12281,7 @@
 
             
 
-            <code class="ruby">    it &quot;should not contain any parent comment&quot; do</code>
+            <code class="ruby">    it &quot;should not contain parent comment&quot; do</code>
           </li>
         </div>
       

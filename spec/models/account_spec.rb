@@ -3,6 +3,9 @@ require 'rails_helper'
 # also see let and let! difference
 RSpec.describe Account, type: :model do
 
+  let(:account1) { create :account }
+  let(:account2) { create :account }
+
   describe 'Associations' do
     context 'with_have_many' do
       it { is_expected.to have_many(:posts).dependent(:destroy)}
@@ -19,10 +22,9 @@ RSpec.describe Account, type: :model do
       it { is_expected.to validate_presence_of(:name) }
     end
 
-
   end
 
-  describe '#Search' do
+  describe '#search' do
     it "should find user account if present" do
       account = create(:account, name:"Nouman")
       result = Account.search('Nouman').first
@@ -33,82 +35,59 @@ RSpec.describe Account, type: :model do
 
   context 'Given Account' do
     it "should be active" do
-      account = create(:account)
-      expect(account).to be_active
+      expect(account1).to be_active
     end
 
     it "should not be active" do
-      account = create(:account)
-      account.active = false
-      account.save
-      expect(account).not_to be_active
+      account2.active = false
+      account2.save
+      expect(account2).not_to be_active
     end
   end
 
-  context "my_posts" do
+  describe "#my_posts" do
     it "should have posts when friend" do
-      account = create(:account)
-      account.posts.create(content: "new Post")
+      account1.posts.create(content: "new Post")
 
-      my_posts = account.my_posts(true)
+      my_posts = account1.my_posts(true)
       expect(my_posts).not_to eq(nil)
     end
 
     it "should have posts when not friend" do
-      account = create(:account)
-      account.posts.create(content: "new Post")
+      account1.posts.create(content: "new Post")
 
-      my_posts = account.my_posts(false)
+      my_posts = account1.my_posts(false)
       expect(my_posts).not_to eq(nil)
     end
   end
 
   describe "followers" do
-  
+
     it "should follow  givin account  " do
-      account1 = create(:account)
-      account2 = create(:account)
       account1.follow(account2)
       expect(account2.followers.first).to eq(account1)
-
     end
 
     it "should unfollow  givin account  " do
-      account1 = create(:account)
-      account2 = create(:account)
       account1.follow(account2)
       account1.unfollow(account2)
       expect(account2.followers).to eq([])
     end
   end
 
-  it "All follow Requests" do
-    account1 = create(:account)
-    account2 = create(:account)
+  it "#all_follow_requests" do
     account1.follow(account2)
     all_follow_requests = account2.all_follow_requests
     expect(all_follow_requests.first).to eq(account1)
   end
 
-  context "Friend" do
-    it "is friend" do
-    account1 = create(:account)
-    account2 = create(:account)
-    account1.follow(account2)
-    account2.follow(account1)
-    expect(account1.friend?(account2)).to eq(true)
+  describe "#friend?" do
+    it "account1 should be friend of account2" do
+      account1.follow(account2)
+      account2.follow(account1)
+      expect(account1.friend?(account2)).to eq(true)
+    end
   end
-
-  end
-
-
-
-
-
-
-
-
-
 
 
 
