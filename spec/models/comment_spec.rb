@@ -1,5 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe 'Associations' do
+    context 'with_have_many' do
+      it { is_expected.to have_many(:comments).dependent(:delete_all)}
+
+    end
+
+    context 'with_belongs_to' do
+      it { is_expected.to belong_to(:post) }
+      it { is_expected.to belong_to(:account) }
+      it { is_expected.to belong_to(:parent).optional }
+    end
+
+    context 'presence of content' do
+      it { is_expected.to validate_presence_of(:content) }
+    end
+
+  end
+
 end

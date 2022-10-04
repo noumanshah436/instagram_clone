@@ -29,7 +29,6 @@
           null,
           null,
           null,
-          null,
           1,
           1,
           1,
@@ -757,6 +756,24 @@
           null
         ]
       },
+      "/home/dev/Rails/Test Project/instagram-clone/spec/factories/follows.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/dev/Rails/Test Project/instagram-clone/spec/factories/likes.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
       "/home/dev/Rails/Test Project/instagram-clone/spec/factories/photos.rb": {
         "lines": [
           1,
@@ -1018,7 +1035,25 @@
           1,
           null,
           1,
+          null,
           1,
+          1,
+          2,
+          null,
+          null,
+          null,
+          1,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null,
+          null,
           null
         ]
       },
@@ -1027,11 +1062,69 @@
           1,
           1,
           1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/dev/Rails/Test Project/instagram-clone/spec/models/follow_spec.rb": {
+        "lines": [
           1,
           null,
           1,
           null,
           1,
+          1,
+          2,
+          2,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/dev/Rails/Test Project/instagram-clone/app/models/follow.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/dev/Rails/Test Project/instagram-clone/spec/models/like_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/dev/Rails/Test Project/instagram-clone/app/models/like.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
           null
         ]
       },
@@ -1180,25 +1273,6 @@
           null
         ]
       },
-      "/home/dev/Rails/Test Project/instagram-clone/app/models/follow.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/dev/Rails/Test Project/instagram-clone/app/models/like.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
       "/home/dev/Rails/Test Project/instagram-clone/app/models/story.rb": {
         "lines": [
           1,
@@ -1215,6 +1289,6 @@
         ]
       }
     },
-    "timestamp": 1664893682
+    "timestamp": 1664896394
   }
 }
