@@ -11,6 +11,9 @@ https://github.com/simplecov-ruby/simplecov
 rspec playlist
 https://www.youtube.com/watch?v=Spogv4o8haM&list=PLS6F722u-R6KiuOupokyl8Xnqrot9ukc7&index=47
 
+comments with post:
+https://thoughtbot.com/blog/aint-no-calla-back-bot
+
 **************************************************
 
 1) gem 'rspec-rails'
@@ -71,10 +74,15 @@ add in rails helper
 config.include FactoryBot::Syntax::Methods
 
 article = FactoryBot.create(:article)
+post = FactoryBot.create(:post)
 
 ***********************
+shoulda-matchers
+
+https://github.com/thoughtbot/shoulda-matchers
 
 
+***********************
 
 
 **************************
