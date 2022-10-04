@@ -1,5 +1,6 @@
 require 'rails_helper'
-
+# use let for redundant objects
+# also see let and let! difference
 RSpec.describe Account, type: :model do
 
   describe 'Associations' do
@@ -21,12 +22,12 @@ RSpec.describe Account, type: :model do
 
   end
 
-  describe 'Search' do
-    it "should find" do
+  describe '#Search' do
+    it "should find user account if present" do
       account = create(:account, name:"Nouman")
       result = Account.search('Nouman').first
+      # empty test
       expect(result).to eq(account)
-
     end
   end
 
@@ -62,15 +63,14 @@ RSpec.describe Account, type: :model do
     end
   end
 
-  context "followers" do
+  describe "followers" do
+  
     it "should follow  givin account  " do
       account1 = create(:account)
       account2 = create(:account)
       account1.follow(account2)
       expect(account2.followers.first).to eq(account1)
 
-      account1.unfollow(account2)
-      expect(account2.followers).to eq([])
     end
 
     it "should unfollow  givin account  " do
