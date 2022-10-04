@@ -1,0 +1,102 @@
+
+
+https://github.com/rspec/rspec-rails
+
+https://relishapp.com/rspec/rspec-rails/docs/
+
+https://relishapp.com/rspec/rspec-rails/v/5-1/docs/controller-specs/controller-spec
+
+https://github.com/simplecov-ruby/simplecov
+
+rspec playlist
+https://www.youtube.com/watch?v=Spogv4o8haM&list=PLS6F722u-R6KiuOupokyl8Xnqrot9ukc7&index=47
+
+**************************************************
+
+1) gem 'rspec-rails'
+
+2) rails generate rspec:install
+
+3) rails generate model article            -- way to create model
+
+rails generate rspec:model article         -- way to create rspec for this model
+
+
+4) rails g rspec:controller articles
+
+
+***************************
+run test:
+1) rspec
+2) RUBYOPT="-W0" rspec
+
+
+but first comment these two gems from test group:
+gem 'selenium-webdriver'
+gem 'chromedriver-helper'
+
+*************************
+
+add in .rspec:
+
+--format documentation
+
+*********************
+
+rails stats
+
+*********************
+https://github.com/pry/pry-rails
+
+gem 'pry-rails'
+
+bundle
+*********************
+simple cov
+
+1) add gem and bundle
+2) add 2 lines in spec_helper
+
+xdg-open coverage/index.html
+
+***********************
+
+https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#configure-your-test-suite
+
+gem 'factory_bot_rails'
+bundle
+
+
+add in rails helper
+config.include FactoryBot::Syntax::Methods
+
+article = FactoryBot.create(:article)
+
+***********************
+
+
+
+
+**************************
+
+model test can test:
+  validations
+  associations
+  scope
+  businaees logic
+
+
+controller test can test:
+  status code
+  content type template rendered
+  Flash Messages
+  insert/update/delete
+  redirects
+
+
+Frameworks
+  MiniTest
+  RSpec
+  Cucumber    browser testing
+  Capybara
+  FactoryGirl
