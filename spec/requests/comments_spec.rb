@@ -6,6 +6,7 @@ RSpec.describe CommentsController, type: :controller do
 
   let(:post1) { create :post }
   let(:account) { create :account }
+  let(:comment) { create(:comment) }
 
   describe 'Comment /create' do
     it 'should create comment on post' do
@@ -27,7 +28,6 @@ RSpec.describe CommentsController, type: :controller do
   describe 'Comment /update' do
     it 'should update comment on post' do
       sign_in(account)
-      comment = Comment.create({account_id:account.id, post_id:post1.id, content: "new comment"})
       before_count = post1.comments.count
       put :update, params: { id:comment.id , comment: { content: "updated comment"}}, xhr: true
       expect(post1.comments.count).to eq(before_count)
@@ -35,7 +35,6 @@ RSpec.describe CommentsController, type: :controller do
 
     it 'should not update comment on post' do
       sign_in(account)
-      comment = Comment.create({account_id:account.id, post_id:post1.id, content: "new comment"})
       before_count = post1.comments.count
       put :update, params: { id:comment.id , comment: {  content: nil}}, xhr: true
       expect(post1.comments.count).to eq(before_count)

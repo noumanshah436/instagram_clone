@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :comment do
-    association :post 
-    sequence(:id, &:to_s)
+    association :account
+    association :post
     content { 'MyContent' }
   end
 end
