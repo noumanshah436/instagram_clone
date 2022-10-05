@@ -39,6 +39,7 @@ RSpec.describe PostsController, type: :controller  do
       post :create, params: { post: { content: nil },  images: { "0": File.open("#{Rails.root}/app/assets/images/default2.png")  } }
       expect(Post.count).to eq(before_count)
       expect(flash[:alert]).to eq("Something went wrong ...")
+      expect(response).to redirect_to posts_path
     end
 
     it 'should not create post without image' do
@@ -67,9 +68,42 @@ RSpec.describe PostsController, type: :controller  do
     end
   end
 
- 
 
 
+  describe 'PUT /update' do
+    it 'should update post' do
+      sign_in(postt.account)
+      put :update, params: { id: postt.id, post: { content: "post Updated" }}
+      expect(flash[:notice]).to eq("Post Updated")
+      expect(response).to redirect_to post_path(postt)
+    end
+
+    it 'should not update post' do
+      sign_in(postt.account)
+      put :update, params: { id: postt.id, post: { content: nil }}
+      expect(flash[:alert]).to eq("Something went wrong ...")
+      expect(response).to redirect_to post_path(postt)
+    end
+  end
+
+
+  describe 'delete /destroy' do
+    it 'should delete post' do
+      sign_in(postt.account)
+      before_count = Post.count
+      delete :destroy, params: { id: postt.id }
+      expect(Post.count).to eq(before_count-1)
+      expect(flash[:notice]).to eq("Post deleted!")
+      expect(response).to redirect_to posts_path
+    end
+
+    # it 'should not delete post' do
+    #   sign_in(postt.account)
+    #   delete :destroy, params: { id: postt.id }
+    #   expect(flash[:alert]).to eq("Something went wrong ...")
+    #   expect(response).to redirect_to posts_path
+    # end
+  end
 
 
 

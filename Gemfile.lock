@@ -215,6 +215,10 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.2.5)
+    rspec-activemodel-mocks (1.1.0)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      rspec-mocks (>= 2.99, < 4.0)
     rspec-core (3.11.0)
       rspec-support (~> 3.11.0)
     rspec-expectations (3.11.1)
@@ -334,6 +338,7 @@ DEPENDENCIES
   pundit
   rails (~> 5.2.8, >= 5.2.8.1)
   rails-controller-testing
+  rspec-activemodel-mocks
   rspec-rails
   rubocop
   sass-rails (~> 5.0)
