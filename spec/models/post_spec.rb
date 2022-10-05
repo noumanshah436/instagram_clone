@@ -34,8 +34,8 @@ RSpec.describe Post, type: :model do
     it "should belongs to given account" do
       expect(post).to be_belongs_to(post.account)
     end
-    it "should not belongs to given account" do
 
+    it "should not belongs to given account" do
       expect(post).not_to be_belongs_to(account)
     end
 
@@ -74,15 +74,4 @@ RSpec.describe Post, type: :model do
   end
 
 
-
-
-
-
-
-  # context 'validation tests' do
-  #   it 'ensure title presence' do
-  #     article = Article.new(title: "USfjfjfA").save
-  #     expect(article).to eq(true)
-  #   end
-  # end
 end

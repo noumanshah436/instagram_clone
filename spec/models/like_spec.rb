@@ -10,7 +10,7 @@ RSpec.describe Like, type: :model do
 
     # context 'Uniqueness' do
     #   # it { should validate_uniqueness_of(:account_id).scoped_to(:post_id) }
-    #   it { is_expected.to validate_uniqueness_of(:account_id).scoped_to(:post_id) }
+      # it { is_expected.to validate_uniqueness_of(:account_id).scoped_to(:post_id) }
 
 
     # end

@@ -1,5 +1,5 @@
 class Photo < ApplicationRecord
-  belongs_to :post, dependent: :destroy
+  belongs_to :post 
   default_scope { order(id: :desc) }
 
   validates :image, presence: true

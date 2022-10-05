@@ -14,6 +14,9 @@ https://www.youtube.com/watch?v=Spogv4o8haM&list=PLS6F722u-R6KiuOupokyl8Xnqrot9u
 comments with post:
 https://thoughtbot.com/blog/aint-no-calla-back-bot
 
+shoulda:
+https://github.com/thoughtbot/shoulda-matchers/blob/main/lib/shoulda/matchers/active_record/association_matcher.rb
+
 **************************************************
 
  `create` is not available on an example group (e.g. a `describe` or `context` block).

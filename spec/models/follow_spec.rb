@@ -4,9 +4,10 @@ RSpec.describe Follow, type: :model do
 
   describe 'Associations' do
     context 'with_belongs_to' do
-      it { is_expected.to belong_to(:follower) }
-      it { is_expected.to belong_to(:followee) }
+      it { should belong_to(:follower).class_name('Account') }
+      it { should belong_to(:follower).class_name('Account') }
     end
   end
 
 end
+ 

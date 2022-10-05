@@ -4,14 +4,14 @@ RSpec.describe Comment, type: :model do
 
   describe 'Associations' do
     context 'with_have_many' do
-      it { is_expected.to have_many(:comments).dependent(:delete_all)}
+      it { is_expected.to have_many(:comments).with_foreign_key('parent_id').dependent(:delete_all)}
 
     end
 
     context 'with_belongs_to' do
       it { is_expected.to belong_to(:post) }
       it { is_expected.to belong_to(:account) }
-      it { is_expected.to belong_to(:parent).optional }
+      it { is_expected.to belong_to(:parent).class_name('Comment').optional }
     end
 
     context 'presence of content' do
