@@ -28,12 +28,15 @@ https://github.com/thoughtbot/shoulda-matchers/blob/main/lib/shoulda/matchers/ac
 
 2) rails generate rspec:install
 
-3) rails generate model article            -- way to create model
+3) rails generate model post            -- way to create model
 
-rails generate rspec:model article         -- way to create rspec for this model
+rails generate rspec:model post         -- way to create rspec for this model
 
 
-4) rails g rspec:controller articles
+
+
+***************************
+
 
 
 ***************************
