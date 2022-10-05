@@ -2,10 +2,6 @@ class CommentsController < ApplicationController
   before_action :authenticate_account!
   before_action :find_comment, only: %i[destroy update]
 
-  def index
-    @comments = @post.comments.includes(:account)
-  end
-
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
@@ -33,13 +29,12 @@ class CommentsController < ApplicationController
   def destroy
     authorize @comment
     @post = @comment.post
-    if @comment.destroy
-      respond_to do |format|
-        format.js
-      end
-    else
-      flash[:alert] = "Something went wrong ..."
+
+    @comment.destroy
+    respond_to do |format|
+      format.js
     end
+    
   end
 
   private

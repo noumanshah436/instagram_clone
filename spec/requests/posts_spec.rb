@@ -74,6 +74,7 @@ RSpec.describe PostsController, type: :controller  do
     it 'should update post' do
       sign_in(postt.account)
       put :update, params: { id: postt.id, post: { content: "post Updated" }}
+      postt.reload
       expect(flash[:notice]).to eq("Post Updated")
       expect(response).to redirect_to post_path(postt)
     end
@@ -81,6 +82,7 @@ RSpec.describe PostsController, type: :controller  do
     it 'should not update post' do
       sign_in(postt.account)
       put :update, params: { id: postt.id, post: { content: nil }}
+      postt.reload
       expect(flash[:alert]).to eq("Something went wrong ...")
       expect(response).to redirect_to post_path(postt)
     end
@@ -96,13 +98,6 @@ RSpec.describe PostsController, type: :controller  do
       expect(flash[:notice]).to eq("Post deleted!")
       expect(response).to redirect_to posts_path
     end
-
-    # it 'should not delete post' do
-    #   sign_in(postt.account)
-    #   delete :destroy, params: { id: postt.id }
-    #   expect(flash[:alert]).to eq("Something went wrong ...")
-    #   expect(response).to redirect_to posts_path
-    # end
   end
 
 
@@ -111,8 +106,3 @@ RSpec.describe PostsController, type: :controller  do
 
 end  #  end testing controller
 
-
-
-# describe "GET /index" do
-#   pending "add some examples (or delete) #{__FILE__}"
-# end

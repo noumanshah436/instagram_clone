@@ -42,11 +42,8 @@ class PostsController < ApplicationController
 
   def destroy
     authorize @post  # we can access this passed object using record
-    if @post.destroy
-      flash[:notice] = "Post deleted!"
-    else
-      flash[:alert] = "Something went wrong ..."
-    end
+    @post.destroy
+    flash[:notice] = "Post deleted!"
     redirect_to posts_path
   end
 
