@@ -6,6 +6,8 @@ class Post < ApplicationRecord
   has_many :likes, -> { order(id: :desc) }, dependent: :destroy
   has_many :comments, -> { order(id: :desc) }, dependent: :destroy
 
+  validates :content, presence: true
+
   def belongs_to?(account)
     Post.find_by(account_id: account.id, id: id)
   end

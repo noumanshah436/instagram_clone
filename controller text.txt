@@ -1,3 +1,7 @@
+https://relishapp.com/rspec/rspec-rails/docs/controller-specs
+
+gem docs
+https://github.com/rails/rails-controller-testing#rspec
 
 1) rails g rspec:controller posts
   and change name To:
@@ -176,3 +180,34 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 end
+
+
+*********************
+
+
+Parameters: {
+
+  "utf8"=>"✓",
+  "authenticity_token"=>"yS1XSeg5EnELTF1naIpel1qXe8Oj/Dv+8UZJqy/UWWQwsvZCztyMSUZhoER5Gv7KEIDGgHlXv6zIutTRMrXDHQ==",
+  "post"=>{"content"=>"hey", "active"=>"1"},
+  "commit"=>"Post",
+  "images"=>{"0"=>#<ActionDispatch::Http::UploadedFile:0x00007f1a84429758 @tempfile=#<Tempfile:/tmp/RackMultipart20221005-341606-1lv4vdl.png>, @original_filename="Screenshot from 2022-08-18 11-19-48.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"images[0]\"; filename=\"Screenshot from 2022-08-18 11-19-48.png\"\r\nContent-Type: image/png\r\n">}}
+
+
+********************
+
+it 'with valid attributes' do
+      sign_in(account)
+      before_count = Post.count
+      post :create, params: { post: { content: "post content" },
+      images: { "0": File.open("#{Rails.root}/app/assets/images/default2.png")  }
+      }
+
+      expect(Post.count).not_to eq(before_count)
+      expect(flash[:notice]).to eq("Post Created")
+    end
+
+********************
+********************
+********************
+********************
