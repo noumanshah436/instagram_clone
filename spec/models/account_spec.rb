@@ -24,6 +24,16 @@ RSpec.describe Account, type: :model do
 
   end
 
+  describe 'default scope' do
+    let!(:account1) { create :account }
+    let!(:account2) { create :account }
+
+    it 'orders by descending id' do
+      expect(Account.all).to eq([account2, account1])
+    end
+  end
+
+
   describe '#search' do
     it "should find user account if present" do
       account = create(:account, name:"Nouman")
