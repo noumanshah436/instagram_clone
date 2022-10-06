@@ -3,7 +3,6 @@ require 'rails_helper'
 # RUBYOPT="-W0" rspec spec/models/story_spec.rb
 
 RSpec.describe Story, type: :model do
-
   describe 'Associations' do
     context 'with_belongs_to' do
       it { is_expected.to belong_to(:account) }
@@ -17,12 +16,11 @@ RSpec.describe Story, type: :model do
   end
 
   describe '.all_stories' do
-    let!(:account) { create(:account)}
+    let!(:account) { create(:account) }
     it 'Should contain atleast one story' do
-      account.stories.new(account_id: account.id, image: File.open("#{Rails.root}/app/assets/images/default2.png")  )
+      account.stories.new(account_id: account.id, image: File.open("#{Rails.root}/app/assets/images/default2.png"))
       all_stories = Story.all_stories
       expect(all_stories).not_to eq(nil)
     end
   end
-
 end

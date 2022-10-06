@@ -2,7 +2,7 @@ require 'rails_helper'
 
 # RUBYOPT="-W0" rspec spec/requests/posts_spec.rb
 
-RSpec.describe PostsController, type: :controller  do
+RSpec.describe PostsController, type: :controller do
   let(:account) { create :account }
   let(:postt) { create :post }
 
@@ -27,8 +27,8 @@ RSpec.describe PostsController, type: :controller  do
     it 'should create post with valid attributes' do
       sign_in(account)
       before_count = Post.count
-      post :create, params: { post: { content: "post content" },  images: { "0": File.open("#{Rails.root}/app/assets/images/default2.png")  } }
-      expect(Post.count).to eq(before_count+1)
+      post :create, params: { post: { content: "post content" }, images: { "0": File.open("#{Rails.root}/app/assets/images/default2.png") } }
+      expect(Post.count).to eq(before_count + 1)
       expect(flash[:notice]).to eq("Post Created")
       expect(response).to redirect_to posts_path
     end
@@ -36,7 +36,7 @@ RSpec.describe PostsController, type: :controller  do
     it 'should not create post with invalid attributes' do
       sign_in(account)
       before_count = Post.count
-      post :create, params: { post: { content: nil },  images: { "0": File.open("#{Rails.root}/app/assets/images/default2.png")  } }
+      post :create, params: { post: { content: nil }, images: { "0": File.open("#{Rails.root}/app/assets/images/default2.png") } }
       expect(Post.count).to eq(before_count)
       expect(flash[:alert]).to eq("Something went wrong ...")
       expect(response).to redirect_to posts_path
@@ -68,12 +68,10 @@ RSpec.describe PostsController, type: :controller  do
     end
   end
 
-
-
   describe 'PUT /update' do
     it 'should update post' do
       sign_in(postt.account)
-      put :update, params: { id: postt.id, post: { content: "post Updated" }}
+      put :update, params: { id: postt.id, post: { content: "post Updated" } }
       postt.reload
       expect(flash[:notice]).to eq("Post Updated")
       expect(response).to redirect_to post_path(postt)
@@ -81,28 +79,21 @@ RSpec.describe PostsController, type: :controller  do
 
     it 'should not update post' do
       sign_in(postt.account)
-      put :update, params: { id: postt.id, post: { content: nil }}
+      put :update, params: { id: postt.id, post: { content: nil } }
       postt.reload
       expect(flash[:alert]).to eq("Something went wrong ...")
       expect(response).to redirect_to post_path(postt)
     end
   end
 
-
   describe 'delete /destroy' do
     it 'should delete post' do
       sign_in(postt.account)
       before_count = Post.count
       delete :destroy, params: { id: postt.id }
-      expect(Post.count).to eq(before_count-1)
+      expect(Post.count).to eq(before_count - 1)
       expect(flash[:notice]).to eq("Post deleted!")
       expect(response).to redirect_to posts_path
     end
   end
-
-
-
-
-
-end  #  end testing controller
-
+end

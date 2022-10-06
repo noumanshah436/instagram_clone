@@ -7,5 +7,4 @@ FactoryBot.define do
     #   post.photos.create(image: File.open("#{Rails.root}/app/assets/images/default2.png"))
     # end
   end
-
 end

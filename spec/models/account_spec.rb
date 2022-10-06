@@ -2,26 +2,23 @@ require 'rails_helper'
 # use let for redundant objects
 # also see let and let! difference
 RSpec.describe Account, type: :model do
-
   let(:account1) { create :account }
   let(:account2) { create :account }
 
   describe 'Associations' do
     context 'with_have_many' do
-      it { is_expected.to have_many(:posts).dependent(:destroy)}
-      it { is_expected.to have_many(:likes).dependent(:destroy)}
-      it { is_expected.to have_many(:comments).dependent(:destroy)}
-      it { is_expected.to have_many(:stories).dependent(:destroy)}
+      it { is_expected.to have_many(:posts).dependent(:destroy) }
+      it { is_expected.to have_many(:likes).dependent(:destroy) }
+      it { is_expected.to have_many(:comments).dependent(:destroy) }
+      it { is_expected.to have_many(:stories).dependent(:destroy) }
 
       it { should have_many(:followees).through(:followed_users) }
       it { should have_many(:followers).through(:following_users) }
-
     end
 
     context 'presence of name' do
       it { is_expected.to validate_presence_of(:name) }
     end
-
   end
 
   describe 'default scope' do
@@ -33,12 +30,11 @@ RSpec.describe Account, type: :model do
     end
   end
 
-
   describe '.search' do
-    let(:account) { create(:account, name:"Nouman")}
+    let(:account) { create(:account, name: "Nouman") }
 
     it "should find user account if present" do
-      account = create(:account, name:"Nouman")
+      account = create(:account, name: "Nouman")
       result = Account.search('Nouman').first
       expect(result).to eq(account)
     end
@@ -96,5 +92,4 @@ RSpec.describe Account, type: :model do
       expect(account1.friend?(account2)).to eq(true)
     end
   end
-
 end

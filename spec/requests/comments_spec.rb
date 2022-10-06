@@ -3,7 +3,6 @@ require 'rails_helper'
 # RUBYOPT="-W0" rspec spec/requests/comments_spec.rb
 
 RSpec.describe CommentsController, type: :controller do
-
   let(:post1) { create :post }
   let(:account) { create :account }
   let(:comment) { create(:comment) }
@@ -12,31 +11,31 @@ RSpec.describe CommentsController, type: :controller do
     it 'should create comment on post' do
       sign_in(account)
       before_count = post1.comments.count
-      post :create, params: {post_id: post1.id, comment: { account_id:account.id, post_id:post1.id, content: "new comment", parent_id: nil}}, xhr: true
-      expect(post1.comments.count).to eq(before_count+1)
+      post :create, params: { post_id: post1.id, comment: { account_id: account.id, post_id: post1.id, content: "new comment", parent_id: nil } },
+                    xhr: true
+      expect(post1.comments.count).to eq(before_count + 1)
     end
 
     it 'should not create comment on post' do
       sign_in(account)
       before_count = post1.comments.count
-      post :create, params: {post_id: post1.id, comment: { account_id:account.id, post_id:post1.id, content: nil, parent_id: nil}}, xhr: true
+      post :create, params: { post_id: post1.id, comment: { account_id: account.id, post_id: post1.id, content: nil, parent_id: nil } }, xhr: true
       expect(post1.comments.count).to eq(before_count)
     end
-
   end
 
   describe 'Comment /update' do
     it 'should update comment on post' do
       sign_in(account)
       before_count = post1.comments.count
-      put :update, params: { id:comment.id , comment: { content: "updated comment"}}, xhr: true
+      put :update, params: { id: comment.id, comment: { content: "updated comment" } }, xhr: true
       expect(post1.comments.count).to eq(before_count)
     end
 
     it 'should not update comment on post' do
       sign_in(account)
       before_count = post1.comments.count
-      put :update, params: { id:comment.id , comment: {  content: nil}}, xhr: true
+      put :update, params: { id: comment.id, comment: { content: nil } }, xhr: true
       expect(post1.comments.count).to eq(before_count)
     end
   end
@@ -44,21 +43,17 @@ RSpec.describe CommentsController, type: :controller do
   describe 'Comment /destroy' do
     it 'should delete comment on post' do
       sign_in(account)
-      comment = Comment.create({account_id:account.id, post_id:post1.id, content: "new comment"})
+      comment = Comment.create({ account_id: account.id, post_id: post1.id, content: "new comment" })
       before_count = post1.comments.count
       delete :destroy, params: { id: comment.id }, xhr: true
-      expect(post1.comments.count).to eq(before_count-1)
+      expect(post1.comments.count).to eq(before_count - 1)
     end
 
     it 'should not find comment' do
       sign_in(account)
-      delete :destroy, params: { id: 88888 }, xhr: true
+      delete :destroy, params: { id: 88_888 }, xhr: true
       expect(flash[:alert]).to eq("comment not exist!")
       expect(response).to redirect_to root_path
     end
   end
-
-
-
-
 end
