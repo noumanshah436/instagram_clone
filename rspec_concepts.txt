@@ -1,0 +1,21 @@
+
+********************
+
+https://stackoverflow.com/questions/10173097/rails-rspec-difference-between-let-and-let
+https://mixandgo.com/learn/ruby/let-vs-let!
+
+
+let vs let!
+
+basically (:let) is lazily evaluated and will never be instantiated if you don't call it, while (:let!) is forcefully evaluated before each method call.
+
+let block is evaluated for test block only when we call it and it use the same instance for one test block
+let is lazy-evaluated: it is not evaluated until the first time the method it defines is invoked.
+Lazy evaluation means the let block runs only if and when it is referenced
+
+
+
+Use let! to force the method’s invocation before each example.
+You can use let! to force the method's invocation before each example. It means even if you didn't invoke the helper method inside the example, still it will be invoked before your example runs.
+
+********************
