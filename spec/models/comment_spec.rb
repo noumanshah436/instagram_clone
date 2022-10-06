@@ -5,7 +5,6 @@ RSpec.describe Comment, type: :model do
   describe 'Associations' do
     context 'with_have_many' do
       it { is_expected.to have_many(:comments).with_foreign_key('parent_id').dependent(:delete_all)}
-
     end
 
     context 'with_belongs_to' do

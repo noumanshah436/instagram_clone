@@ -34,16 +34,17 @@ RSpec.describe Account, type: :model do
   end
 
 
-  describe '#search' do
+  describe '.search' do
+    let(:account) { create(:account, name:"Nouman")}
+
     it "should find user account if present" do
       account = create(:account, name:"Nouman")
       result = Account.search('Nouman').first
-      # empty test
       expect(result).to eq(account)
     end
   end
 
-  context 'Given Account' do
+  describe '#active' do
     it "should be active" do
       expect(account1).to be_active
     end
@@ -58,21 +59,18 @@ RSpec.describe Account, type: :model do
   describe "#my_posts" do
     it "should have posts when friend" do
       account1.posts.create(content: "new Post")
-
       my_posts = account1.my_posts(true)
       expect(my_posts).not_to eq(nil)
     end
 
     it "should have posts when not friend" do
       account1.posts.create(content: "new Post")
-
       my_posts = account1.my_posts(false)
       expect(my_posts).not_to eq(nil)
     end
   end
 
-  describe "followers" do
-
+  describe "#follow" do
     it "should follow  givin account  " do
       account1.follow(account2)
       expect(account2.followers.first).to eq(account1)
@@ -98,7 +96,5 @@ RSpec.describe Account, type: :model do
       expect(account1.friend?(account2)).to eq(true)
     end
   end
-
-
 
 end

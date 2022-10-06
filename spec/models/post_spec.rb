@@ -18,48 +18,57 @@ RSpec.describe Post, type: :model do
 
   end
 
-  context 'validation tests' do
-    it "should be active" do
-      expect(post).to be_active
+  describe '#active' do
+    context "should be active" do
+      it{expect(post).to be_active }
     end
 
-    it "should not be active" do
-      post.active = false
-      post.save
-      expect(post).not_to be_active
-    end
-  end
-
-  context 'validation tests' do
-    it "should belongs to given account" do
-      expect(post).to be_belongs_to(post.account)
-    end
-
-    it "should not belongs to given account" do
-      expect(post).not_to be_belongs_to(account)
-    end
-
-  end
-
-  context 'liked tests' do
-    it "should be liked by given account" do
-      like = post.account.likes.create({post_id:post.id})
-      like = post.liked(post.account)
-      expect(like).not_to eq(nil)
-    end
-
-    it "should not be liked by given account" do
-      like = post.liked(account)
-      expect(like).to eq(nil)
+    context "should be active" do
+      it  do
+        post.active = false
+        post.save
+        expect(post).not_to be_active
+      end
     end
   end
 
-  context 'Post model' do
+  describe '#be_belongs_to' do
+    context "should belongs to given account" do
+      it { expect(post).to be_belongs_to(post.account)}
+    end
+
+    context "should not belongs to given account" do
+      it { expect(post).not_to be_belongs_to(account) }
+    end
+  end
+
+  describe '#liked' do
+    context "should be liked by given account" do
+      it  do
+        like = post.account.likes.create({post_id:post.id})
+        like = post.liked(post.account)
+        expect(like).not_to eq(nil)
+      end
+    end
+
+    context "should not be liked by given account" do
+      it  do
+        like = post.liked(account)
+        expect(like).to eq(nil)
+      end
+    end
+
+
+  end
+
+  describe '.all_posts' do
     it "should contain atleast one post" do
       posts = Post.all_posts
       expect(posts).not_to eq(nil)
     end
+  end
 
+  describe '#parent_comments' do
     it "should contain atleast one parent comment" do
       Comment.create({account_id:account.id, post_id:post.id, content: "new comment"})
       comments = post.parent_comments
