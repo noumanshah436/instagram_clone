@@ -4,6 +4,5 @@ FactoryBot.define do
     email { "#{name}@gmail.com".downcase }
     password { 'nouman' }
     confirmed_at { DateTime.now }
-     
   end
 end

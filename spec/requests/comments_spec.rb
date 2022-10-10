@@ -58,7 +58,7 @@ RSpec.describe CommentsController, type: :controller do
     end
 
     it 'should not find comment' do
-      delete :destroy, params: { id: 88888 }, xhr: true
+      delete :destroy, params: { id: 88_888 }, xhr: true
       expect(flash[:alert]).to eq("comment not exist!")
       expect(response).to redirect_to root_path
     end

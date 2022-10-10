@@ -97,5 +97,4 @@ RSpec.describe Account, type: :model do
       expect(image).not_to eq(nil)
     end
   end
-
 end

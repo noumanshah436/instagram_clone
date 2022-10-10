@@ -64,3 +64,24 @@ context:
   "context" can no longer be used as a top-level method.
 
 ***********************************************************
+
+By running your Rails tests you can ensure your code adheres to the desired functionality even after some major code refactoring.
+Rails tests can also simulate browser requests and thus you can test your application's response without having to test it through your browser.
+
+- functioning properly
+- code working after change
+- not need to test requests on browser
+
+***********************************************************
+
+
+So the up-to-date list is really the following.
+
+Model specs
+System specs
+Request specs
+Helper specs
+View specs
+Routing specs
+Mailer specs
+Job specs
