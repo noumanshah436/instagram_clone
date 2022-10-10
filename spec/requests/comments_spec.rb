@@ -27,12 +27,14 @@ RSpec.describe CommentsController, type: :controller do
 
   describe 'Comment /update' do
     it 'should update comment on post' do
+      sign_in(comment.account)
       before_count = post1.comments.count
       put :update, params: { id: comment.id, comment: { content: "updated comment" } }, xhr: true
       expect(post1.comments.count).to eq(before_count)
     end
 
     it 'should not update comment on post' do
+      sign_in(comment.account)
       before_count = post1.comments.count
       put :update, params: { id: comment.id, comment: { content: nil } }, xhr: true
       expect(post1.comments.count).to eq(before_count)
@@ -47,8 +49,8 @@ RSpec.describe CommentsController, type: :controller do
       expect(post1.comments.count).to eq(before_count - 1)
     end
 
-    it 'should not find comment' do 
-      delete :destroy, params: { id: 88_888 }, xhr: true
+    it 'should not find comment' do
+      delete :destroy, params: { id: 88888 }, xhr: true
       expect(flash[:alert]).to eq("comment not exist!")
       expect(response).to redirect_to root_path
     end
