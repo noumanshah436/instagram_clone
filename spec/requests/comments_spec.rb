@@ -28,8 +28,11 @@ RSpec.describe CommentsController, type: :controller do
   end
 
   describe 'Comment /update' do
-    it 'should update comment on post' do
+    before do
       sign_in(comment.account)
+    end
+
+    it 'should update comment on post' do
       before_count = post1.comments.count
       put :update, params: { id: comment.id, comment: { content: "updated comment" } }, xhr: true
       expect(post1.comments.count).to eq(before_count)
@@ -37,7 +40,6 @@ RSpec.describe CommentsController, type: :controller do
     end
 
     it 'should not update comment on post' do
-      sign_in(comment.account)
       before_count = post1.comments.count
       put :update, params: { id: comment.id, comment: { content: nil } }, xhr: true
       expect(post1.comments.count).to eq(before_count)

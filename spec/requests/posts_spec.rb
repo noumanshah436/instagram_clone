@@ -6,9 +6,13 @@ RSpec.describe PostsController, type: :controller do
   let(:account) { create :account }
   let(:postt) { create :post }
 
+  before do
+    sign_in(account)
+    sign_in(postt.account)
+  end
+
   describe 'when user enter any unknown id for show edit update' do
     it 'Post should not exist' do
-      sign_in(account)
       get :show, params: { id: "1234567" }
       expect(flash[:alert]).to eq("Post not exist!")
       expect(response).to redirect_to root_path
@@ -17,7 +21,6 @@ RSpec.describe PostsController, type: :controller do
 
   describe 'GET /index' do
     it 'should get index template' do
-      sign_in(account)
       get :index
       expect(response).to render_template :index
     end
@@ -25,7 +28,6 @@ RSpec.describe PostsController, type: :controller do
 
   describe 'POST /create' do
     it 'should create post with valid attributes' do
-      sign_in(account)
       before_count = Post.count
       post :create, params: { post: { content: "post content" }, images: { "0": File.open("#{Rails.root}/app/assets/images/default2.png") } }
       expect(Post.count).to eq(before_count + 1)
@@ -34,7 +36,6 @@ RSpec.describe PostsController, type: :controller do
     end
 
     it 'should not create post with invalid attributes' do
-      sign_in(account)
       before_count = Post.count
       post :create, params: { post: { content: nil }, images: { "0": File.open("#{Rails.root}/app/assets/images/default2.png") } }
       expect(Post.count).to eq(before_count)
@@ -43,7 +44,6 @@ RSpec.describe PostsController, type: :controller do
     end
 
     it 'should not create post without image' do
-      sign_in(account)
       before_count = Post.count
       post :create, params: { post: { content: "content" } }
       expect(Post.count).to eq(before_count)
@@ -54,7 +54,6 @@ RSpec.describe PostsController, type: :controller do
 
   describe 'GET /show' do
     it 'should get show template' do
-      sign_in(account)
       get :show, params: { id: postt.id }
       expect(response).to render_template :show
     end
@@ -62,7 +61,6 @@ RSpec.describe PostsController, type: :controller do
 
   describe 'GET /edit' do
     it 'should get edit template' do
-      sign_in(postt.account)
       get :edit, params: { id: postt.id }
       expect(response).to render_template :edit
     end
@@ -70,7 +68,6 @@ RSpec.describe PostsController, type: :controller do
 
   describe 'PUT /update' do
     it 'should update post' do
-      sign_in(postt.account)
       put :update, params: { id: postt.id, post: { content: "post Updated" } }
       postt.reload
       expect(flash[:notice]).to eq("Post Updated")
@@ -78,7 +75,6 @@ RSpec.describe PostsController, type: :controller do
     end
 
     it 'should not update post' do
-      sign_in(postt.account)
       put :update, params: { id: postt.id, post: { content: nil } }
       postt.reload
       expect(flash[:alert]).to eq("Something went wrong ...")
@@ -88,7 +84,6 @@ RSpec.describe PostsController, type: :controller do
 
   describe 'delete /destroy' do
     it 'should delete post' do
-      sign_in(postt.account)
       before_count = Post.count
       delete :destroy, params: { id: postt.id }
       expect(Post.count).to eq(before_count - 1)
