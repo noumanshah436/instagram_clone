@@ -16,12 +16,14 @@ RSpec.describe CommentsController, type: :controller do
       post :create, params: { post_id: post1.id, comment: { account_id: account.id, post_id: post1.id, content: "new comment", parent_id: nil } },
                     xhr: true
       expect(post1.comments.count).to eq(before_count + 1)
+      expect(response).to have_http_status(:ok)
     end
 
     it 'should not create comment on post' do
       before_count = post1.comments.count
       post :create, params: { post_id: post1.id, comment: { account_id: account.id, post_id: post1.id, content: nil, parent_id: nil } }, xhr: true
       expect(post1.comments.count).to eq(before_count)
+      expect(flash[:alert]).to eq("Something went wrong ...")
     end
   end
 
@@ -31,6 +33,7 @@ RSpec.describe CommentsController, type: :controller do
       before_count = post1.comments.count
       put :update, params: { id: comment.id, comment: { content: "updated comment" } }, xhr: true
       expect(post1.comments.count).to eq(before_count)
+      expect(response).to have_http_status(:ok)
     end
 
     it 'should not update comment on post' do
@@ -38,15 +41,18 @@ RSpec.describe CommentsController, type: :controller do
       before_count = post1.comments.count
       put :update, params: { id: comment.id, comment: { content: nil } }, xhr: true
       expect(post1.comments.count).to eq(before_count)
+      expect(flash[:alert]).to eq("Something went wrong ...")
     end
   end
 
   describe 'Comment /destroy' do
+    let!(:comment) { Comment.create({ account_id: account.id, post_id: post1.id, content: "new comment" }) }
+
     it 'should delete comment on post' do
-      comment = Comment.create({ account_id: account.id, post_id: post1.id, content: "new comment" })
       before_count = post1.comments.count
       delete :destroy, params: { id: comment.id }, xhr: true
       expect(post1.comments.count).to eq(before_count - 1)
+      expect(response).to have_http_status(:ok)
     end
 
     it 'should not find comment' do
