@@ -1,5 +1,8 @@
 require 'rails_helper'
 
+include PostsHelper
+
+
 # RUBYOPT="-W0" rspec spec/requests/posts_spec.rb
 
 RSpec.describe PostsController, type: :controller do
@@ -32,7 +35,7 @@ RSpec.describe PostsController, type: :controller do
       post :create, params: { post: { content: "post content" }, images: { "0": File.open("#{Rails.root}/app/assets/images/default2.png") } }
       expect(Post.count).to eq(before_count + 1)
       expect(flash[:notice]).to eq("Post Created")
-      expect(response).to redirect_to posts_path
+      check_redirection_to_posts_path
     end
 
     it 'should not create post with invalid attributes' do
@@ -40,7 +43,7 @@ RSpec.describe PostsController, type: :controller do
       post :create, params: { post: { content: nil }, images: { "0": File.open("#{Rails.root}/app/assets/images/default2.png") } }
       expect(Post.count).to eq(before_count)
       expect(flash[:alert]).to eq("Something went wrong ...")
-      expect(response).to redirect_to posts_path
+      check_redirection_to_posts_path
     end
 
     it 'should not create post without image' do
@@ -48,7 +51,7 @@ RSpec.describe PostsController, type: :controller do
       post :create, params: { post: { content: "content" } }
       expect(Post.count).to eq(before_count)
       expect(flash[:alert]).to eq("Add atleast one image")
-      expect(response).to redirect_to posts_path
+      check_redirection_to_posts_path
     end
   end
 
@@ -71,14 +74,14 @@ RSpec.describe PostsController, type: :controller do
       put :update, params: { id: postt.id, post: { content: "post Updated" } }
       postt.reload
       expect(flash[:notice]).to eq("Post Updated")
-      expect(response).to redirect_to post_path(postt)
+      check_redirection_to_post(postt)
     end
 
     it 'should not update post' do
       put :update, params: { id: postt.id, post: { content: nil } }
       postt.reload
       expect(flash[:alert]).to eq("Something went wrong ...")
-      expect(response).to redirect_to post_path(postt)
+      check_redirection_to_post(postt)
     end
   end
 
@@ -88,7 +91,7 @@ RSpec.describe PostsController, type: :controller do
       delete :destroy, params: { id: postt.id }
       expect(Post.count).to eq(before_count - 1)
       expect(flash[:notice]).to eq("Post deleted!")
-      expect(response).to redirect_to posts_path
+      check_redirection_to_posts_path
     end
   end
 end

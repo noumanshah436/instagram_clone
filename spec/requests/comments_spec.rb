@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+include CommentsHelper
+
 # RUBYOPT="-W0" rspec spec/requests/comments_spec.rb
 
 RSpec.describe CommentsController, type: :controller do
@@ -16,7 +18,7 @@ RSpec.describe CommentsController, type: :controller do
       post :create, params: { post_id: post1.id, comment: { account_id: account.id, post_id: post1.id, content: "new comment", parent_id: nil } },
                     xhr: true
       expect(post1.comments.count).to eq(before_count + 1)
-      expect(response).to have_http_status(:ok)
+      check_response
     end
 
     it 'should not create comment on post' do
@@ -36,7 +38,7 @@ RSpec.describe CommentsController, type: :controller do
       before_count = post1.comments.count
       put :update, params: { id: comment.id, comment: { content: "updated comment" } }, xhr: true
       expect(post1.comments.count).to eq(before_count)
-      expect(response).to have_http_status(:ok)
+      check_response
     end
 
     it 'should not update comment on post' do
@@ -54,7 +56,7 @@ RSpec.describe CommentsController, type: :controller do
       before_count = post1.comments.count
       delete :destroy, params: { id: comment.id }, xhr: true
       expect(post1.comments.count).to eq(before_count - 1)
-      expect(response).to have_http_status(:ok)
+      check_response
     end
 
     it 'should not find comment' do
