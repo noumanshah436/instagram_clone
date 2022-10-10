@@ -15,5 +15,9 @@ RSpec.describe Comment, type: :model do
     context 'presence of content' do
       it { is_expected.to validate_presence_of(:content) }
     end
+
+    context 'Length Validation' do
+      it { is_expected.to validate_length_of(:content).is_at_most(500) }
+    end
   end
 end

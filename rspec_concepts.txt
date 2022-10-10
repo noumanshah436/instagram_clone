@@ -85,3 +85,14 @@ View specs
 Routing specs
 Mailer specs
 Job specs
+
+
+******************************************
+RSpec and Manifest main difference:
+
+1) focuses on readable specifications describing how the application is supposed to behave with a close match to English.
+
+
+Client-side
+rspec allows testing code execution on the client, such as a web browser
+RSpec is used to primarily test the behaviour of applications or individual components so it can test front-end behaviour as well - you can use capybara gem with RSpec for that.

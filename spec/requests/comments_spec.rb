@@ -3,7 +3,7 @@ require 'rails_helper'
 # RUBYOPT="-W0" rspec spec/requests/comments_spec.rb
 
 RSpec.describe CommentsController, type: :controller do
-  let(:post1) { create :post }
+  let(:post1) { create(:post) }
   let(:account) { create :account }
   let(:comment) { create(:comment) }
   before do

@@ -50,6 +50,7 @@ rails generate rspec:model post         -- way to create rspec for this model
 
 
 ***************************
+
 run test:
 1) rspec
 2) RUBYOPT="-W0" rspec
@@ -58,6 +59,17 @@ run test:
 but first comment these two gems from test group:
 gem 'selenium-webdriver'
 gem 'chromedriver-helper'
+
+*********************
+
+simple cov
+
+1) add gem and bundle
+2) add 2 lines in spec_helper
+
+run simple cov:
+
+xdg-open coverage/index.html
 
 *************************
 
@@ -75,13 +87,6 @@ https://github.com/pry/pry-rails
 gem 'pry-rails'
 
 bundle
-*********************
-simple cov
-
-1) add gem and bundle
-2) add 2 lines in spec_helper
-
-xdg-open coverage/index.html
 
 ***********************
 
@@ -162,3 +167,19 @@ FactoryBot.define do
     end
   end
 end
+
+
+******************
+
+sync points:
+
+Let vs Let!
+Life Cycle of object creation
+Faker
+Factory Bot
+Stumming and Honking
+Shared Example and Shared Context
+Describe, it and context
+Conventions of test cases
+Expect instance variables in controllers (For Testing of controllers)
+Expect of authentication and authorizations
