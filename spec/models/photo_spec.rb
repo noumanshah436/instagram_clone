@@ -12,4 +12,11 @@ RSpec.describe Photo, type: :model do
       it { is_expected.to validate_presence_of(:image) }
     end
   end
+
+  describe "image" do
+    context 'should valiadtes image' do
+      it { is_expected.to validate_presence_of(:image) }
+    end
+  end
+
 end

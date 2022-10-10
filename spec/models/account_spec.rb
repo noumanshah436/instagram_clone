@@ -1,6 +1,5 @@
 require 'rails_helper'
-# use let for redundant objects
-# also see let and let! difference
+
 RSpec.describe Account, type: :model do
   let(:account1) { create :account }
   let(:account2) { create :account }
@@ -31,10 +30,9 @@ RSpec.describe Account, type: :model do
   end
 
   describe '.search' do
-    let(:account) { create(:account, name: "Nouman") }
+    let!(:account) { create(:account, name: "Nouman") }
 
     it "should find user account if present" do
-      account = create(:account, name: "Nouman")
       result = Account.search('Nouman').first
       expect(result).to eq(account)
     end
@@ -92,4 +90,12 @@ RSpec.describe Account, type: :model do
       expect(account1.friend?(account2)).to eq(true)
     end
   end
+
+  describe "image" do
+    it "should have an image" do
+      image = account1.image.url
+      expect(image).not_to eq(nil)
+    end
+  end
+
 end

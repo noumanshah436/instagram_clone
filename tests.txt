@@ -1,5 +1,7 @@
 official:
 
+https://www.tutorialspoint.com/rspec/
+
 https://docs.google.com/document/d/1Gb_41UeLG0B1YV-hQZLSVwcbhgnhewNyIBfy7UdpLYk/edit
 
 https://betterprogramming.pub/13-tips-for-writing-useful-unit-tests-ca20706b5368
@@ -23,7 +25,7 @@ comments with post:
 https://thoughtbot.com/blog/aint-no-calla-back-bot
 
 shoulda:
-https://github.com/thoughtbot/shoulda-matchers/blob/main/lib/shoulda/matchers/active_record/association_matcher.rb 
+https://github.com/thoughtbot/shoulda-matchers/blob/main/lib/shoulda/matchers/active_record/association_matcher.rb
 
 **************************************************
 
@@ -102,7 +104,18 @@ https://github.com/thoughtbot/shoulda-matchers
 
 
 ***********************
+https://jeffkreeftmeijer.com/carrierwave-rails-test-fixtures/
 
+image testing:
+
+let!(:account3) { Account.create(email: "shah12@gmail.com", name: "Shah", password: "nouman", confirmed_at: DateTime.now, image:File.open("#{Rails.root}/app/assets/images/default.png") )}
+
+it "should not have an image" do
+  # is_exist = File.exists?(account1.image.url(:standard))
+  # expect(is_exist).to eq(false)
+  image = account1.image.url
+  expect(image).to eq(nil)
+end
 
 **************************
 
@@ -110,7 +123,7 @@ model test can test:
   validations
   associations
   scope
-  businaees logic
+  business logic
 
 
 controller test can test:
@@ -127,3 +140,13 @@ Frameworks
   Cucumber    browser testing
   Capybara
   FactoryGirl
+  FactoryBot
+
+
+
+gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+gem 'rspec-rails'
+gem 'factory_bot_rails'
+gem 'rails-controller-testing'
+
+

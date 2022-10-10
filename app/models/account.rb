@@ -17,7 +17,6 @@ class Account < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   validates :name, presence: true, length: { maximum: 50 }
-
   mount_uploader :image, PhotoUploader
 
   # methods
