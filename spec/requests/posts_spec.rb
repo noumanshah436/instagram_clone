@@ -1,11 +1,9 @@
 require 'rails_helper'
 
-include PostsHelper
-
-
 # RUBYOPT="-W0" rspec spec/requests/posts_spec.rb
 
 RSpec.describe PostsController, type: :controller do
+  include PostsHelper
   let(:account) { create :account }
   let(:postt) { create :post }
 

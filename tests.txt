@@ -177,7 +177,7 @@ Let vs Let!
 Life Cycle of object creation
 Faker
 Factory Bot
-Stumming and Honking
+Stubbing and Mocking
 Shared Example and Shared Context
 Describe, it and context
 Conventions of test cases
