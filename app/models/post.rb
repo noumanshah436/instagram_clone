@@ -2,9 +2,9 @@ class Post < ApplicationRecord
   default_scope { order(id: :desc) }
 
   belongs_to :account
-  has_many :photos, dependent: :destroy
-  has_many :likes, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :photos, -> { order(id: :desc)}, dependent: :destroy
+  has_many :likes, -> { order(id: :desc)}, dependent: :destroy
+  has_many :comments,-> { order(id: :desc)}, dependent: :destroy
 
   validates :content, presence: true
 
