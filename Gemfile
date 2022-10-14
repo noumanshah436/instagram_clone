@@ -35,6 +35,8 @@ gem 'rubocop'
 # to expose api
 gem 'rack-cors'
 
+gem 'active_model_serializers', '~> 0.10.13'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
