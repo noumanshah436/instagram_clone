@@ -1,4 +1,3 @@
-import "./App.css";
 import axios from "axios";
 import Stories from "./components/stories";
 import { useEffect, useState } from "react";
@@ -10,13 +9,13 @@ function getAPIData() {
 }
 
 function App() {
-  const [stories, setPosts] = useState([]);
+  const [stories, setStories] = useState([]);
 
   useEffect(() => {
     let mounted = true;
     getAPIData().then((items) => {
       if (mounted) {
-        setPosts(items);
+        setStories(items);
       }
     });
     return () => (mounted = false);

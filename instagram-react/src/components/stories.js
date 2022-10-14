@@ -9,8 +9,11 @@ function Stories({ stories }) {
       {stories.map((story) => {
         return (
           <div key={story.id}>
+            {story.id}
             <br />
-            <img src={story.image.url} alt="" />
+            {story.account_id}
+            <br />
+            <img src={story.image.standard.url} alt="" />
             {/* <h2>image: {post.image.url}</h2> */}
           </div>
         );

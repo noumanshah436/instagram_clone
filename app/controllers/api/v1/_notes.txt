@@ -1,0 +1,27 @@
+https://stackoverflow.com/questions/56451709/get-rails-associated-objects-with-react
+
+It is because your returned data does not include user information. In your ajax call response, you cannot query as if you are in rails controller.
+
+In your case, you should return user information together with post in your controller action.
+
+post = Post.find(params[:id])
+user = post.user
+post = post.as_json
+post[:user] = user.as_json
+render json: { post: post }
+
+
+********************************
+
+If you need users information for multiple posts, you can use eager loading in your rails controller action
+
+@posts = Post.includes(:user).all.map do |post|
+           post_json = post.as_json
+           post_json[:user] = post.user.as_json
+           post_json
+         end
+
+render json: { posts: @posts }
+
+
+********************************

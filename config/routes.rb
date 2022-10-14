@@ -16,7 +16,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :stories
+      resources :stories, only: %i[index show]
+      resources :profile, only: %i[index]
+      resources :followers, only: %i[show]
     end
   end
 
