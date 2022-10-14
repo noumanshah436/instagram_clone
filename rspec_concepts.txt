@@ -96,3 +96,20 @@ RSpec and Manifest main difference:
 Client-side
 rspec allows testing code execution on the client, such as a web browser
 RSpec is used to primarily test the behaviour of applications or individual components so it can test front-end behaviour as well - you can use capybara gem with RSpec for that.
+
+
+
+**********************
+
+
+
+Let vs Let!
+Life Cycle of object creation
+Faker
+Factory Bot
+Stumming and Honking
+Shared Example and Shared Context
+Describe, it and context
+Conventions of test cases
+Expect instance variables in controllers (For Testing of controllers)
+Expect of authentication and authorizations
