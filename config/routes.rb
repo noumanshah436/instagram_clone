@@ -14,6 +14,12 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create destroy update], shallow: true
   end
 
+  namespace :api do
+    namespace :v1 do
+      resources :stories
+    end
+  end
+
   devise_scope :account do
     root to: "devise/sessions#new"
   end
