@@ -5,10 +5,12 @@ module Api
 
       def show
         if @account.nil?
-          render json: { data: nil, status: 'ERROR', message: 'Account not found' },  status: :not_found
+          render json: nil,  status: :not_found
+          # render json: { data: nil, status: 'ERROR', message: 'Account not found' },  status: :not_found
         else
           @followers = @account.followers
-          render json: { data: @followers, status: 'SUCCESS', message: 'Followers Loaded' } , status: :ok
+          render json: @followers , status: :ok
+          # render json: { data: @followers, status: 'SUCCESS', message: 'Followers Loaded' } , status: :ok
         end
       end
 

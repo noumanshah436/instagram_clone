@@ -13,7 +13,7 @@ module Api
           render json: @story,  status: :not_found
           # render json: { data: nil, status: 'ERROR', message: 'Story not found' },  status: :not_found
         else
-          render json: @story , status: :ok
+          render json: @story , status: 'SUCCESS', status: :ok 
           # render json:{ data: @story, status: 'SUCCESS', message: 'Story Loaded' } , status: :ok
         end
       end
