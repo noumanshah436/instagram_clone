@@ -28,4 +28,4 @@ class ProfileController < ApplicationController
     params.permit(:id)
   end
 end
-before_action :set_account, only: %i[show]
+ 
