@@ -13,7 +13,6 @@ module Api
           render json: @story, status: :not_found
         else
           render json: @story, status: :ok
-
         end
       end
 
