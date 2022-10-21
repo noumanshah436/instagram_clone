@@ -5,10 +5,8 @@ class DeleteStoryJob < ApplicationJob
     story = Story.find_by(id: id)
     return unless story
 
-    flash[:alert] = if story.destroy
-                      "story deleted ..."
-                    else
-                      "Something went wrong ..."
-                    end
+    puts "Story is Going to delete"
+    story.destroy
+    puts "Story Deleted successfully"
   end
 end

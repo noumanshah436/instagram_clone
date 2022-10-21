@@ -10,8 +10,8 @@ class StoriesController < ApplicationController
   def create
     @story = current_account.stories.new(story_params)
     if @story.save
-      DeleteStoryJob.set(wait: 1.day).perform_later(@story.id)
       flash[:notice] = "Story Created"
+      DeleteStoryJob.set(wait: 1.day).perform_later(@story.id)
     else
       flash[:alert] = "Something went wrong ..."
     end
